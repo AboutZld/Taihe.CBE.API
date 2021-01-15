@@ -1,0 +1,62 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>c9e72231-4bcd-4514-aff9-136878e12628</UserSecretsId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>..\TaiheSystem.CBE.Api.Hostd\TaiheSystem.CBE.Api.Hostd.xml</DocumentationFile>
+    <OutputPath></OutputPath>
+    <NoWarn>1701;1702;1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
+    <PackageReference Include="Autofac.Extras.DynamicProxy" Version="6.0.0" />
+    <PackageReference Include="CSRedisCore" Version="3.6.5" />
+    <PackageReference Include="Mapster" Version="7.0.1" />
+    <PackageReference Include="Mapster.DependencyInjection" Version="1.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="5.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.1" />
+    <PackageReference Include="NLog" Version="4.7.6" />
+    <PackageReference Include="NLog.Config" Version="4.7.6" />
+    <PackageReference Include="NLog.Extensions.Logging" Version="1.6.5" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="4.9.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TaiheSystem.CBE.Api.Common\TaiheSystem.CBE.Api.Common.csproj" />
+    <ProjectReference Include="..\TaiheSystem.CBE.Api.Core\TaiheSystem.CBE.Api.Core.csproj" />
+    <ProjectReference Include="..\TaiheSystem.CBE.Api.Extensions\TaiheSystem.CBE.Api.Extensions.csproj" />
+    <ProjectReference Include="..\TaiheSystem.CBE.Api.Interfaces\TaiheSystem.CBE.Api.Interfaces.csproj" />
+    <ProjectReference Include="..\TaiheSystem.CBE.Api.Message\TaiheSystem.CBE.Api.Message.csproj" />
+    <ProjectReference Include="..\TaiheSystem.CBE.Api.Model\TaiheSystem.CBE.Api.Model.csproj" />
+    <ProjectReference Include="..\TaiheSystem.CBE.Api.Tasks\TaiheSystem.CBE.Api.Tasks.csproj" />
+    <ProjectReference Include="..\TaiheSystem.CBE.Api.Tools\TaiheSystem.CBE.Api.Tools.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Taihe.System.Hostd.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\Business\" />
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" properties_4launchsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
+
+</Project>

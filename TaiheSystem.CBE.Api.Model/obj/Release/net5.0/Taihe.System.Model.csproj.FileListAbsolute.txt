@@ -1,0 +1,12 @@
+D:\SourceCode\Taihe.System\Taihe.System.Model\bin\Release\net5.0\Taihe.System.Model.deps.json
+D:\SourceCode\Taihe.System\Taihe.System.Model\bin\Release\net5.0\Taihe.System.Model.dll
+D:\SourceCode\Taihe.System\Taihe.System.Model\bin\Release\net5.0\ref\Taihe.System.Model.dll
+D:\SourceCode\Taihe.System\Taihe.System.Model\bin\Release\net5.0\Taihe.System.Model.pdb
+D:\SourceCode\Taihe.System\Taihe.System.Model\obj\Release\net5.0\Taihe.System.Model.csprojAssemblyReference.cache
+D:\SourceCode\Taihe.System\Taihe.System.Model\obj\Release\net5.0\Taihe.System.Model.GeneratedMSBuildEditorConfig.editorconfig
+D:\SourceCode\Taihe.System\Taihe.System.Model\obj\Release\net5.0\Taihe.System.Model.AssemblyInfoInputs.cache
+D:\SourceCode\Taihe.System\Taihe.System.Model\obj\Release\net5.0\Taihe.System.Model.AssemblyInfo.cs
+D:\SourceCode\Taihe.System\Taihe.System.Model\obj\Release\net5.0\Taihe.System.Model.csproj.CoreCompileInputs.cache
+D:\SourceCode\Taihe.System\Taihe.System.Model\obj\Release\net5.0\Taihe.System.Model.dll
+D:\SourceCode\Taihe.System\Taihe.System.Model\obj\Release\net5.0\ref\Taihe.System.Model.dll
+D:\SourceCode\Taihe.System\Taihe.System.Model\obj\Release\net5.0\Taihe.System.Model.pdb

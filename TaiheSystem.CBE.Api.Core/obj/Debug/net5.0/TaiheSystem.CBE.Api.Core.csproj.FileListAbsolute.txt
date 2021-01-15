@@ -1,0 +1,17 @@
+D:\SourceCode\TaiheSystem.CBE.Api\TaiheSystem.CBE.Api.Core\bin\Debug\net5.0\TaiheSystem.CBE.Api.Core.deps.json
+D:\SourceCode\TaiheSystem.CBE.Api\TaiheSystem.CBE.Api.Core\bin\Debug\net5.0\TaiheSystem.CBE.Api.Core.dll
+D:\SourceCode\TaiheSystem.CBE.Api\TaiheSystem.CBE.Api.Core\bin\Debug\net5.0\ref\TaiheSystem.CBE.Api.Core.dll
+D:\SourceCode\TaiheSystem.CBE.Api\TaiheSystem.CBE.Api.Core\bin\Debug\net5.0\TaiheSystem.CBE.Api.Core.pdb
+D:\SourceCode\TaiheSystem.CBE.Api\TaiheSystem.CBE.Api.Core\bin\Debug\net5.0\TaiheSystem.CBE.Api.Common.dll
+D:\SourceCode\TaiheSystem.CBE.Api\TaiheSystem.CBE.Api.Core\bin\Debug\net5.0\TaiheSystem.CBE.Api.Model.dll
+D:\SourceCode\TaiheSystem.CBE.Api\TaiheSystem.CBE.Api.Core\bin\Debug\net5.0\TaiheSystem.CBE.Api.Common.pdb
+D:\SourceCode\TaiheSystem.CBE.Api\TaiheSystem.CBE.Api.Core\bin\Debug\net5.0\TaiheSystem.CBE.Api.Model.pdb
+D:\SourceCode\TaiheSystem.CBE.Api\TaiheSystem.CBE.Api.Core\obj\Debug\net5.0\TaiheSystem.CBE.Api.Core.csprojAssemblyReference.cache
+D:\SourceCode\TaiheSystem.CBE.Api\TaiheSystem.CBE.Api.Core\obj\Debug\net5.0\TaiheSystem.CBE.Api.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\SourceCode\TaiheSystem.CBE.Api\TaiheSystem.CBE.Api.Core\obj\Debug\net5.0\TaiheSystem.CBE.Api.Core.AssemblyInfoInputs.cache
+D:\SourceCode\TaiheSystem.CBE.Api\TaiheSystem.CBE.Api.Core\obj\Debug\net5.0\TaiheSystem.CBE.Api.Core.AssemblyInfo.cs
+D:\SourceCode\TaiheSystem.CBE.Api\TaiheSystem.CBE.Api.Core\obj\Debug\net5.0\TaiheSystem.CBE.Api.Core.csproj.CoreCompileInputs.cache
+D:\SourceCode\TaiheSystem.CBE.Api\TaiheSystem.CBE.Api.Core\obj\Debug\net5.0\TaiheSystem.CBE.Api.Core.csproj.CopyComplete
+D:\SourceCode\TaiheSystem.CBE.Api\TaiheSystem.CBE.Api.Core\obj\Debug\net5.0\TaiheSystem.CBE.Api.Core.dll
+D:\SourceCode\TaiheSystem.CBE.Api\TaiheSystem.CBE.Api.Core\obj\Debug\net5.0\ref\TaiheSystem.CBE.Api.Core.dll
+D:\SourceCode\TaiheSystem.CBE.Api\TaiheSystem.CBE.Api.Core\obj\Debug\net5.0\TaiheSystem.CBE.Api.Core.pdb

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CSRedisCore" Version="3.6.5" />
+    <PackageReference Include="sqlSugarCore" Version="5.0.1.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TaiheSystem.CBE.Api.Common\TaiheSystem.CBE.Api.Common.csproj" />
+    <ProjectReference Include="..\TaiheSystem.CBE.Api.Model\TaiheSystem.CBE.Api.Model.csproj" />
+  </ItemGroup>
+
+</Project>

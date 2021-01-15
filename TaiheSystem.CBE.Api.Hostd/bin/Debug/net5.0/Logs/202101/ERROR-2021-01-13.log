@@ -1,0 +1,136 @@
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-13 10:28:01.8507 
+ 日志来源 ： Taihe.System.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：关键字 'lineNo' 附近有语法错误。
+“MergeTable”附近有语法错误。 
+【异常类型】：SqlException 
+【异常信息】：关键字 'lineNo' 附近有语法错误。
+“MergeTable”附近有语法错误。 
+【堆栈调用】：   at SqlSugar.AdoProvider.GetDataReader(String sql, SugarParameter[] parameters)
+   at SqlSugar.QueryableProvider`1.GetData[TResult](KeyValuePair`2 sqlObj)
+   at SqlSugar.QueryableProvider`1._ToList[TResult]()
+   at SqlSugar.QueryableProvider`1.ToList()
+   at SqlSugar.QueryableProvider`1.ToPageList(Int32 pageIndex, Int32 pageSize)
+   at Taihe.System.Interfaces.QueryableExtension.ToPage[T](ISugarQueryable`1 source, PageParm parm) in D:\SourceCode\Taihe.System\Taihe.System.Interfaces\Extensions\QueryableExtension.cs:line 67
+   at Taihe.System.Interfaces.BaseProductLineService.QueryLinePages(ProductLineQueryDto parm) in D:\SourceCode\Taihe.System\Taihe.System.Interfaces\Service\BaseProductLineService.cs:line 63
+   at Castle.Proxies.Invocations.IBaseProductLineService_QueryLinePages.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.IBaseService`1Proxy_17.QueryLinePages(ProductLineQueryDto parm)
+   at Taihe.System.Hostd.Controllers.Basic.ProductLineController.Query(ProductLineQueryDto parm) in D:\SourceCode\Taihe.System\Taihe.System.Hostd\Controllers\Basic\ProductLineController.cs:line 57
+   at lambda_method1309(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-13 10:31:04.2900 
+ 日志来源 ： Taihe.System.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：关键字 'lineNo' 附近有语法错误。
+“MergeTable”附近有语法错误。 
+【异常类型】：SqlException 
+【异常信息】：关键字 'lineNo' 附近有语法错误。
+“MergeTable”附近有语法错误。 
+【堆栈调用】：   at SqlSugar.AdoProvider.GetDataReader(String sql, SugarParameter[] parameters)
+   at SqlSugar.QueryableProvider`1.GetData[TResult](KeyValuePair`2 sqlObj)
+   at SqlSugar.QueryableProvider`1._ToList[TResult]()
+   at SqlSugar.QueryableProvider`1.ToList()
+   at SqlSugar.QueryableProvider`1.ToPageList(Int32 pageIndex, Int32 pageSize)
+   at Taihe.System.Interfaces.QueryableExtension.ToPage[T](ISugarQueryable`1 source, PageParm parm) in D:\SourceCode\Taihe.System\Taihe.System.Interfaces\Extensions\QueryableExtension.cs:line 67
+   at Taihe.System.Interfaces.BaseProductLineService.QueryLinePages(ProductLineQueryDto parm) in D:\SourceCode\Taihe.System\Taihe.System.Interfaces\Service\BaseProductLineService.cs:line 63
+   at Castle.Proxies.Invocations.IBaseProductLineService_QueryLinePages.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.IBaseService`1Proxy_17.QueryLinePages(ProductLineQueryDto parm)
+   at Taihe.System.Hostd.Controllers.Basic.ProductLineController.Query(ProductLineQueryDto parm) in D:\SourceCode\Taihe.System\Taihe.System.Hostd\Controllers\Basic\ProductLineController.cs:line 57
+   at lambda_method1309(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-13 10:31:13.8905 
+ 日志来源 ： Taihe.System.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：关键字 'lineNo' 附近有语法错误。
+“MergeTable”附近有语法错误。 
+【异常类型】：SqlException 
+【异常信息】：关键字 'lineNo' 附近有语法错误。
+“MergeTable”附近有语法错误。 
+【堆栈调用】：   at SqlSugar.AdoProvider.GetDataReader(String sql, SugarParameter[] parameters)
+   at SqlSugar.QueryableProvider`1.GetData[TResult](KeyValuePair`2 sqlObj)
+   at SqlSugar.QueryableProvider`1._ToList[TResult]()
+   at SqlSugar.QueryableProvider`1.ToList()
+   at SqlSugar.QueryableProvider`1.ToPageList(Int32 pageIndex, Int32 pageSize)
+   at Taihe.System.Interfaces.QueryableExtension.ToPage[T](ISugarQueryable`1 source, PageParm parm) in D:\SourceCode\Taihe.System\Taihe.System.Interfaces\Extensions\QueryableExtension.cs:line 67
+   at Taihe.System.Interfaces.BaseProductLineService.QueryLinePages(ProductLineQueryDto parm) in D:\SourceCode\Taihe.System\Taihe.System.Interfaces\Service\BaseProductLineService.cs:line 63
+   at Castle.Proxies.Invocations.IBaseProductLineService_QueryLinePages.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.IBaseService`1Proxy_17.QueryLinePages(ProductLineQueryDto parm)
+   at Taihe.System.Hostd.Controllers.Basic.ProductLineController.Query(ProductLineQueryDto parm) in D:\SourceCode\Taihe.System\Taihe.System.Hostd\Controllers\Basic\ProductLineController.cs:line 57
+   at lambda_method1309(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-13 10:31:31.2784 
+ 日志来源 ： Taihe.System.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：关键字 'lineNo' 附近有语法错误。
+“MergeTable”附近有语法错误。 
+【异常类型】：SqlException 
+【异常信息】：关键字 'lineNo' 附近有语法错误。
+“MergeTable”附近有语法错误。 
+【堆栈调用】：   at SqlSugar.AdoProvider.GetDataReader(String sql, SugarParameter[] parameters)
+   at SqlSugar.QueryableProvider`1.GetData[TResult](KeyValuePair`2 sqlObj)
+   at SqlSugar.QueryableProvider`1._ToList[TResult]()
+   at SqlSugar.QueryableProvider`1.ToList()
+   at SqlSugar.QueryableProvider`1.ToPageList(Int32 pageIndex, Int32 pageSize)
+   at Taihe.System.Interfaces.QueryableExtension.ToPage[T](ISugarQueryable`1 source, PageParm parm) in D:\SourceCode\Taihe.System\Taihe.System.Interfaces\Extensions\QueryableExtension.cs:line 67
+   at Taihe.System.Interfaces.BaseProductLineService.QueryLinePages(ProductLineQueryDto parm) in D:\SourceCode\Taihe.System\Taihe.System.Interfaces\Service\BaseProductLineService.cs:line 63
+   at Castle.Proxies.Invocations.IBaseProductLineService_QueryLinePages.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.IBaseService`1Proxy_17.QueryLinePages(ProductLineQueryDto parm)
+   at Taihe.System.Hostd.Controllers.Basic.ProductLineController.Query(ProductLineQueryDto parm) in D:\SourceCode\Taihe.System\Taihe.System.Hostd\Controllers\Basic\ProductLineController.cs:line 57
+   at lambda_method1309(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+

@@ -1,0 +1,12 @@
+D:\SourceCode\Meiam.System\Meiam.System.Model\bin\Debug\net5.0\Meiam.System.Model.deps.json
+D:\SourceCode\Meiam.System\Meiam.System.Model\bin\Debug\net5.0\Meiam.System.Model.dll
+D:\SourceCode\Meiam.System\Meiam.System.Model\bin\Debug\net5.0\ref\Meiam.System.Model.dll
+D:\SourceCode\Meiam.System\Meiam.System.Model\bin\Debug\net5.0\Meiam.System.Model.pdb
+D:\SourceCode\Meiam.System\Meiam.System.Model\obj\Debug\net5.0\Meiam.System.Model.csprojAssemblyReference.cache
+D:\SourceCode\Meiam.System\Meiam.System.Model\obj\Debug\net5.0\Meiam.System.Model.GeneratedMSBuildEditorConfig.editorconfig
+D:\SourceCode\Meiam.System\Meiam.System.Model\obj\Debug\net5.0\Meiam.System.Model.AssemblyInfoInputs.cache
+D:\SourceCode\Meiam.System\Meiam.System.Model\obj\Debug\net5.0\Meiam.System.Model.AssemblyInfo.cs
+D:\SourceCode\Meiam.System\Meiam.System.Model\obj\Debug\net5.0\Meiam.System.Model.csproj.CoreCompileInputs.cache
+D:\SourceCode\Meiam.System\Meiam.System.Model\obj\Debug\net5.0\Meiam.System.Model.dll
+D:\SourceCode\Meiam.System\Meiam.System.Model\obj\Debug\net5.0\ref\Meiam.System.Model.dll
+D:\SourceCode\Meiam.System\Meiam.System.Model\obj\Debug\net5.0\Meiam.System.Model.pdb

@@ -1,0 +1,88 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Xml.Linq" #>
+<#@ assembly name="System.Data" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="SqlSugar" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Web" #>
+<#@ assembly name="$(SolutionDir)\packages\sqlSugar.4.6.4.8\lib\SqlSugar.dll" #>
+<#@ assembly name="$(SolutionDir)\packages\Newtonsoft.Json.dll" #>
+<# 
+    string PropertySpace = "           ";
+    string ClassSpace = "    "; 
+	//CTRL+S将会执行该文件的代码，自动作生实体
+    //当前项目目录
+    string projectDir = Host.ResolveAssemblyReference("$(ProjectDir)");
+
+	//解决方案目录
+    string solutionDir = Host.ResolveAssemblyReference("$(SolutionDir)");
+	string ConnectionString = "Server=192.168.1.153;Initial Catalog=GW_ZAIQ_LimsWeb;User ID=lrp_user;Password=gaosi123";
+	 using (var db =new SqlSugarClient(new ConnectionConfig()
+            {
+                ConnectionString = ConnectionString, //必填
+                DbType = DbType.SqlServer, //必填
+                IsAutoCloseConnection = true, //默认false
+                InitKeyType = InitKeyType.SystemTable //默认SystemTable
+            }))
+     {
+		 //数据库里所有表都生成实体类
+		 //db.DbFirst.CreateClassFile("D:\\cccUpload\\models");
+
+          //db.DbFirst.CreateClassFile(db, projectDir +"/Entity/PT","GS.Domain.Entity"); 
+		 
+
+		 //当个表生成
+         //db.MappingTables.Add("UserEntity", "Sys_User");
+	
+		// db.DbFirst.Where(it => it.ToLower().StartsWith("biz")).IsCreateAttribute().IsCreateDefaultValue().CreateClassFile(projectDir +"/Entity/PT","GS.Domain.Entity.PT");
+		 
+
+		 //生成表名包含biz所有实体
+            db.DbFirst.
+    SettingClassTemplate(old =>
+    {
+        string ClassTemplate = "{using}\r\n" +
+                                               "namespace {Namespace}\r\n" +
+                                               "{\r\n" +
+                                               "{ClassDescription}{SugarTable}\r\n" +
+                                                ClassSpace + "public partial class {ClassName}Entity : IEntity<{ClassName}Entity>, ICreationAudited, IDeleteAudited, IModificationAudited\r\n" +
+                                                ClassSpace + "{\r\n" +
+                                                PropertySpace + "public {ClassName}Entity(){\r\n\r\n" +
+                                                "{Constructor}\r\n" +
+                                                PropertySpace + "}\r\n" +
+                                                "{PropertyName}\r\n" +
+                                                 ClassSpace + "}\r\n" +
+                                                "}\r\n";
+        return ClassTemplate;
+    })
+    .SettingNamespaceTemplate(old =>
+    {
+        return old;
+    })
+    .SettingPropertyDescriptionTemplate(old =>
+    {
+		string PropertyDescriptionTemplate =
+                                                PropertySpace + "/// <summary>\r\n" +
+                                                PropertySpace + "/// 描述:{PropertyDescription}\r\n" +
+                                                PropertySpace + "/// 默认值:{DefaultValue}\r\n" +
+                                                PropertySpace + "/// 是否可为NULL:{IsNullable}\r\n" +
+                                                PropertySpace + "/// </summary>";
+        return PropertyDescriptionTemplate;
+    })
+    .SettingPropertyTemplate(old =>
+    {
+        return old;
+    })
+    .SettingConstructorTemplate(old =>
+    {
+        return old;
+    })
+.Where(it => it.ToLower().Equals(("web_Application").ToLower())).IsCreateAttribute().IsCreateDefaultValue().CreateClassFile(projectDir +"/DbModels", "GS.Model");
+
+      };
+#>
