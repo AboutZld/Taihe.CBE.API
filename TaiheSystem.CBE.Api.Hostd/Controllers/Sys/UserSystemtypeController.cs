@@ -216,7 +216,7 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Sys
         /// Power = PRIV_USERSYSTEMTYPE_DELETE
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
+        [HttpDelete]
         [Authorization(Power = "PRIV_USERSYSTEMTYPE_DELETE")]
         //[Authorization]
         public IActionResult Delete(string id)

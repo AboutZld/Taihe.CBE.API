@@ -21,6 +21,7 @@ namespace TaiheSystem.CBE.Api.Model
            public Biz_Contract_PlanAuditor_Item(){
 
             this.ID =Guid.NewGuid().ToString();
+            this.status =Convert.ToInt32("40000");
 
            }
            /// <summary>
@@ -144,6 +145,22 @@ namespace TaiheSystem.CBE.Api.Model
            /// </summary>
            [Display(Name = "")]           
            public string CreateName {get;set;}
+
+           /// <summary>
+           /// 描述 :  
+           /// 空值 : True
+           /// 默认 : 40000
+           /// </summary>
+           [Display(Name = "")]           
+           public int? status {get;set;}
+
+           /// <summary>
+           /// 描述 : 提交编制时间 
+           /// 空值 : True
+           /// 默认 : 
+           /// </summary>
+           [Display(Name = "提交编制时间")]           
+           public DateTime? DrawSubmitTime {get;set;}
 
     }
 }

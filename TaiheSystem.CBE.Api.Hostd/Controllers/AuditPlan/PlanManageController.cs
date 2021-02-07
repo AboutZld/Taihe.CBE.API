@@ -19,7 +19,7 @@ using TaiheSystem.CBE.Api.GWF;
 namespace TaiheSystem.CBE.Api.Hostd.Controllers.Basic
 {
     /// <summary>
-    /// 待派人计划
+    /// 未安排计划管理
     /// </summary>
     [Route("api/[controller]/[action]")]
     [ApiController]
@@ -49,63 +49,30 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Basic
         /// </summary>
         private readonly IBizContractPlanService _contractitemplanService;
 
-        /// <summary>
-        /// 审核员
-        /// </summary>
-        private readonly IBizContractPlanAuditorService _contractplanauditorService;
 
-        /// <summary>
-        /// 审核员项目信息
-        /// </summary>
-        private readonly IBizContractPlanAuditorItemService _contractplanauditoritemService;
-
-
-        public PlanManageController(ILogger<PlanManageController> logger, TokenManager tokenManager, IBizContractItemSubService contractitemsubService, IBizContractItemService contractitemService, IBizContractPlanService contractitemplanService, IBizContractPlanAuditorService contractplanauditorService, IBizContractPlanAuditorItemService contractplanauditoritemService)
+        public PlanManageController(ILogger<PlanManageController> logger, TokenManager tokenManager, IBizContractItemSubService contractitemsubService, IBizContractItemService contractitemService, IBizContractPlanService contractitemplanService)
         {
             _logger = logger;
             _tokenManager = tokenManager;
             _contractitemsubService = contractitemsubService;
             _contractitemService = contractitemService;
             _contractitemplanService = contractitemplanService;
-            _contractplanauditorService = contractplanauditorService;
-            _contractplanauditoritemService = contractplanauditoritemService;
         }
 
 
         /// <summary>
-        /// 查询审核安排列表
+        /// 查询未安排列表
         /// </summary>
         /// <returns></returns>
         [HttpPost]
         [Authorization]
-        public IActionResult Query([FromBody] PlanManageDto parm)
+        public IActionResult Query([FromBody] PlanQueryDto parm)
         {
             //开始拼装查询条件
-            var predicate = Expressionable.Create<view_PlanVM>();
+            var predicate = Expressionable.Create<view_MakePlan>();
 
-            //switch(parm.status)
-            //{
-            //    case 0:
-            //        predicate = predicate.And(m => m.status == 30000);
-            //        break;
-            //    case 1:
-            //        predicate = predicate.And(m => m.status == 30010);
-            //        break;
-            //    case 3:
-            //        predicate = predicate.And(m => m.status == 30020);
-            //        break;
-            //    case 4:
-            //        predicate = predicate.And(m => m.status == 39999);
-            //        break;
-            //    default:
-            //        return toResponse(StatusCodeType.Error, "状态匹配失败,请核对！");
-            //        //break;
-            //}
-
-            predicate = predicate.And(m => m.status == 30000); //待派人状态
-
-            //项目编号
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.ContractItemNo), m => m.ContractItemNos.Contains(parm.ContractItemNo));
+            //合同编号
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.ContractNo), m => m.ContractNo.Contains(parm.ContractNo));
             //客户名称
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.khmc), m => m.zzmc.Contains(parm.khmc));
             //合作伙伴
@@ -117,102 +84,122 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Basic
 
             //var response = _contractitemsubService.GetPages(predicate.ToExpression(), parm);
 
-            var response = Core.DbContext.CurrentDB.SqlQueryable<view_PlanVM>(@"
-SELECT  p.*, k.zzmc, h.mc,  
-                   [dbo].[GetNodeName](p.status) AS StatusName, stuff
-                       ((SELECT  '  ' + ItemName + ':'
-                         FROM       Biz_ContractItem AS t
-						 inner join Biz_ContractItem_Sub s on s.ContractItemID = t.ID
-                         WHERE    s .ContractPlanID = p.ID AND t .deleted = 0 FOR xml path('')), 1, 2, '') AS StandardNos, stuff
-                       ((SELECT  '  ' + ContractItemNo
-                         FROM       Biz_ContractItem AS t
-                         inner join Biz_ContractItem_Sub s on s.ContractItemID = t.ID
-                         WHERE    s .ContractPlanID = p.ID AND t .deleted = 0 FOR xml path('')), 1, 2, '') AS ContractNos, stuff
-                       ((SELECT  '  ' + AuditTypeName
-                         FROM       Biz_ContractItem AS t
-                         inner join Biz_ContractItem_Sub s on s.ContractItemID = t.ID
-                         WHERE    s .ContractPlanID = p.ID AND t .deleted = 0 FOR xml path('')), 1, 2, '') AS AuditTypeNames
-FROM      Biz_Contract_Plan p LEFT JOIN
-uf_khxx k ON k.ID = p.CustomerID LEFT JOIN
-uf_hzhb h ON k.hzdwID = h.ID
-").ToPage<view_PlanVM>(predicate.ToExpression(), parm);
+            var response = Core.DbContext.CurrentDB.SqlQueryable<view_MakePlan>(@"
+SELECT  m.ID,m.ContractNo,m.CustomerID,m.CreateTime, k.zzmc,k.xzqhmc, h.mc,s.ID as ContractItemSubID, s.MainContractID, s.ContractItemID,ContractItemSubType, ContractItemSubTypeCode
+				   ,c.ItemName,c.ContractItemNo
+FROM   Biz_ContractItem_Sub s
+inner join Biz_MainContract m on m.ID = s.MainContractID
+inner join Biz_ContractItem c on c.ID = s.ContractItemID
+LEFT JOIN uf_khxx k ON k.ID = m.CustomerID 
+LEFT JOIN uf_hzhb h ON k.hzdwID = h.ID
+WHERE   m.deleted = 0 and s.status = 20000
+").ToPage<view_MakePlan>(predicate.ToExpression(), parm);
 
             return toResponse(response);
         }
 
+
         /// <summary>
-        /// 获取计划任务信息
-        /// Power = PRIV_PLANMANAGE_DETAIL
+        /// 生成计划安排信息
+        /// Power = PRIV_PLAN_REGISTER
         /// </summary>
         /// <param name="parm">ids</param>
         /// <returns></returns>
-        [HttpGet]
-        [Authorization(Power = "PRIV_PLANMANAGE_DETAIL")]
-        public IActionResult GetPlanDetail(string id = null)
+        [HttpPost]
+        [Authorization(Power = "PRIV_PLAN_REGISTER")]
+        public IActionResult GetPlanDetail([FromBody] PlanInitDto parm)
         {
-            if(string.IsNullOrEmpty(id))
+            string[] subitemids = parm.Ids.Split(',');
+            List<Biz_ContractItem_Sub> subItemlist = _contractitemsubService.GetWhere(m => subitemids.Contains(m.ID));
+
+            if (subItemlist.Any(m => m.status > 20000))
             {
-                return toResponse(StatusCodeType.Error, "id不允许为空！");
+                return toResponse(StatusCodeType.Error, "当前项目已经提交安排，请刷新列表再试！");
             }
-            using (SqlSugarClient db = Core.DbContext.CurrentDB)
+
+            if (subItemlist.Any(m=>m.ContractItemSubType==0) && subItemlist.Any(m => m.ContractItemSubType == 1))
             {
-                Biz_Contract_Plan plan = _contractitemplanService.GetId(id);
-                if (plan == null)
-                {
-                    return toResponse(StatusCodeType.Error, "id不允许为空！");
-                }
-
-                //任务信息
-                ItemPlanVM plandata = Api.Common.Helpers.ComHelper.Mapper<ItemPlanVM, Biz_Contract_Plan>(plan);
-                List<Biz_ContractItem_Sub> subItemList = _contractitemsubService.GetWhere(m => m.ContractPlanID == plandata.ID);
-
-                //审核员信息
-                List<Biz_Contract_PlanAuditor> planauditorlist = _contractplanauditorService.GetWhere(m => m.ContractPlanID == plandata.ID);
-                List<PlanAuditorVM> planauditorviewlist = new List<PlanAuditorVM>();
-
-                foreach(var planauditor in planauditorlist)
-                {
-                    PlanAuditorVM planauditorview = Api.Common.Helpers.ComHelper.Mapper<PlanAuditorVM, Biz_Contract_PlanAuditor>(planauditor);
-
-                    planauditorview.PlanAuditItemList = _contractplanauditoritemService.GetWhere(m=>m.PlanAuditorID == planauditorview.ID);
-
-                    planauditorviewlist.Add(planauditorview);
-                }
-                plandata.ContractItem_SubList = subItemList;
-                plandata.PlanAuditorList = planauditorviewlist;
-
-                return toResponse(plandata);
+                return toResponse(StatusCodeType.Error, "不允许同时安排一阶段跟二阶段项目，请核对！");
             }
+
+            string ids = "'" + string.Join("','", subitemids) +"'";
+
+            var customerid = Core.DbContext.Db.Ado.SqlQuery<string>(string.Format("select distinct CustomerID from Biz_MainContract where ID in (select MainContractID from Biz_ContractItem_Sub where ID in ({0}))", ids)).ToList();
+            if (customerid .Count() > 1)
+            {
+                return toResponse(StatusCodeType.Error, "不同客户下项目不允许一起安排，请核对！");
+            }
+
+            //任务信息
+            ItemPlanVM plandata = new ItemPlanVM();
+            plandata.CustomerID = customerid.First().ToString();
+            plandata.ContractItem_SubList = subItemlist; //添加体系项目
+
+            //审核员信息
+            List<PlanAuditorVM> planlist = new List<PlanAuditorVM>();
+
+            PlanAuditorVM plan = new PlanAuditorVM();
+            
+            List<Biz_Contract_PlanAuditor_Item> AuditorItemList = new List<Biz_Contract_PlanAuditor_Item>();
+            foreach (var subItem in subItemlist)
+            {
+                Biz_Contract_PlanAuditor_Item planauditor_item = new Biz_Contract_PlanAuditor_Item(); //审核员项目信息
+                planauditor_item.ContractItemSubID = subItem.ID;
+                AuditorItemList.Add(planauditor_item);
+            }
+            plan.PlanAuditItemList = AuditorItemList;
+            planlist.Add(plan);
+            plandata.PlanAuditorList = planlist;
+
+            return toResponse(plandata);
         }
 
         /// <summary>
-        /// 保存计划信息
-        /// Power = PRIV_PLANMANAGE_UPDATE
+        /// 生成任务信息
+        /// Power = PRIV_PLAN_CREATE
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        [Authorization(Power = "PRIV_PLANMANAGE_UPDATE")]
-        public IActionResult Update([FromBody] ItemPlanVM parm)
+        [Authorization(Power = "PRIV_PLAN_CREATE")]
+        public IActionResult Create([FromBody] ItemPlanVM parm)
         {
+            var userinfo = _tokenManager.GetSessionInfo();
             using (SqlSugarClient db = Core.DbContext.CurrentDB)
             {
-                db.Ado.BeginTran();
+                Core.DbContext.BeginTran();
                 try
                 {
-                    //合同信息
-                    Biz_Contract_Plan plan = Api.Common.Helpers.ComHelper.Mapper<Biz_Contract_Plan, ItemPlanVM>(parm);
-
-                    db.Updateable<Biz_Contract_Plan>().SetColumns(m => new Biz_Contract_Plan()
-                    {
-                        PlanStartDate = parm.PlanStartDate,
-                        PlanEndDate = parm.PlanEndDate,
-                        PlanRemark = parm.PlanRemark,
-                        Remark = parm.Remark,
-                    }).Where(m => m.ID == parm.ID).ExecuteCommand();
+                    List<SugarParameter> parameters = new List<SugarParameter>();
+                    parameters.Add(new SugarParameter("UserID", userinfo.UserID));
+                    parameters.Add(new SugarParameter("UserName", userinfo.UserName));
 
                     //体系项目信息
                     List<Biz_ContractItem_Sub> subitemlist = parm.ContractItem_SubList;
-                    foreach(var subitem in subitemlist)
+                    if (subitemlist.Count == 0)
+                    {
+                        throw new Exception("提交数据不包含体系项目信息，请核对！");
+                    }
+                    string IDs = string.Join(",", subitemlist.Select(m => m.ContractItemSubID));
+
+                    if (db.Ado.GetScalar("select 1 from Biz_ContractItem_Sub where status > 20000 and ContractItemSubID in (@ids)", new { ids = IDs }) != null)
+                    {
+                        throw new Exception( "提交项目包含已经安排项目，请核对！");
+                    }
+
+                    //匹配任务信息
+                    Biz_Contract_Plan plan = new Biz_Contract_Plan();
+                    Api.Common.Helpers.ComHelper.MapperMatch<Biz_Contract_Plan, ItemPlanVM>(plan, parm,"ID","status");
+
+                    var helper = new Common.SerialNoHelper();
+                    var serialno = helper.Generate("N20"); //生成任务编号
+
+                    plan.ContractPlanNo = serialno;
+
+                    plan = plan.Adapt<Biz_Contract_Plan>().ToCreate(_tokenManager.GetSessionInfo());
+                    int ContractPlanID = db.Insertable<Biz_Contract_Plan>(plan).ExecuteReturnIdentity();
+
+                    //处理项目信息
+                    foreach (var subitem in subitemlist)
                     {
                         //subitem.ContractPlanID = plan.ID;
 
@@ -231,28 +218,21 @@ uf_hzhb h ON k.hzdwID = h.ID
                             TrueFirstDays = subitem.TrueFirstDays,
                             TrueSecondDays = subitem.TrueSecondDays,
                         }).Where(m => m.ID == subitem.ID).ExecuteCommand();
+
+                        //提交
+                        Step.Submit(db, subitem, "Biz_ContractItem_Sub", "ID", "status", "201", parameters, UpdateBizEntityAfterSubmitted, "提交安排");
                     }
 
                     //审核员信息
-                    List<PlanAuditorVM> auditorlist_insert = parm.PlanAuditorList_insert; //插入
-                    List<PlanAuditorVM> auditorlist_update = parm.PlanAuditorList_update; //更新
-                    List<PlanAuditorVM> auditorlist_delete = parm.PlanAuditorList_delete; //删除
-
-                    //删除信息
-                    string[] auditorids = auditorlist_delete.Select(x => x.ID).ToArray();
-
-                    db.Deleteable<Biz_Contract_PlanAuditor_Item>().Where(m => auditorids.Contains(m.PlanAuditorID)).ExecuteCommand();//删除审核人项目
-                    db.Deleteable<Biz_Contract_PlanAuditor>().Where(m => auditorids.Contains(m.ID)).ExecuteCommand();//删除审核人
-
-                    //插入审核员信息
-                    foreach (var auditorVM in auditorlist_insert)
+                    List<PlanAuditorVM> auditorlist = parm.PlanAuditorList;
+                    foreach(var auditorVM in auditorlist)
                     {
                         Biz_Contract_PlanAuditor auditor = Api.Common.Helpers.ComHelper.Mapper<Biz_Contract_PlanAuditor, PlanAuditorVM>(auditorVM);
                         auditor = auditor.Adapt<Biz_Contract_PlanAuditor>().ToCreate(_tokenManager.GetSessionInfo());
-                        auditor.ContractPlanID = parm.ID;
+                        auditor.ContractPlanID = plan.ID;
                         db.Insertable(auditor).AS("Biz_Contract_PlanAuditor").ExecuteCommand();
 
-                        foreach (var auditoritem in auditorVM.PlanAuditItemList)
+                        foreach(var auditoritem in auditorVM.PlanAuditItemList)
                         {
                             auditoritem.ID = Guid.NewGuid().ToString();
                             auditoritem.PlanAuditorID = auditor.ID;
@@ -261,143 +241,21 @@ uf_hzhb h ON k.hzdwID = h.ID
                             db.Insertable(auditoritem).AS("Biz_Contract_PlanAuditor_Item").ExecuteCommand();
                         }
                     }
-
-                    //更新审核员信息
-                    foreach (var auditorVM in auditorlist_update)
-                    {
-                        db.Updateable<Biz_Contract_PlanAuditor>().SetColumns(m => new Biz_Contract_PlanAuditor()
-                        {
-                            UserID = auditorVM.UserID,
-                        }).Where(m => m.ID == auditorVM.ID).ExecuteCommand();
-
-                        foreach (var auditoritem in auditorVM.PlanAuditItemList)
-                        {
-                            db.Updateable<Biz_Contract_PlanAuditor_Item>().SetColumns(m => new Biz_Contract_PlanAuditor_Item()
-                            {
-                                GroupIdentityID = auditoritem.GroupIdentityID,
-                                GroupIdentityName = auditoritem.GroupIdentityName,
-                                WitnessTypeID = auditoritem.WitnessTypeID,
-                                WitnessTypeName = auditoritem.WitnessTypeName,
-                                WitnessTypeUserName = auditoritem.WitnessTypeUserName,
-                                GroupCode = auditoritem.GroupCode,
-                                ProfessionCode = auditoritem.ProfessionCode,
-                            }).Where(m => m.ID == auditoritem.ID).ExecuteCommand();
-                        }
-                    }
-                    db.Ado.CommitTran();
+                    Core.DbContext.CommitTran();
 
                     return toResponse(plan.ID);
                 }
                 catch (Exception ex)
                 {
-                    db.Ado.RollbackTran();
-                    return toResponse(StatusCodeType.Error, ex.Message);
-                }
-            }
-        }
-
-        /// <summary>
-        /// 提交派人
-        /// Power = PRIV_PLANMANAGE_SEND
-        /// </summary>
-        /// <param name="id">编码</param>
-        /// <returns></returns>
-        [HttpPost]
-        [Authorization(Power = "PRIV_PLANMANAGE_SEND")]
-        public IActionResult SubmitSend(string id = null)
-        {
-            if(string.IsNullOrEmpty(id))
-            {
-                return toResponse(StatusCodeType.Error, "提交id不能为空，请核对");
-            }
-            var userinfo = _tokenManager.GetSessionInfo();
-            var maincontract = _contractitemplanService.GetId(id);
-
-            using (SqlSugarClient db = Core.DbContext.CurrentDB)
-            {
-                Core.DbContext.BeginTran();
-                try
-                {
-                    List<SugarParameter> parameters = new List<SugarParameter>();
-                    parameters.Add(new SugarParameter("UserID", userinfo.UserID));
-                    parameters.Add(new SugarParameter("UserName", userinfo.UserName));
-
-                    Step.Submit(db, maincontract, "Biz_Contract_Plan", "ID", "status", "301", parameters, UpdatePlanAfterSubmitted, "终止审核");
-                    Core.DbContext.CommitTran();
-                    return toResponse("提交成功");
-                }
-                catch (Exception ex)
-                {
                     Core.DbContext.RollbackTran();
                     return toResponse(StatusCodeType.Error, ex.Message);
                 }
             }
         }
 
-        public static Action<SqlSugarClient, List<SugarParameter>> UpdatePlanAfterSubmitted = (SqlSugarClient db, List<SugarParameter> paramters) =>
+        public static Action<SqlSugarClient, List<SugarParameter>> UpdateBizEntityAfterSubmitted = (SqlSugarClient db, List<SugarParameter> paramters) =>
         {
-            if (db.Ado.ExecuteCommand(@"UPDATE Biz_Contract_Plan SET Status = @Node_To,SendSubmitTime=getdate(),SendSubmitID=@UserID,SendSubmitName=@UserName
-WHERE ID = @Biz_Contract_Plan_ID AND Status = @Node_From", paramters) == 0)
-            {
-                throw new Exception(GWF.Step.DIRTY_DATA_PROMPT);
-            }
-        };
-
-        /// <summary>
-        /// 删除安排任务
-        /// Power=PRIV_PLANMANAGE_DELETE
-        /// </summary>
-        /// <returns></returns>
-        [HttpDelete]
-        [Authorization(Power = "PRIV_PLANMANAGE_DELETE")]
-        public IActionResult Delete(string id)
-        {
-            if (string.IsNullOrEmpty(id))
-            {
-                return toResponse(StatusCodeType.Error, "删除 Id 不能为空");
-            }
-            var userinfo = _tokenManager.GetSessionInfo();
-            using (SqlSugarClient db = Core.DbContext.CurrentDB)
-            {
-                Core.DbContext.BeginTran();
-                try
-                {
-                    var contract = _contractitemplanService.GetId(id);
-                    db.Deleteable<Biz_Contract_Plan>()
-                        .Where(it => it.ID == id).ExecuteCommand();
-
-                    //删除任务子项目信息
-                    List<Biz_ContractItem_Sub> subitmlist = db.Queryable<Biz_ContractItem_Sub>().Where(it => it.ContractPlanID == contract.ID).ToList();
-                    foreach(var subitem in subitmlist)
-                    {
-                        List<SugarParameter> parameters = new List<SugarParameter>();
-                        parameters.Add(new SugarParameter("UserID", userinfo.UserID));
-                        parameters.Add(new SugarParameter("UserName", userinfo.UserName));
-
-                        Step.Cancel(db, subitem, "Biz_ContractItem_Sub", "ID", "status", "201", parameters, UpdateBizEntityAfterCancelled, "撤销安排");
-                    }
-
-                    //删除审核员
-                    db.Deleteable<Biz_Contract_PlanAuditor>().Where(m => m.ContractPlanID == contract.ID).ExecuteCommand();
-
-                    //删除审核员详细信息
-                    db.Deleteable<Biz_Contract_PlanAuditor_Item>().Where(m => m.ContractPlanID == contract.ID).ExecuteCommand();
-
-                    Core.DbContext.CommitTran();
-
-                    return toResponse("删除成功");
-                }
-                catch (Exception ex)
-                {
-                    Core.DbContext.RollbackTran();
-                    return toResponse(StatusCodeType.Error, ex.Message);
-                }
-            }
-        }
-
-        public static Action<SqlSugarClient, List<SugarParameter>> UpdateBizEntityAfterCancelled = (SqlSugarClient db, List<SugarParameter> paramters) =>
-        {
-            if (db.Ado.ExecuteCommand(@"UPDATE Biz_ContractItem_Sub SET Status = @Node_To,ContractPlanID=NULL
+            if (db.Ado.ExecuteCommand(@"UPDATE Biz_ContractItem_Sub SET Status = @Node_To 
 WHERE ID = @Biz_ContractItem_Sub_ID AND Status = @Node_From", paramters) == 0)
             {
                 throw new Exception(GWF.Step.DIRTY_DATA_PROMPT);

@@ -16,6 +16,58 @@
             <param name="NumCode">流水号代码</param>
             <returns></returns>
         </member>
+        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Auditor.AuditorPlanController">
+            <summary>
+            审核员任务管理
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Auditor.AuditorPlanController._logger">
+            <summary>
+            日志管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Auditor.AuditorPlanController._tokenManager">
+            <summary>
+            会话管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Auditor.AuditorPlanController._contractitemsubService">
+            <summary>
+            合同子项目接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Auditor.AuditorPlanController._contractitemService">
+            <summary>
+            项目接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Auditor.AuditorPlanController._contractitemplanService">
+            <summary>
+            任务安排
+            </summary>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Auditor.AuditorPlanController.Query(TaiheSystem.CBE.Api.Model.Dto.AuditorPlanDto)">
+            <summary>
+            查询未安排列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Auditor.AuditorPlanController.GetPlanDetail(System.String)">
+            <summary>
+            获取编制计划详情
+            Power = PRIV_PLANDRAW_DETAIL
+            </summary>
+            <param name="parm">ids</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Auditor.AuditorPlanController.RegisterPlan(TaiheSystem.CBE.Api.Model.Dto.AuditorDrawUpdateDto)">
+            <summary>
+            编制任务计划
+            Power = PRIV_PLANDRAW_REGISTER
+            </summary>
+            <param name="parm">ids</param>
+            <returns></returns>
+        </member>
         <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanApproveController">
             <summary>
             计划审批
@@ -102,60 +154,68 @@
             <param name="id">编码</param>
             <returns></returns>
         </member>
-        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanController">
+        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanItemQueryController">
             <summary>
-            未安排计划管理
+            审核项目查询
             </summary>
         </member>
-        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanController._logger">
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanItemQueryController._logger">
             <summary>
             日志管理接口
             </summary>
         </member>
-        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanController._tokenManager">
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanItemQueryController._tokenManager">
             <summary>
             会话管理接口
             </summary>
         </member>
-        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanController._contractitemsubService">
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanItemQueryController._itemplanService">
+            <summary>
+            任务项目试图表
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanItemQueryController._contractitemsubService">
             <summary>
             合同子项目接口
             </summary>
         </member>
-        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanController._contractitemService">
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanItemQueryController._contractitemService">
             <summary>
             项目接口
             </summary>
         </member>
-        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanController._contractitemplanService">
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanItemQueryController._contractitemplanService">
             <summary>
             任务安排
             </summary>
         </member>
-        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanController.Query(TaiheSystem.CBE.Api.Model.Dto.PlanQueryDto)">
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanItemQueryController._contractplanauditorService">
             <summary>
-            查询未安排列表
+            审核员
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanItemQueryController._contractplanauditoritemService">
+            <summary>
+            审核员项目信息
+            </summary>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanItemQueryController.Query(TaiheSystem.CBE.Api.Model.Dto.PlanManageDto)">
+            <summary>
+            查询审核安排列表
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanController.GetPlanDetail(TaiheSystem.CBE.Api.Model.Dto.PlanInitDto)">
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanItemQueryController.GetPlanDetail(System.String)">
             <summary>
-            生成计划安排信息
-            Power = PRIV_PLAN_REGISTER
+            获取计划任务信息
+            Power = PRIV_PLANMANAGE_DETAIL
             </summary>
             <param name="parm">ids</param>
             <returns></returns>
         </member>
-        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanController.Create(TaiheSystem.CBE.Api.Model.View.Standard.ItemPlanVM)">
-            <summary>
-            生成任务信息
-            Power = PRIV_PLAN_CREATE
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanManageController">
             <summary>
-            待派人计划
+            未安排计划管理
             </summary>
         </member>
         <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanManageController._logger">
@@ -183,23 +243,74 @@
             任务安排
             </summary>
         </member>
-        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanManageController._contractplanauditorService">
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanManageController.Query(TaiheSystem.CBE.Api.Model.Dto.PlanQueryDto)">
+            <summary>
+            查询未安排列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanManageController.GetPlanDetail(TaiheSystem.CBE.Api.Model.Dto.PlanInitDto)">
+            <summary>
+            生成计划安排信息
+            Power = PRIV_PLAN_REGISTER
+            </summary>
+            <param name="parm">ids</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanManageController.Create(TaiheSystem.CBE.Api.Model.View.Standard.ItemPlanVM)">
+            <summary>
+            生成任务信息
+            Power = PRIV_PLAN_CREATE
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanSendController">
+            <summary>
+            待派人计划
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanSendController._logger">
+            <summary>
+            日志管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanSendController._tokenManager">
+            <summary>
+            会话管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanSendController._contractitemsubService">
+            <summary>
+            合同子项目接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanSendController._contractitemService">
+            <summary>
+            项目接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanSendController._contractitemplanService">
+            <summary>
+            任务安排
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanSendController._contractplanauditorService">
             <summary>
             审核员
             </summary>
         </member>
-        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanManageController._contractplanauditoritemService">
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanSendController._contractplanauditoritemService">
             <summary>
             审核员项目信息
             </summary>
         </member>
-        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanManageController.Query(TaiheSystem.CBE.Api.Model.Dto.PlanManageDto)">
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanSendController.Query(TaiheSystem.CBE.Api.Model.Dto.PlanManageDto)">
             <summary>
             查询审核安排列表
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanManageController.GetPlanDetail(System.String)">
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanSendController.GetPlanDetail(System.String)">
             <summary>
             获取计划任务信息
             Power = PRIV_PLANMANAGE_DETAIL
@@ -207,14 +318,14 @@
             <param name="parm">ids</param>
             <returns></returns>
         </member>
-        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanManageController.Update(TaiheSystem.CBE.Api.Model.View.Standard.ItemPlanVM)">
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanSendController.Update(TaiheSystem.CBE.Api.Model.View.Standard.ItemPlanVM)">
             <summary>
             保存计划信息
             Power = PRIV_PLANMANAGE_UPDATE
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanManageController.SubmitSend(System.String)">
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanSendController.SubmitSend(System.String)">
             <summary>
             提交派人
             Power = PRIV_PLANMANAGE_SEND
@@ -222,7 +333,7 @@
             <param name="id">编码</param>
             <returns></returns>
         </member>
-        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanManageController.Delete(System.String)">
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanSendController.Delete(System.String)">
             <summary>
             删除安排任务
             Power=PRIV_PLANMANAGE_DELETE

@@ -123,6 +123,7 @@ namespace TaiheSystem.CBE.Api.Core
         public DbSet<Sys_User_Classification> SysUserClassificationDb => new DbSet<Sys_User_Classification>(Db);
         public DbSet<Biz_MainContract> BizMainContractDb => new DbSet<Biz_MainContract>(Db);
         public DbSet<uf_khxx_dt1> ufkhxxdt1Db => new DbSet<uf_khxx_dt1>(Db);
+        public DbSet<Biz_Contract_PlanAuditor_Draw> BizContractPlanAuditorDrawDb => new DbSet<Biz_Contract_PlanAuditor_Draw>(Db);
         public DbSet<Biz_ContractItem_Minus> BizContractItemMinusDb => new DbSet<Biz_ContractItem_Minus>(Db);
         public DbSet<Sys_Logs> SysLogsDb => new DbSet<Sys_Logs>(Db);
         public DbSet<Sys_ExtAccess> SysExtAccessDb => new DbSet<Sys_ExtAccess>(Db);

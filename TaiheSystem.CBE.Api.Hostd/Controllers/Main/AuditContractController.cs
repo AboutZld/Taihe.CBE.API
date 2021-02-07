@@ -411,7 +411,7 @@ WHERE ID = @Biz_MainContract_ID AND Status = @Node_From", paramters) == 0)
                                         AddIndex = add.AddIndex,
                                         AddName = add.AddName,
                                         AddPri = add.AddPri
-                                    }).Where(m => m.ID == parm.ID).ExecuteCommand();
+                                    }).Where(m => m.ID == add.ID).ExecuteCommand();
                                 }
                             }
                             if (addlist_insert != null)
@@ -439,7 +439,7 @@ WHERE ID = @Biz_MainContract_ID AND Status = @Node_From", paramters) == 0)
                                         MinusIndex = minus.MinusIndex,
                                         MinusName = minus.MinusName,
                                         MinusPri = minus.MinusPri
-                                    }).Where(m => m.ID == parm.ID).ExecuteCommand();
+                                    }).Where(m => m.ID == minus.ID).ExecuteCommand();
                                 }
                             }
                             if (minuslist_insert != null)
@@ -465,7 +465,7 @@ WHERE ID = @Biz_MainContract_ID AND Status = @Node_From", paramters) == 0)
                                     db.Updateable<Biz_ContractItem_BizClassification>().SetColumns(m => new Biz_ContractItem_BizClassification()
                                     {
                                         BizClassificationID = cl.BizClassificationID
-                                    }).Where(m => m.ID == parm.ID).ExecuteCommand();
+                                    }).Where(m => m.ID == cl.ID).ExecuteCommand();
                                 }
                             }
                             if (classlist_insert != null)
@@ -516,7 +516,7 @@ WHERE ID = @Biz_MainContract_ID AND Status = @Node_From", paramters) == 0)
                                     UpdateID = userinfo.ID,
                                     UpdateName = userinfo.UserName,
                                     UpdateTime = DateTime.Now
-                                }).Where(m => m.ID == parm.ID).ExecuteCommand();
+                                }).Where(m => m.ID == Item.ID).ExecuteCommand();
                             }
                         }
                     }

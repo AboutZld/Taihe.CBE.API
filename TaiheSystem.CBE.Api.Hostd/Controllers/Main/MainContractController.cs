@@ -436,7 +436,7 @@ WHERE ID = @Biz_MainContract_ID AND Status = @Node_From", paramters) == 0)
                                 UpdateID = userinfo.ID,
                                 UpdateName = userinfo.UserName,
                                 UpdateTime = DateTime.Now
-                            }).Where(m => m.ID == parm.ID).ExecuteCommand();
+                            }).Where(m => m.ID == Item.ID).ExecuteCommand();
                         }
                     }
                     if(ItemList_insert != null) //插入新数据
@@ -481,7 +481,7 @@ WHERE ID = @Biz_MainContract_ID AND Status = @Node_From", paramters) == 0)
                             db.Updateable<Biz_ContractFcs>().SetColumns(m => new Biz_ContractFcs()
                             { 
                                 fcsID = fcs.fcsID
-                            }).Where(m => m.ID == parm.ID).ExecuteCommand();
+                            }).Where(m => m.ID == fcs.ID).ExecuteCommand();
                         }
                     }
                     if(FcsList_insert != null)
@@ -516,7 +516,7 @@ WHERE ID = @Biz_MainContract_ID AND Status = @Node_From", paramters) == 0)
                                 FileID = file.FileID,
                                 FileName = file.FileName,
                                 Name = file.FileName,
-                            }).Where(m => m.ID == parm.ID).ExecuteCommand();
+                            }).Where(m => m.ID == file.ID).ExecuteCommand();
                         }
                     }
                     if(FileList_insert !=null) //插入
