@@ -8,6 +8,11 @@ using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
+using TaiheSystem.CBE.Api.Common.Helpers;
+using TaiheSystem.CBE.Api.Hostd.Extensions;
+using Microsoft.Extensions.Logging;
+using TaiheSystem.CBE.Api.Interfaces;
+using System.Collections.Generic;
 
 namespace TaiheSystem.CBE.Api.Hostd.Controllers.Sys
 {
@@ -18,29 +23,68 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Sys
     [ApiController]
     public class FileController : BaseController
     {
+        /// <summary>
+        /// 日志管理接口
+        /// </summary>
+        private readonly ILogger<FileController> _logger;
+        /// <summary>
+        /// 会话管理接口
+        /// </summary>
+        private readonly TokenManager _tokenManager;
+
+        /// <summary>
+        /// 文件接口
+        /// </summary>
+        private readonly IgnlFileService _gnlfileService;
+
+        /// <summary>
+        /// 数据关系接口
+        /// </summary>
+        private readonly ISysDataRelationService _dataRelationService;
+
+        public FileController(ILogger<FileController> logger, TokenManager tokenManager, IgnlFileService gnlfileService, ISysDataRelationService dataRelationService)
+        {
+            _logger = logger;
+            _tokenManager = tokenManager;
+            _gnlfileService = gnlfileService;
+            _dataRelationService = dataRelationService;
+        }
+
         // GET: api/Download
         /// <summary>
-        /// 下载图片（支持中文字符）
+        /// 文件获取
         /// </summary>
         /// <param name="environment"></param>
+        /// <param name="FileID">文件id</param>
         /// <returns></returns>
         [HttpGet]
-        [Route("/images/Down/Pic")]
-        public FileStreamResult DownImg([FromServices] IWebHostEnvironment environment)
+        [Authorization]
+        public FileStreamResult DownLoad([FromServices] IWebHostEnvironment environment,string FileID)
         {
             //try
             //{
-                string foldername = "";
-                string filepath = Path.Combine(string.IsNullOrEmpty(environment.WebRootPath) ? environment.ContentRootPath : environment.WebRootPath, foldername, "测试下载中文名称的图片.png");
-                var stream = System.IO.File.OpenRead(filepath);
-                string fileExt = ".jpg";  // 这里可以写一个获取文件扩展名的方法，获取扩展名
-                                          //获取文件的ContentType
-                var provider = new Microsoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider();
-                var memi = provider.Mappings[fileExt];
-                var fileName = Path.GetFileName(filepath);
+            var userSession = _tokenManager.GetSessionInfo();
 
+            if (string.IsNullOrEmpty(FileID))
+            {
+                throw new Exception("文件ID不允许为空");
+            }
+            gnl_File file = _gnlfileService.GetId(FileID);
+            if(file == null)
+            {
+                throw new Exception("文件不存在");
+            }
+            string filepath = file.AbsoluteFilePath;
+            var stream = System.IO.File.OpenRead(filepath);
+            string fileExt = file.FileExt;  // 这里可以写一个获取文件扩展名的方法，获取扩展名
+                                        //获取文件的ContentType
+            var provider = new Microsoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider();
+            var memi = provider.Mappings[fileExt];
+            var fileName = System.IO.Path.GetFileNameWithoutExtension(file.FileName);
 
-                return File(stream, memi, fileName);
+            _gnlfileService.Update(f => f.FileID.ToString() == FileID, f => new gnl_File { DownloadCount = file.DownloadCount + 1 });
+
+            return File(stream, memi, fileName);
             //}
             //catch(Exception ex)
             //{
@@ -55,57 +99,57 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Sys
         /// <param name="environment"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("/images/Upload/Pic")]
-        public IActionResult UploadFle([FromServices] IWebHostEnvironment environment)
+        [Authorization]
+        public IActionResult UploadFile([FromServices] IWebHostEnvironment environment)
         {
-            string path = string.Empty;
-            string foldername = "images";
-            IFormFileCollection files = null;
+            var userSession = _tokenManager.GetSessionInfo();
 
+            _gnlfileService.BeginTran();
+            IFormFileCollection files = null;
 
             // 获取提交的文件
             files = Request.Form.Files;
             // 获取附带的数据
-            var max_ver = Request.Form["max_ver"].ObjToString();
+            var FileType = Request.Form["FileType"].ObjToString();
+            var FileGroup = Request.Form["FileGroup"].ObjToString();
+            if(FileType == "")
+            {
+                FileType = "Attach";
+            }
 
             if (files == null || !files.Any()) { return toResponse(StatusCodeType.Error, "请选择上传的文件");}
 
-            //格式限制
-            var allowType = new string[] { "image/jpg","image/png", "image/jpeg"};
-
-            string filerootpath = string.IsNullOrEmpty(environment.WebRootPath) ? environment.ContentRootPath : environment.WebRootPath;
-
-            string folderpath = Path.Combine(filerootpath, foldername);
-            if (!Directory.Exists(folderpath))
+            try
             {
-                Directory.CreateDirectory(folderpath);
-            }
-
-            if (files.Any(c => allowType.Contains(c.ContentType)))
-            {
-                if (files.Sum(c => c.Length) <= 1024 * 1024 * 4)
+                string filerootpath = string.IsNullOrEmpty(environment.WebRootPath) ? environment.ContentRootPath : environment.WebRootPath;
+                List<gnl_File> filelist = new List<gnl_File>();
+                foreach (var file in files)
                 {
-                    foreach (var file in files)
+
+                    var gnl_File = FileHelper.CreateFile(filerootpath, file, file.FileName, FileType);
+                    if (gnl_File == null)
                     {
-                        //var file = files.FirstOrDefault();
-                        string strpath = Path.Combine(foldername, DateTime.Now.ToString("MMddHHmmss") + file.FileName);
-                        path = Path.Combine(filerootpath, strpath);
-
-                        using (var stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite))
-                        {
-                            file.CopyTo(stream);
-                        }
+                        return toResponse(StatusCodeType.Error, "文件上传失败");
                     }
-                    return toResponse("保存成功");
+                    gnl_File.FileGroup = FileGroup == "" ? Guid.NewGuid().ToString().ToUpper() : FileGroup.ToUpper();
+                    gnl_File.CreateUserID = userSession.UserID;
+                    gnl_File.CreateUserName = userSession.UserName;
+
+                    filelist.Add(gnl_File);
                 }
-                else
+
+                if (_gnlfileService.Add(filelist) < filelist.Count())
                 {
-                    return toResponse(StatusCodeType.Error, "文件过大");
+                    return toResponse(StatusCodeType.Error, "插入文件数据失败");
                 }
+                _gnlfileService.CommitTran();
+
+                return toResponse(filelist);
             }
-            else
+            catch (Exception ex)
             {
-                return toResponse(StatusCodeType.Error, "文件格式错误");
+                _gnlfileService.RollbackTran();
+                return toResponse(StatusCodeType.Error, ex.Message);
             }
         }
 
@@ -116,66 +160,58 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Sys
         /// <param name="environment"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("/images/UploadAsync/Pic")]
-        public async Task<ApiResult<string>> UploadFleAsync([FromServices] IWebHostEnvironment environment)
+        [Authorization]
+        public IActionResult UploadAsync([FromServices] IWebHostEnvironment environment)
         {
-            var data = new ApiResult<string>();
-            string path = string.Empty;
-            string foldername = "images";
-            IFormFileCollection files = null;
+            //获取当前登录用户信息
+            var userSession = _tokenManager.GetSessionInfo();
 
+            _gnlfileService.BeginTran();
+            IFormFileCollection files = null;
 
             // 获取提交的文件
             files = Request.Form.Files;
             // 获取附带的数据
-            var max_ver = Request.Form["max_ver"].ObjToString();
+            var FileType = Request.Form["FileType"].ObjToString();
+            var FileGroup = Request.Form["FileGroup"].ObjToString();
+            if (FileType == "")
+            {
+                FileType = "Attach";
+            }
 
-
-            if (files == null || !files.Any()) { data.Message = "请选择上传的文件。"; return data; }
-            //格式限制
-            var allowType = new string[] { "image/jpg", "image/png", "image/jpeg" };
+            if (files == null || !files.Any()) { toResponse(StatusCodeType.Error, "请选择上传的文件"); }
 
             string filerootpath = string.IsNullOrEmpty(environment.WebRootPath) ? environment.ContentRootPath : environment.WebRootPath;
-
-            string folderpath = Path.Combine(filerootpath, foldername);
-            if (!Directory.Exists(folderpath))
+            try
             {
-                Directory.CreateDirectory(folderpath);
-            }
-
-            if (files.Any(c => allowType.Contains(c.ContentType)))
-            {
-                if (files.Sum(c => c.Length) <= 1024 * 1024 * 4)
+                List<gnl_File> filelist = new List<gnl_File>();
+                foreach (var file in files)
                 {
-                    //foreach (var file in files)
-                    var file = files.FirstOrDefault();
-                    string strpath = Path.Combine(foldername, DateTime.Now.ToString("MMddHHmmss") + file.FileName);
-                    path = Path.Combine(filerootpath, strpath);
 
-                    using (var stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                    var gnl_File = FileHelper.CreateFileAsync(filerootpath, file, file.FileName, FileType);
+                    if (gnl_File == null)
                     {
-                        await file.CopyToAsync(stream);
+                        return toResponse(StatusCodeType.Error, "文件上传失败");
                     }
+                    gnl_File.Result.FileGroup = FileGroup == "" ? Guid.NewGuid().ToString().ToUpper() : FileGroup.ToUpper();
+                    gnl_File.Result.CreateUserID = userSession.UserID;
+                    gnl_File.Result.CreateUserName = userSession.UserName;
 
-                    data = new ApiResult<string>()
-                    {
-                        Data = strpath,
-                        Message = "上传成功",
-                        Success = true,
-                    };
-                    return data;
+                    filelist.Add(gnl_File.Result);
                 }
-                else
+
+                if (_gnlfileService.Add(filelist) < filelist.Count())
                 {
-                    data.Message = "文件过大";
-                    return data;
+                    return toResponse(StatusCodeType.Error, "插入文件数据失败");
                 }
-            }
-            else
+                _gnlfileService.CommitTran();
 
+                return toResponse(filelist);
+            }
+            catch (Exception ex)
             {
-                data.Message = "文件格式错误";
-                return data;
+                _gnlfileService.RollbackTran();
+                return toResponse(StatusCodeType.Error, ex.Message);
             }
         }
 

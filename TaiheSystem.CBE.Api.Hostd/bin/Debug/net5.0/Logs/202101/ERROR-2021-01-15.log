@@ -1,0 +1,148 @@
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-15 14:37:18.5344 
+ 日志来源 ： TaiheSystem.CBE.Api.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：Object reference not set to an instance of an object. 
+【异常类型】：NullReferenceException 
+【异常信息】：Object reference not set to an instance of an object. 
+【堆栈调用】：   at TaiheSystem.CBE.Api.Hostd.Controllers.Sys.FileController.UploadFle(IWebHostEnvironment environment) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Controllers\Sys\FileController.cs:line 85
+   at lambda_method590(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-15 14:47:05.0351 
+ 日志来源 ： TaiheSystem.CBE.Api.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：GetSessionItem : UserInfo has Exception 
+【异常类型】：Exception 
+【异常信息】：GetSessionItem : UserInfo has Exception 
+【堆栈调用】：   at TaiheSystem.CBE.Api.Hostd.Extensions.TokenManager.GetSessionItem[T](String key) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Extensions\TokenManager.cs:line 321
+   at TaiheSystem.CBE.Api.Hostd.Extensions.TokenManager.GetSessionInfo() in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Extensions\TokenManager.cs:line 287
+   at TaiheSystem.CBE.Api.Hostd.Controllers.Sys.FileController.UploadFile(IWebHostEnvironment environment) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Controllers\Sys\FileController.cs:line 93
+   at lambda_method590(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-15 15:16:34.9254 
+ 日志来源 ： TaiheSystem.CBE.Api.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：文件ID不允许为空 
+【异常类型】：Exception 
+【异常信息】：文件ID不允许为空 
+【堆栈调用】：   at TaiheSystem.CBE.Api.Hostd.Controllers.Sys.FileController.DownloadFile(IWebHostEnvironment environment, String FileID) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Controllers\Sys\FileController.cs:line 68
+   at lambda_method606(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-15 15:17:08.3509 
+ 日志来源 ： TaiheSystem.CBE.Api.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：Queryable.In(params object[] pkValues): Only one primary key 
+【异常类型】：SqlSugarException 
+【异常信息】：Queryable.In(params object[] pkValues): Only one primary key 
+【堆栈调用】：   at SqlSugar.Check.Exception(Boolean isException, String message, String[] args)
+   at SqlSugar.QueryableProvider`1.In[TParamter](TParamter[] pkValues)
+   at SqlSugar.QueryableProvider`1.InSingle(Object pkValue)
+   at TaiheSystem.CBE.Api.Interfaces.BaseService`1.GetId(Object pkValue) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Interfaces\BaseService.cs:line 151
+   at Castle.Proxies.Invocations.IBaseService`1_GetId_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.IBaseService`1Proxy_3.GetId(Object pkValue)
+   at TaiheSystem.CBE.Api.Hostd.Controllers.Sys.FileController.DownloadFile(IWebHostEnvironment environment, String FileID) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Controllers\Sys\FileController.cs:line 70
+   at lambda_method606(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-15 15:26:10.3026 
+ 日志来源 ： TaiheSystem.CBE.Api.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：Queryable.In(params object[] pkValues): Only one primary key 
+【异常类型】：SqlSugarException 
+【异常信息】：Queryable.In(params object[] pkValues): Only one primary key 
+【堆栈调用】：   at SqlSugar.Check.Exception(Boolean isException, String message, String[] args)
+   at SqlSugar.QueryableProvider`1.In[TParamter](TParamter[] pkValues)
+   at SqlSugar.QueryableProvider`1.InSingle(Object pkValue)
+   at TaiheSystem.CBE.Api.Interfaces.BaseService`1.GetId(Object pkValue) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Interfaces\BaseService.cs:line 151
+   at Castle.Proxies.Invocations.IBaseService`1_GetId_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.IBaseService`1Proxy_3.GetId(Object pkValue)
+   at TaiheSystem.CBE.Api.Hostd.Controllers.Sys.FileController.DownloadFile(IWebHostEnvironment environment, String FileID) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Controllers\Sys\FileController.cs:line 70
+   at lambda_method590(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-15 15:33:41.9427 
+ 日志来源 ： TaiheSystem.CBE.Api.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：文件不存在 
+【异常类型】：Exception 
+【异常信息】：文件不存在 
+【堆栈调用】：   at TaiheSystem.CBE.Api.Hostd.Controllers.Sys.FileController.DownloadFile(IWebHostEnvironment environment, String FileID) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Controllers\Sys\FileController.cs:line 73
+   at lambda_method590(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+

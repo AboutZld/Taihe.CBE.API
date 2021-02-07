@@ -21,8 +21,39 @@ namespace TaiheSystem.CBE.Api.Core
     public class DbContext
     {
 
-        public SqlSugarClient Db;   //用来处理事务多表查询和复杂的操作
+        public static SqlSugarClient Db;   //用来处理事务多表查询和复杂的操作
 
+        public static SqlSugarClient CurrentDB
+        {
+              get
+              {
+                  if (Db == null)
+                  {
+                      GetInit();
+                  }
+                  return Db;
+              }
+          }
+   
+         private static void GetInit()
+         {
+              Db = new SqlSugarClient(new ConnectionConfig()
+              {
+                  ConnectionString = AppSettings.Configuration["DbConnection:ConnectionString"],
+                  DbType = (DbType)Convert.ToInt32(AppSettings.Configuration["DbConnection:DbType"]),
+                  IsAutoCloseConnection = true,
+                  IsShardSameThread = true,
+                  InitKeyType = InitKeyType.Attribute,
+                  ConfigureExternalServices = new ConfigureExternalServices()
+              {
+               DataInfoCacheService = new RedisCache()
+              },
+              MoreSettings = new ConnMoreSettings()
+              {
+                  IsAutoRemoveDataCache = true
+              }
+              });
+          }
         public static SqlSugarClient Current
         {
             get
@@ -76,24 +107,76 @@ namespace TaiheSystem.CBE.Api.Core
             return new DbSet<T>(Db);
         }
 
+        public static void BeginTran()
+        {
+              Db.Ado.BeginTran();
+        }
+        public static void CommitTran()
+        {
+              Db.Ado.CommitTran();
+        }
+        public static void RollbackTran()
+       {
+              Db.Ado.RollbackTran();
+       }
+        public DbSet<Biz_PreContract> BizPreContractDb => new DbSet<Biz_PreContract>(Db);
+        public DbSet<Sys_User_Classification> SysUserClassificationDb => new DbSet<Sys_User_Classification>(Db);
+        public DbSet<Biz_MainContract> BizMainContractDb => new DbSet<Biz_MainContract>(Db);
+        public DbSet<uf_khxx_dt1> ufkhxxdt1Db => new DbSet<uf_khxx_dt1>(Db);
+        public DbSet<Biz_ContractItem_Minus> BizContractItemMinusDb => new DbSet<Biz_ContractItem_Minus>(Db);
+        public DbSet<Sys_Logs> SysLogsDb => new DbSet<Sys_Logs>(Db);
+        public DbSet<Sys_ExtAccess> SysExtAccessDb => new DbSet<Sys_ExtAccess>(Db);
+        public DbSet<Biz_ContractItem_BizClassification> BizContractItemBizClassificationDb => new DbSet<Biz_ContractItem_BizClassification>(Db);
+        public DbSet<uf_khxx> ufkhxxDb => new DbSet<uf_khxx>(Db);
+        public DbSet<Biz_ContractItem_Add> BizContractItemAddDb => new DbSet<Biz_ContractItem_Add>(Db);
+        public DbSet<Biz_ContractItem> BizContractItemDb => new DbSet<Biz_ContractItem>(Db);
+        public DbSet<Biz_ContractFile> BizContractFileDb => new DbSet<Biz_ContractFile>(Db);
+        public DbSet<Sys_Number> SysNumberDb => new DbSet<Sys_Number>(Db);
+        public DbSet<Biz_ContractFcs> BizContractFcsDb => new DbSet<Biz_ContractFcs>(Db);
+        public DbSet<Sys_NumberPrefix> SysNumberPrefixDb => new DbSet<Sys_NumberPrefix>(Db);
+        public DbSet<Sys_Number_NumPrefix> SysNumberNumPrefixDb => new DbSet<Sys_Number_NumPrefix>(Db);
+        public DbSet<Sys_NumberSeed> SysNumberSeedDb => new DbSet<Sys_NumberSeed>(Db);
+        public DbSet<uf_fcsxx> uffcsxxDb => new DbSet<uf_fcsxx>(Db);
+        public DbSet<Abi_BizClassification> AbiBizClassificationDb => new DbSet<Abi_BizClassification>(Db);
         public DbSet<Base_Company> BaseCompanyDb => new DbSet<Base_Company>(Db);
         public DbSet<Base_Equipment> BaseEquipmentDb => new DbSet<Base_Equipment>(Db);
         public DbSet<Base_Factory> BaseFactoryDb => new DbSet<Base_Factory>(Db);
         public DbSet<Base_ProductLine> BaseProductLineDb => new DbSet<Base_ProductLine>(Db);
+        public DbSet<Abi_SysStandard> AbiSysStandardDb => new DbSet<Abi_SysStandard>(Db);
         public DbSet<Base_ProductProcess> BaseProductProcessDb => new DbSet<Base_ProductProcess>(Db);
         public DbSet<Base_WorkShop> BaseWorkShopDb => new DbSet<Base_WorkShop>(Db);
-        public DbSet<Sys_DataRelation> SysDataRelationDb => new DbSet<Sys_DataRelation>(Db);
-        public DbSet<Sys_Logs> SysLogsDb => new DbSet<Sys_Logs>(Db);
-        public DbSet<Sys_Menu> SysMenuDb => new DbSet<Sys_Menu>(Db);
-        public DbSet<Sys_Online> SysOnlineDb => new DbSet<Sys_Online>(Db);
-        public DbSet<Sys_Options> SysOptionsDb => new DbSet<Sys_Options>(Db);
-        public DbSet<Sys_Power> SysPowerDb => new DbSet<Sys_Power>(Db);
-        public DbSet<Sys_Role> SysRoleDb => new DbSet<Sys_Role>(Db);
+        public DbSet<gnl_File> gnlFileDb => new DbSet<gnl_File>(Db);
+        public DbSet<Biz_Contract_PlanAuditor_Item> BizContractPlanAuditorItemDb => new DbSet<Biz_Contract_PlanAuditor_Item>(Db);
+        public DbSet<Biz_ContractItem_Sub> BizContractItemSubDb => new DbSet<Biz_ContractItem_Sub>(Db);
+        public DbSet<uf_hzhb> ufhzhbDb => new DbSet<uf_hzhb>(Db);
+        public DbSet<Biz_Contract_PlanAuditor> BizContractPlanAuditorDb => new DbSet<Biz_Contract_PlanAuditor>(Db);
+        public DbSet<Gwf_Flow> GwfFlowDb => new DbSet<Gwf_Flow>(Db);
+        public DbSet<Gwf_Node> GwfNodeDb => new DbSet<Gwf_Node>(Db);
+        public DbSet<Gwf_Step> GwfStepDb => new DbSet<Gwf_Step>(Db);
+        public DbSet<Gwf_Form> GwfFormDb => new DbSet<Gwf_Form>(Db);
+        public DbSet<Gwf_Operation> GwfOperationDb => new DbSet<Gwf_Operation>(Db);
         public DbSet<Sys_RolePower> SysRolePowerDb => new DbSet<Sys_RolePower>(Db);
+        public DbSet<Biz_Contract_Plan> BizContractPlanDb => new DbSet<Biz_Contract_Plan>(Db);
+        public DbSet<Org_User_Department> OrgUserDepartmentDb => new DbSet<Org_User_Department>(Db);
         public DbSet<Sys_TasksQz> SysTasksQzDb => new DbSet<Sys_TasksQz>(Db);
         public DbSet<Sys_UserRelation> SysUserRelationDb => new DbSet<Sys_UserRelation>(Db);
         public DbSet<Sys_UserRole> SysUserRoleDb => new DbSet<Sys_UserRole>(Db);
         public DbSet<Sys_Users> SysUsersDb => new DbSet<Sys_Users>(Db);
+        public DbSet<Sys_Menu> SysMenuDb => new DbSet<Sys_Menu>(Db);
+        public DbSet<Sys_DataRelation> SysDataRelationDb => new DbSet<Sys_DataRelation>(Db);
+        public DbSet<Sys_AuditTime> SysAuditTimeDb => new DbSet<Sys_AuditTime>(Db);
+        public DbSet<Org_Department> OrgDepartmentDb => new DbSet<Org_Department>(Db);
+        public DbSet<Sys_Online> SysOnlineDb => new DbSet<Sys_Online>(Db);
+        public DbSet<Frm_SelectItemObj> FrmSelectItemObjDb => new DbSet<Frm_SelectItemObj>(Db);
+        public DbSet<Sys_Role> SysRoleDb => new DbSet<Sys_Role>(Db);
+        public DbSet<Sys_User_SystemType> SysUserSystemTypeDb => new DbSet<Sys_User_SystemType>(Db);
+        public DbSet<Frm_SelectItem> FrmSelectItemDb => new DbSet<Frm_SelectItem>(Db);
+        public DbSet<Sys_Power> SysPowerDb => new DbSet<Sys_Power>(Db);
+        public DbSet<Sys_Options> SysOptionsDb => new DbSet<Sys_Options>(Db);
+        public DbSet<Sys_User_SystemType_Standard> SysUserSystemTypeStandardDb => new DbSet<Sys_User_SystemType_Standard>(Db);
+        public DbSet<Cfg_SystemType> CfgSystemTypeDb => new DbSet<Cfg_SystemType>(Db);
+        public DbSet<Cfg_ServiceType> CfgServiceTypeDb => new DbSet<Cfg_ServiceType>(Db);
+        public DbSet<Cfg_AuditType> CfgAuditTypeDb => new DbSet<Cfg_AuditType>(Db);
 
     }
 

@@ -1,0 +1,53 @@
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-02 09:33:03.0784 
+ 日志来源 ： TaiheSystem.CBE.Api.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：列名 'AuditTypeNames' 无效。 
+【异常类型】：SqlException 
+【异常信息】：列名 'AuditTypeNames' 无效。 
+【堆栈调用】：   at SqlSugar.AdoProvider.GetScalar(String sql, SugarParameter[] parameters)
+   at SqlSugar.AdoProvider.GetInt(String sql, SugarParameter[] parameters)
+   at SqlSugar.QueryableProvider`1.GetCount()
+   at SqlSugar.QueryableProvider`1.Count()
+   at TaiheSystem.CBE.Api.Interfaces.QueryableExtension.ToPage[T](ISugarQueryable`1 source, PageParm parm) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Interfaces\Extensions\QueryableExtension.cs:line 59
+   at TaiheSystem.CBE.Api.Interfaces.BaseService`1.GetPages(Expression`1 where, PageParm parm) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Interfaces\BaseService.cs:line 215
+   at Castle.Proxies.Invocations.IBaseService`1_GetPages_10.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.IBaseService`1Proxy_10.GetPages(Expression`1 where, PageParm parm)
+   at TaiheSystem.CBE.Api.Hostd.Controllers.Main.MainContractController.Query(MainContractQueryDto parm) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Controllers\Main\MainContractController.cs:line 136
+   at lambda_method689(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-02 14:10:06.8302 
+ 日志来源 ： TaiheSystem.CBE.Api.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：Object reference not set to an instance of an object. 
+【异常类型】：NullReferenceException 
+【异常信息】：Object reference not set to an instance of an object. 
+【堆栈调用】：   at TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanController.GetPlanDetail(PlanInitDto parm) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Controllers\AuditPlan\PlanController.cs:line 125
+   at lambda_method628(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+

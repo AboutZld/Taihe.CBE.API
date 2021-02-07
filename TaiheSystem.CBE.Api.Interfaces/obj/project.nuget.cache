@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "G1j3xR4zvjgykDdByVEYr0b8Ja559Otk1JIT5LVREubc8R8ViUvLFj57j3lDY3U2/fAP9atLGV5qhsxQm9uozA==",
+  "dgSpecHash": "kGTPYzQZlzjze9iS3+a3NhlRHTj7dKfOXuqx9IgA7pO8ZT74LYoB76soKiTyQutl3FwbOsFDS5xAo160r31sdQ==",
   "success": true,
-  "projectFilePath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Interfaces\\TaiheSystem.CBE.Api.Interfaces.csproj",
+  "projectFilePath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Interfaces\\TaiheSystem.CBE.Api.Interfaces.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\zhuld\\.nuget\\packages\\bouncycastle.netcore\\1.8.3\\bouncycastle.netcore.1.8.3.nupkg.sha512",
     "C:\\Users\\zhuld\\.nuget\\packages\\csrediscore\\3.6.5\\csrediscore.3.6.5.nupkg.sha512",
@@ -29,6 +29,7 @@
     "C:\\Users\\zhuld\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
     "C:\\Users\\zhuld\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\zhuld\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\zhuld\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\zhuld\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\zhuld\\.nuget\\packages\\microsoft.win32.registry\\4.4.0\\microsoft.win32.registry.4.4.0.nupkg.sha512",
     "C:\\Users\\zhuld\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
@@ -68,6 +69,9 @@
     "C:\\Users\\zhuld\\.nuget\\packages\\sqlsugarcore.kdbndp\\1.0.0\\sqlsugarcore.kdbndp.1.0.0.nupkg.sha512",
     "C:\\Users\\zhuld\\.nuget\\packages\\ssh.net\\2016.1.0\\ssh.net.2016.1.0.nupkg.sha512",
     "C:\\Users\\zhuld\\.nuget\\packages\\sshnet.security.cryptography\\1.2.0\\sshnet.security.cryptography.1.2.0.nupkg.sha512",
+    "C:\\Users\\zhuld\\.nuget\\packages\\swashbuckle.aspnetcore.annotations\\5.6.3\\swashbuckle.aspnetcore.annotations.5.6.3.nupkg.sha512",
+    "C:\\Users\\zhuld\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "C:\\Users\\zhuld\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
     "C:\\Users\\zhuld\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\zhuld\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\zhuld\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

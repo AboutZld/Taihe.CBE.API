@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Interfaces\\TaiheSystem.CBE.Api.Interfaces.csproj": {}
+    "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Interfaces\\TaiheSystem.CBE.Api.Interfaces.csproj": {}
   },
   "projects": {
-    "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Common\\TaiheSystem.CBE.Api.Common.csproj": {
+    "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Common\\TaiheSystem.CBE.Api.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Common\\TaiheSystem.CBE.Api.Common.csproj",
+        "projectUniqueName": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Common\\TaiheSystem.CBE.Api.Common.csproj",
         "projectName": "TaiheSystem.CBE.Api.Common",
-        "projectPath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Common\\TaiheSystem.CBE.Api.Common.csproj",
+        "projectPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Common\\TaiheSystem.CBE.Api.Common.csproj",
         "packagesPath": "C:\\Users\\zhuld\\.nuget\\packages\\",
-        "outputPath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Common\\obj\\",
+        "outputPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Microsoft\\Xamarin\\NuGet\\"
@@ -31,7 +31,11 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj": {
+                "projectPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -80,6 +84,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
@@ -88,14 +95,14 @@
         }
       }
     },
-    "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Core\\TaiheSystem.CBE.Api.Core.csproj": {
+    "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Core\\TaiheSystem.CBE.Api.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Core\\TaiheSystem.CBE.Api.Core.csproj",
+        "projectUniqueName": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Core\\TaiheSystem.CBE.Api.Core.csproj",
         "projectName": "TaiheSystem.CBE.Api.Core",
-        "projectPath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Core\\TaiheSystem.CBE.Api.Core.csproj",
+        "projectPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Core\\TaiheSystem.CBE.Api.Core.csproj",
         "packagesPath": "C:\\Users\\zhuld\\.nuget\\packages\\",
-        "outputPath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Core\\obj\\",
+        "outputPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Microsoft\\Xamarin\\NuGet\\"
@@ -116,11 +123,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Common\\TaiheSystem.CBE.Api.Common.csproj": {
-                "projectPath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Common\\TaiheSystem.CBE.Api.Common.csproj"
+              "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Common\\TaiheSystem.CBE.Api.Common.csproj": {
+                "projectPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Common\\TaiheSystem.CBE.Api.Common.csproj"
               },
-              "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj": {
-                "projectPath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj"
+              "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj": {
+                "projectPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj"
               }
             }
           }
@@ -155,6 +162,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
@@ -163,14 +173,14 @@
         }
       }
     },
-    "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Interfaces\\TaiheSystem.CBE.Api.Interfaces.csproj": {
+    "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Interfaces\\TaiheSystem.CBE.Api.Interfaces.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Interfaces\\TaiheSystem.CBE.Api.Interfaces.csproj",
+        "projectUniqueName": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Interfaces\\TaiheSystem.CBE.Api.Interfaces.csproj",
         "projectName": "TaiheSystem.CBE.Api.Interfaces",
-        "projectPath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Interfaces\\TaiheSystem.CBE.Api.Interfaces.csproj",
+        "projectPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Interfaces\\TaiheSystem.CBE.Api.Interfaces.csproj",
         "packagesPath": "C:\\Users\\zhuld\\.nuget\\packages\\",
-        "outputPath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Interfaces\\obj\\",
+        "outputPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Interfaces\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Microsoft\\Xamarin\\NuGet\\"
@@ -191,11 +201,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Core\\TaiheSystem.CBE.Api.Core.csproj": {
-                "projectPath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Core\\TaiheSystem.CBE.Api.Core.csproj"
+              "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Core\\TaiheSystem.CBE.Api.Core.csproj": {
+                "projectPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Core\\TaiheSystem.CBE.Api.Core.csproj"
               },
-              "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj": {
-                "projectPath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj"
+              "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj": {
+                "projectPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj"
               }
             }
           }
@@ -230,6 +240,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
@@ -238,14 +251,14 @@
         }
       }
     },
-    "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj": {
+    "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj",
+        "projectUniqueName": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj",
         "projectName": "TaiheSystem.CBE.Api.Model",
-        "projectPath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj",
+        "projectPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj",
         "packagesPath": "C:\\Users\\zhuld\\.nuget\\packages\\",
-        "outputPath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Model\\obj\\",
+        "outputPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Model\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Microsoft\\Xamarin\\NuGet\\"
@@ -278,6 +291,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Swashbuckle.AspNetCore.Annotations": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            },
             "sqlSugarCore": {
               "target": "Package",
               "version": "[5.0.1.7, )"
@@ -294,6 +311,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

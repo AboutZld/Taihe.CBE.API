@@ -90,10 +90,10 @@ namespace TaiheSystem.CBE.Api.Model
         MiniProgram,
 
         /// <summary>
-        /// 福利小程序
+        /// 外部程序接入
         /// </summary>
-        [Text("Perk")]
-        Perk,
+        [Text("Access")]
+        Access,
     }
 
     /// <summary>

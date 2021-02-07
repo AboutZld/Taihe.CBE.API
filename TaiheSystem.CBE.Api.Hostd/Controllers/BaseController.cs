@@ -152,6 +152,44 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers
 
             return resultMenus;
         }
+
+        /// <summary>
+        /// 生成树形结构
+        /// </summary>
+        /// <param name="depts"></param>
+        /// <param name="parentId"></param>
+        /// <returns></returns>
+        public static List<DeptListVM> ResolveDeptTree(List<Org_Department> depts, string parentId = null)
+        {
+            List<DeptListVM> resultMenus = new List<DeptListVM>();
+
+            foreach (var dept in depts.Where(m => m.ParentUID == parentId).OrderBy(m => m.SortIndex))
+            {
+                var childrenMenu = ResolveDeptTree(depts, dept.ID);
+
+                DeptListVM deptsVM = new DeptListVM
+                {
+                    ID = dept.ID,
+                    DeptNo = dept.DeptNo,
+                    DeptName = dept.DeptName,
+                    DeptAbbreviation = dept.DeptAbbreviation,
+                    DeptDescr = dept.DeptDescr,
+                    SortIndex = dept.SortIndex,
+                    ParentUID = dept.ParentUID,
+                    Children = childrenMenu.Count == 0 ? null : childrenMenu,
+                    CreateTime = dept.CreateTime,
+                    UpdateTime = dept.UpdateTime,
+                    CreateID = dept.CreateID,
+                    CreateName = dept.CreateName,
+                    UpdateID = dept.UpdateID,
+                    UpdateName = dept.UpdateName
+
+                };
+                resultMenus.Add(deptsVM);
+            }
+
+            return resultMenus;
+        }
         #endregion
     }
 }

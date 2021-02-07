@@ -36,17 +36,23 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Sys
         private readonly ISysUsersService _userService;
 
         /// <summary>
+        /// 外部服务接入验证
+        /// </summary>
+        private readonly ISysExtAccessService _accessService;
+
+        /// <summary>
         /// 用户关系接口
         /// </summary>
         private readonly ISysUserRelationService _userRelationService;
 
         public AuthController(TokenManager tokenManager, ISysUsersService userService, ILogger<AuthController> logger, 
-            ISysUserRelationService userRelationService)
+            ISysUserRelationService userRelationService, ISysExtAccessService accessService)
         {
             _tokenManager = tokenManager;
             _userService = userService;
             _logger = logger;
             _userRelationService = userRelationService;
+            _accessService = accessService;
         }
 
         /// <summary>
@@ -84,17 +90,17 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Sys
 
             if (parm.Code.ToUpper() != captchaCode)
             {        
-                return toResponse(StatusCodeType.Error, "输入验证码无效");
+                //return toResponse(StatusCodeType.Error, "输入验证码无效");
             }
 
-            var userInfo = _userService.GetFirst(o => o.LoginName == parm.UserName.Trim());
+            var userInfo = _userService.GetFirst(o => o.UserID == parm.UserName.Trim());
 
             if (userInfo == null)
             {
                 return toResponse(StatusCodeType.Error, "用户名或密码错误");
             }
 
-            if (!PasswordUtil.ComparePasswords(userInfo.UserID, userInfo.Password, parm.PassWord.Trim()))
+            if (!PasswordUtil.ComparePasswords(userInfo.ID, userInfo.Password, parm.PassWord.Trim()))
             {
                 return toResponse(StatusCodeType.Error, "用户名或密码错误");
             }
@@ -109,34 +115,34 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Sys
             return toResponse(userToken);
         }
 
-        /// <summary>
-        /// 微信小程序用户登录
-        /// </summary>
-        /// <returns></returns>
-        [HttpPost]
-        public IActionResult LoginMiniProgram([FromBody] LoginMiniProgramDto parm)
-        {
-            var userInfo = _userService.GetFirst(o => o.UserID == parm.UserName.Trim());
+        ///// <summary>
+        ///// 外部接口获取token
+        ///// </summary>
+        ///// <returns></returns>
+        //[HttpPost]
+        //public IActionResult LoginMiniProgram([FromBody] LoginAccessProgramDto parm)
+        //{
+        //    var ret = _accessService.GetFirst(o => o.ExtName == parm.ExtName.Trim());
 
-            if (userInfo == null)
-            {
-                return toResponse(StatusCodeType.Error, "用户名或密码错误");
-            }
+        //    if (ret == null)
+        //    {
+        //        return toResponse(StatusCodeType.Error, "当前接入账号不存在");
+        //    }
 
-            if (!PasswordUtil.ComparePasswords(userInfo.UserID, userInfo.Password, parm.PassWord.Trim()))
-            {
-                return toResponse(StatusCodeType.Error, "用户名或密码错误");
-            }
+        //    if (ret.KeyValue != parm.AuthToken)
+        //    {
+        //        return toResponse(StatusCodeType.Error, "当前接入账号AuthToken验证失败，请联系管理员！");
+        //    }
 
-            if (!userInfo.Enabled)
-            {
-                return toResponse(StatusCodeType.Error, "用户未启用，请联系管理员！");
-            }
+        //    Sys_Users userInfo = new Sys_Users();
+        //    userInfo.ID = ret.ID;
+        //    userInfo.UserID = ret.ID;
+        //    userInfo.UserName = ret.ExtName;
 
-            var userToken = _tokenManager.CreateSession(userInfo, SourceType.MiniProgram, Convert.ToInt32(AppSettings.Configuration["AppSettings:MiniProgramSessionExpire"]));
+        //    var userToken = _tokenManager.CreateSession(userInfo, SourceType.Access, Convert.ToInt32(AppSettings.Configuration["AppSettings:WebSessionExpire"]));
 
-            return toResponse(userToken);
-        }
+        //    return toResponse(userToken);
+        //}
 
         /// <summary>
         /// 用户退出
@@ -161,59 +167,59 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Sys
             return toResponse(_tokenManager.GetSessionInfo());
         }
 
-        /// <summary>
-        /// 获取用户公司
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        [Authorization]
-        public IActionResult GetUserCompany()
-        {
-            return toResponse(_userRelationService.GetUserCompany(_tokenManager.GetSessionInfo(), true));
-        }
+        ///// <summary>
+        ///// 获取用户公司
+        ///// </summary>
+        ///// <returns></returns>
+        //[HttpGet]
+        //[Authorization]
+        //public IActionResult GetUserCompany()
+        //{
+        //    return toResponse(_userRelationService.GetUserCompany(_tokenManager.GetSessionInfo(), true));
+        //}
 
-        /// <summary>
-        /// 获取用户工厂
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        [Authorization]
-        public IActionResult GetUserFactory()
-        {
-            return toResponse(_userRelationService.GetUserFactory(_tokenManager.GetSessionInfo(), true));
-        }
+        ///// <summary>
+        ///// 获取用户工厂
+        ///// </summary>
+        ///// <returns></returns>
+        //[HttpGet]
+        //[Authorization]
+        //public IActionResult GetUserFactory()
+        //{
+        //    return toResponse(_userRelationService.GetUserFactory(_tokenManager.GetSessionInfo(), true));
+        //}
 
-        /// <summary>
-        /// 获取用户车间
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        [Authorization]
-        public IActionResult GetUserWorkShop()
-        {
-            return toResponse(_userRelationService.GetUserWorkShop(_tokenManager.GetSessionInfo(), true));
-        }
+        ///// <summary>
+        ///// 获取用户车间
+        ///// </summary>
+        ///// <returns></returns>
+        //[HttpGet]
+        //[Authorization]
+        //public IActionResult GetUserWorkShop()
+        //{
+        //    return toResponse(_userRelationService.GetUserWorkShop(_tokenManager.GetSessionInfo(), true));
+        //}
 
-        /// <summary>
-        /// 获取用户工序
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        [Authorization]
-        public IActionResult GetUserProductProcess()
-        {
-            return toResponse(_userRelationService.GetUserProductProcess(_tokenManager.GetSessionInfo(), true));
-        }
+        ///// <summary>
+        ///// 获取用户工序
+        ///// </summary>
+        ///// <returns></returns>
+        //[HttpGet]
+        //[Authorization]
+        //public IActionResult GetUserProductProcess()
+        //{
+        //    return toResponse(_userRelationService.GetUserProductProcess(_tokenManager.GetSessionInfo(), true));
+        //}
 
-        /// <summary>
-        /// 获取用户设备
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        [Authorization]
-        public IActionResult GetUserProductLine()
-        {
-            return toResponse(_userRelationService.GetUserProductLine(_tokenManager.GetSessionInfo(), true));
-        }
+        ///// <summary>
+        ///// 获取用户设备
+        ///// </summary>
+        ///// <returns></returns>
+        //[HttpGet]
+        //[Authorization]
+        //public IActionResult GetUserProductLine()
+        //{
+        //    return toResponse(_userRelationService.GetUserProductLine(_tokenManager.GetSessionInfo(), true));
+        //}
     }
 }

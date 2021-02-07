@@ -96,6 +96,7 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Sys
         public IActionResult Create([FromBody] UsersCreateDto parm)
         {
             //判断用户是否已经存在
+            //UserID为登录名不允许重复
             if (_usersService.Any(m => m.UserID == parm.UserID))
             {
                 return toResponse(StatusCodeType.Error, $"添加 {parm.UserID} 失败，该用户已存在，不能重复！");
@@ -104,7 +105,7 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Sys
             //从 Dto 映射到 实体
             var userInfo = parm.Adapt<Sys_Users>().ToCreate(_tokenManager.GetSessionInfo());
 
-            userInfo.Password = PasswordUtil.CreateDbPassword(userInfo.UserID, userInfo.Password.Trim());
+            userInfo.Password = PasswordUtil.CreateDbPassword(userInfo.ID, userInfo.Password.Trim());
 
             return toResponse(_usersService.Add(userInfo));
         }
@@ -120,11 +121,15 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Sys
             var userSession = _tokenManager.GetSessionInfo();
 
             #region 更新用户信息
+            //判断用户是否已经存在
+            if (_usersService.Any(m => m.UserID == parm.UserID))
+            {
+                return toResponse(StatusCodeType.Error, $"添加 {parm.UserID} 失败，该用户已存在，不能重复！");
+            }
             #endregion
 
             var response = _usersService.Update(m => m.UserID == parm.UserID, m =>  new Sys_Users
             {
-                UserID = parm.UserID,
                 UserName = parm.UserName,
                 NickName = parm.NickName,
                 Email = parm.Email,
@@ -224,10 +229,17 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Sys
         [Authorization(Power = "PRIV_USERS_RESETPASSWD")]
         public IActionResult ResetPassword([FromBody] UsersResetPasswordDto parm)
         {
+            var userSession = _tokenManager.GetSessionInfo();
+
+            if(_usersService.GetFirst(m => m.ID == parm.ID) == null)
+            {
+                return toResponse(StatusCodeType.Error, "当前用户不存在，请核对");
+            }
+
             // 更新用户密码
             var response = _usersService.Update(m => m.UserID == parm.UserID, m => new Sys_Users()
             {
-                Password = PasswordUtil.CreateDbPassword(parm.UserID, parm.ConfirmPassword.Trim())
+                Password = PasswordUtil.CreateDbPassword(parm.ID, parm.ConfirmPassword.Trim())
             });
 
             // 删除登录会话记录

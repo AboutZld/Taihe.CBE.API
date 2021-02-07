@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj": {}
+    "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj": {}
   },
   "projects": {
-    "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj": {
+    "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj",
+        "projectUniqueName": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj",
         "projectName": "TaiheSystem.CBE.Api.Model",
-        "projectPath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj",
+        "projectPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj",
         "packagesPath": "C:\\Users\\zhuld\\.nuget\\packages\\",
-        "outputPath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Model\\obj\\",
+        "outputPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Model\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Microsoft\\Xamarin\\NuGet\\"
@@ -44,6 +44,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Swashbuckle.AspNetCore.Annotations": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            },
             "sqlSugarCore": {
               "target": "Package",
               "version": "[5.0.1.7, )"
@@ -60,6 +64,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

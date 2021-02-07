@@ -67,6 +67,7 @@ namespace TaiheSystem.CBE.Api.Hostd.Extensions
             //设置 Session 信息
             var userSessionVM = new UserSessionVM()
             {
+                ID = userInfo.ID,
                 UserID = userInfo.UserID,
                 UserName = userInfo.UserName,
                 NickName = userInfo.NickName,
@@ -90,7 +91,7 @@ namespace TaiheSystem.CBE.Api.Hostd.Extensions
                 OneSession = userInfo.OneSession,
                 Source = source.ToString(),
                 KeepHours = hours,
-                Administrator = userInfo.Administrator,
+                Administrator = (bool)userInfo.Administrator,
                 UserPower = _usersService.GetUserPowers(userInfo.UserID),
                 UserRelation = _usersService.GetUserRelation(userInfo.UserID),
             };
@@ -206,7 +207,7 @@ namespace TaiheSystem.CBE.Api.Hostd.Extensions
                         OneSession = userInfo.OneSession,
                         Source = redisUserInfo.Source,
                         KeepHours = redisUserInfo.KeepHours,
-                        Administrator = userInfo.Administrator,
+                        Administrator = (bool)userInfo.Administrator,
                         UserPower = _usersService.GetUserPowers(userInfo.UserID),
                         UserRelation = _usersService.GetUserRelation(userInfo.UserID),
                     };

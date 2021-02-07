@@ -105,13 +105,17 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Basic
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        [Authorization(Power = "PRIV_COMPANY_CREATE")]
+        //[Authorization(Power = "PRIV_COMPANY_CREATE")]
         public IActionResult Create([FromBody] CompanyCreateDto parm)
         {
             if (_companyService.Any(m => m.CompanyNo == parm.CompanyNo))
             {
                 return toResponse(StatusCodeType.Error, $"添加公司编码 {parm.CompanyNo} 已存在，不能重复！");
             }
+
+            var helper = new Common.SerialNoHelper();
+
+            var serialno = helper.Generate("N20"); //生成编码
 
             //从 Dto 映射到 实体
             var company = parm.Adapt<Base_Company>().ToCreate(_tokenManager.GetSessionInfo());
@@ -127,14 +131,14 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Basic
         [Authorization(Power = "PRIV_COMPANY_UPDATE")]
         public IActionResult Update([FromBody] CompanyUpdateDto parm)
         {
-            if (_companyService.Any(m => m.CompanyNo == parm.CompanyNo && m.ID != parm.ID))
+            if (_companyService.Any(m => m.CompanyNo == parm.CompanyNo && m.ID.ToString() != parm.ID))
             {
                 return toResponse(StatusCodeType.Error, $"更新公司编码 {parm.CompanyNo} 已存在，不能重复！");
             }
 
             var userSession = _tokenManager.GetSessionInfo();
 
-            return toResponse(_companyService.Update(m => m.ID == parm.ID, m => new Base_Company()
+            return toResponse(_companyService.Update(m => m.ID.ToString() == parm.ID, m => new Base_Company()
             {
                 CompanyNo = parm.CompanyNo,
                 CompanyName = parm.CompanyName,

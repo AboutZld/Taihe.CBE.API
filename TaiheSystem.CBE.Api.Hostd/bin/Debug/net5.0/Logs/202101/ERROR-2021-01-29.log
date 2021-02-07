@@ -1,0 +1,102 @@
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-29 12:42:36.9860 
+ 日志来源 ： TaiheSystem.CBE.Api.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：列名 'fcslx' 无效。 
+【异常类型】：SqlException 
+【异常信息】：列名 'fcslx' 无效。 
+【堆栈调用】：   at SqlSugar.AdoProvider.GetDataReader(String sql, SugarParameter[] parameters)
+   at SqlSugar.QueryableProvider`1.GetData[TResult](KeyValuePair`2 sqlObj)
+   at SqlSugar.QueryableProvider`1._ToList[TResult]()
+   at SqlSugar.QueryableProvider`1.ToList()
+   at TaiheSystem.CBE.Api.Hostd.Controllers.Main.MainContractController.GetDetail(String id) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Controllers\Main\MainContractController.cs:line 356
+   at lambda_method623(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-29 15:36:40.4720 
+ 日志来源 ： Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware 
+ 日志级别 ： ERROR 
+ 日志内容 ： An unhandled exception has occurred while executing the request.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-29 15:36:40.5112 
+ 日志来源 ： Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware 
+ 日志级别 ： ERROR 
+ 日志内容 ： An exception was thrown attempting to display the error page.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-29 15:36:40.5247 
+ 日志来源 ： Microsoft.AspNetCore.Server.Kestrel 
+ 日志级别 ： ERROR 
+ 日志内容 ： Connection id "0HM6452EE0JED", Request id "0HM6452EE0JED:00000002": An unhandled exception was thrown by the application.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-29 16:07:24.7915 
+ 日志来源 ： Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware 
+ 日志级别 ： ERROR 
+ 日志内容 ： An unhandled exception has occurred while executing the request.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-29 16:07:24.8184 
+ 日志来源 ： Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware 
+ 日志级别 ： ERROR 
+ 日志内容 ： An exception was thrown attempting to display the error page.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-29 16:07:24.8302 
+ 日志来源 ： Microsoft.AspNetCore.Server.Kestrel 
+ 日志级别 ： ERROR 
+ 日志内容 ： Connection id "0HM645JK0H8GA", Request id "0HM645JK0H8GA:00000002": An unhandled exception was thrown by the application.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-29 16:08:06.5268 
+ 日志来源 ： Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware 
+ 日志级别 ： ERROR 
+ 日志内容 ： An unhandled exception has occurred while executing the request.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-29 16:08:06.5505 
+ 日志来源 ： Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware 
+ 日志级别 ： ERROR 
+ 日志内容 ： An exception was thrown attempting to display the error page.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-29 16:08:06.5602 
+ 日志来源 ： Microsoft.AspNetCore.Server.Kestrel 
+ 日志级别 ： ERROR 
+ 日志内容 ： Connection id "0HM645K0HMA3I", Request id "0HM645K0HMA3I:00000002": An unhandled exception was thrown by the application.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-29 17:21:06.0204 
+ 日志来源 ： TaiheSystem.CBE.Api.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：Object reference not set to an instance of an object. 
+【异常类型】：NullReferenceException 
+【异常信息】：Object reference not set to an instance of an object. 
+【堆栈调用】：   at TaiheSystem.CBE.Api.Hostd.Controllers.Main.ApproveContractController.ApprovePass(ApproveContractSubmitDto param) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Controllers\Main\ApproveContractController.cs:line 164
+   at lambda_method623(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+

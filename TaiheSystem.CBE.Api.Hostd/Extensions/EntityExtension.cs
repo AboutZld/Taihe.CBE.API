@@ -7,11 +7,18 @@ namespace TaiheSystem.CBE.Api.Hostd.Extensions
     {
         public static TSource ToCreate<TSource>(this TSource source, UserSessionVM userSession)
         {
+            if(userSession == null)
+            {
+                throw new Exception("登录信息已失效，请重新登录");
+            }
             var types = source.GetType();
 
             if (types.GetProperty("ID") != null)
             {
-                types.GetProperty("ID").SetValue(source, Guid.NewGuid().ToString().ToUpper(), null);
+                if (types.GetProperty("ID").GetValue(source) == null || types.GetProperty("ID").GetValue(source).ToString() == "")
+                {
+                    types.GetProperty("ID").SetValue(source, Guid.NewGuid().ToString().ToUpper(), null);
+                }
             }
 
             if (types.GetProperty("CreateTime") != null)

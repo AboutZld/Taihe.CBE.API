@@ -1,0 +1,176 @@
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-19 10:53:38.2136 
+ 日志来源 ： TaiheSystem.CBE.Api.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：GetSessionItem : UserInfo has Exception 
+【异常类型】：Exception 
+【异常信息】：GetSessionItem : UserInfo has Exception 
+【堆栈调用】：   at TaiheSystem.CBE.Api.Hostd.Extensions.TokenManager.GetSessionItem[T](String key)
+   at TaiheSystem.CBE.Api.Hostd.Extensions.TokenManager.GetSessionInfo()
+   at TaiheSystem.CBE.Api.Hostd.Controllers.Basic.CompanyController.Create(CompanyCreateDto parm)
+   at lambda_method595(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-19 10:58:43.1552 
+ 日志来源 ： TaiheSystem.CBE.Api.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：违反了 PRIMARY KEY 约束“PK_Sys_NumberSeed”。不能在对象“dbo.Sys_NumberSeed”中插入重复键。重复键值为 (N20)。
+语句已终止。 
+【异常类型】：SqlException 
+【异常信息】：违反了 PRIMARY KEY 约束“PK_Sys_NumberSeed”。不能在对象“dbo.Sys_NumberSeed”中插入重复键。重复键值为 (N20)。
+语句已终止。 
+【堆栈调用】：   at SqlSugar.AdoProvider.ExecuteCommand(String sql, SugarParameter[] parameters)
+   at SqlSugar.InsertableProvider`1.ExecuteCommand()
+   at SqlSugar.SimpleClient`1.Insert(T insertObj)
+   at TaiheSystem.CBE.Api.Hostd.Common.SerialNoHelper.Generate(String NumCode) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Common\SerialNoHelper.cs:line 71
+   at TaiheSystem.CBE.Api.Hostd.Controllers.Basic.CompanyController.Create(CompanyCreateDto parm) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Controllers\Basic\CompanyController.cs:line 118
+   at lambda_method595(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-19 10:59:48.7822 
+ 日志来源 ： TaiheSystem.CBE.Api.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：违反了 PRIMARY KEY 约束“PK_Sys_NumberSeed”。不能在对象“dbo.Sys_NumberSeed”中插入重复键。重复键值为 (N20)。
+语句已终止。 
+【异常类型】：SqlException 
+【异常信息】：违反了 PRIMARY KEY 约束“PK_Sys_NumberSeed”。不能在对象“dbo.Sys_NumberSeed”中插入重复键。重复键值为 (N20)。
+语句已终止。 
+【堆栈调用】：   at SqlSugar.AdoProvider.ExecuteCommand(String sql, SugarParameter[] parameters)
+   at SqlSugar.InsertableProvider`1.ExecuteCommand()
+   at SqlSugar.SimpleClient`1.Insert(T insertObj)
+   at TaiheSystem.CBE.Api.Hostd.Common.SerialNoHelper.Generate(String NumCode) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Common\SerialNoHelper.cs:line 71
+   at TaiheSystem.CBE.Api.Hostd.Controllers.Basic.CompanyController.Create(CompanyCreateDto parm) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Controllers\Basic\CompanyController.cs:line 118
+   at lambda_method595(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-19 11:02:34.3815 
+ 日志来源 ： TaiheSystem.CBE.Api.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：GetSessionItem : UserInfo has Exception 
+【异常类型】：Exception 
+【异常信息】：GetSessionItem : UserInfo has Exception 
+【堆栈调用】：   at TaiheSystem.CBE.Api.Hostd.Extensions.TokenManager.GetSessionItem[T](String key) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Extensions\TokenManager.cs:line 321
+   at TaiheSystem.CBE.Api.Hostd.Extensions.TokenManager.GetSessionInfo() in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Extensions\TokenManager.cs:line 287
+   at TaiheSystem.CBE.Api.Hostd.Controllers.Basic.CompanyController.Create(CompanyCreateDto parm) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Controllers\Basic\CompanyController.cs:line 121
+   at lambda_method595(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-19 11:03:02.3877 
+ 日志来源 ： TaiheSystem.CBE.Api.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：GetSessionItem : UserInfo has Exception 
+【异常类型】：Exception 
+【异常信息】：GetSessionItem : UserInfo has Exception 
+【堆栈调用】：   at TaiheSystem.CBE.Api.Hostd.Extensions.TokenManager.GetSessionItem[T](String key) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Extensions\TokenManager.cs:line 321
+   at TaiheSystem.CBE.Api.Hostd.Extensions.TokenManager.GetSessionInfo() in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Extensions\TokenManager.cs:line 287
+   at TaiheSystem.CBE.Api.Hostd.Controllers.Basic.CompanyController.Create(CompanyCreateDto parm) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Controllers\Basic\CompanyController.cs:line 121
+   at lambda_method595(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-19 11:07:38.3887 
+ 日志来源 ： TaiheSystem.CBE.Api.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：GetSessionItem : UserInfo has Exception 
+【异常类型】：Exception 
+【异常信息】：GetSessionItem : UserInfo has Exception 
+【堆栈调用】：   at TaiheSystem.CBE.Api.Hostd.Extensions.TokenManager.GetSessionItem[T](String key)
+   at TaiheSystem.CBE.Api.Hostd.Extensions.TokenManager.GetSessionInfo()
+   at TaiheSystem.CBE.Api.Hostd.Controllers.Basic.CompanyController.Create(CompanyCreateDto parm)
+   at lambda_method595(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-19 11:08:06.0122 
+ 日志来源 ： TaiheSystem.CBE.Api.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：GetSessionItem : UserInfo has Exception 
+【异常类型】：Exception 
+【异常信息】：GetSessionItem : UserInfo has Exception 
+【堆栈调用】：   at TaiheSystem.CBE.Api.Hostd.Extensions.TokenManager.GetSessionItem[T](String key)
+   at TaiheSystem.CBE.Api.Hostd.Extensions.TokenManager.GetSessionInfo()
+   at TaiheSystem.CBE.Api.Hostd.Controllers.Basic.CompanyController.Create(CompanyCreateDto parm)
+   at lambda_method595(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+

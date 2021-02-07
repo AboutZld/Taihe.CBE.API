@@ -33,6 +33,18 @@ namespace TaiheSystem.CBE.Api.Model.Dto
         public string Uuid { get; set; }
     }
 
+    public class LoginAccessProgramDto
+    {
+        [Required(ErrorMessage = "账号不能为空")]
+        [Display(Name = "账号")]
+        public string ExtName { get; set; }
+
+
+        [Required(ErrorMessage = "AuthToken")]
+        [Display(Name = "AuthToken")]
+        public string AuthToken { get; set; }
+    }
+
     public class LoginMiniProgramDto
     {
         [Required(ErrorMessage = "登录账号不能为空")]

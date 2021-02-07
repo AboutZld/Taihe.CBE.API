@@ -9,43 +9,224 @@
             登录验证过滤器
             </summary>
         </member>
-        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.BaseController.toResponse(TaiheSystem.CBE.Api.Model.StatusCodeType)">
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Common.SerialNoHelper.Generate(System.String)">
             <summary>
-            返回封装
+            生成流水号
             </summary>
-            <param name="statusCode"></param>
+            <param name="NumCode">流水号代码</param>
             <returns></returns>
         </member>
-        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.BaseController.toResponse(TaiheSystem.CBE.Api.Model.StatusCodeType,System.String)">
+        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanApproveController">
             <summary>
-            返回封装
+            计划审批
             </summary>
-            <param name="statusCode"></param>
-            <param name="retMessage"></param>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanApproveController._logger">
+            <summary>
+            日志管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanApproveController._tokenManager">
+            <summary>
+            会话管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanApproveController._contractitemsubService">
+            <summary>
+            合同子项目接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanApproveController._contractitemService">
+            <summary>
+            项目接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanApproveController._contractitemplanService">
+            <summary>
+            任务安排
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanApproveController._contractplanauditorService">
+            <summary>
+            审核员
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanApproveController._contractplanauditoritemService">
+            <summary>
+            审核员项目信息
+            </summary>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanApproveController.Query(TaiheSystem.CBE.Api.Model.Dto.PlanApproveDto)">
+            <summary>
+            查询审核安排列表
+            </summary>
             <returns></returns>
         </member>
-        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.BaseController.toResponse``1(``0)">
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanApproveController.ApprovePass(TaiheSystem.CBE.Api.Model.Dto.PlanApproveSubmitDto)">
             <summary>
-            返回封装
+            审批通过
+            Power = PRIV_PLANAPPROVE_PASS
             </summary>
-            <typeparam name="T"></typeparam>
-            <param name="data"></param>
+            <param name="id">编码</param>
             <returns></returns>
         </member>
-        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.BaseController.ResolveUserMenuTree(System.Collections.Generic.List{TaiheSystem.CBE.Api.Model.Sys_Menu},System.String)">
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanApproveController.ApproveEnd(TaiheSystem.CBE.Api.Model.Dto.PlanApproveSubmitDto)">
             <summary>
-            生成系统菜单树
+            提交终止审核
+            Power = PRIV_PLANAPPROVE_END
             </summary>
-            <param name="menus"></param>
-            <param name="parentId"></param>
+            <param name="id">编码</param>
             <returns></returns>
         </member>
-        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.BaseController.ResolveMenuTree(System.Collections.Generic.List{TaiheSystem.CBE.Api.Model.Sys_Menu},System.String)">
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanApproveController.Cancel(TaiheSystem.CBE.Api.Model.Dto.PlanApproveSubmitDto)">
+             <summary>
+            撤销审批
+             Power = PRIV_PLANAPPROVE_CANCEL
+             </summary>
+             <param name="id">编码</param>
+             <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanApproveController.Return(TaiheSystem.CBE.Api.Model.Dto.PlanApproveSubmitDto)">
             <summary>
-            生成 Vue Router
+            退回派人
+            Power = PRIV_PLANAPPROVE_RETURN
             </summary>
-            <param name="menus"></param>
-            <param name="parentId"></param>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanApproveController.ApproveReset(TaiheSystem.CBE.Api.Model.Dto.PlanApproveSubmitDto)">
+            <summary>
+            终止审核重新提交审批
+            Power = PRIV_PLANAPPROVE_RESET
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanController">
+            <summary>
+            未安排计划管理
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanController._logger">
+            <summary>
+            日志管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanController._tokenManager">
+            <summary>
+            会话管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanController._contractitemsubService">
+            <summary>
+            合同子项目接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanController._contractitemService">
+            <summary>
+            项目接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanController._contractitemplanService">
+            <summary>
+            任务安排
+            </summary>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanController.Query(TaiheSystem.CBE.Api.Model.Dto.PlanQueryDto)">
+            <summary>
+            查询未安排列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanController.GetPlanDetail(TaiheSystem.CBE.Api.Model.Dto.PlanInitDto)">
+            <summary>
+            生成计划安排信息
+            Power = PRIV_PLAN_REGISTER
+            </summary>
+            <param name="parm">ids</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanController.Create(TaiheSystem.CBE.Api.Model.View.Standard.ItemPlanVM)">
+            <summary>
+            生成任务信息
+            Power = PRIV_PLAN_CREATE
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanManageController">
+            <summary>
+            待派人计划
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanManageController._logger">
+            <summary>
+            日志管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanManageController._tokenManager">
+            <summary>
+            会话管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanManageController._contractitemsubService">
+            <summary>
+            合同子项目接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanManageController._contractitemService">
+            <summary>
+            项目接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanManageController._contractitemplanService">
+            <summary>
+            任务安排
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanManageController._contractplanauditorService">
+            <summary>
+            审核员
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanManageController._contractplanauditoritemService">
+            <summary>
+            审核员项目信息
+            </summary>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanManageController.Query(TaiheSystem.CBE.Api.Model.Dto.PlanManageDto)">
+            <summary>
+            查询审核安排列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanManageController.GetPlanDetail(System.String)">
+            <summary>
+            获取计划任务信息
+            Power = PRIV_PLANMANAGE_DETAIL
+            </summary>
+            <param name="parm">ids</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanManageController.Update(TaiheSystem.CBE.Api.Model.View.Standard.ItemPlanVM)">
+            <summary>
+            保存计划信息
+            Power = PRIV_PLANMANAGE_UPDATE
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanManageController.SubmitSend(System.String)">
+            <summary>
+            提交派人
+            Power = PRIV_PLANMANAGE_SEND
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanManageController.Delete(System.String)">
+            <summary>
+            删除安排任务
+            Power=PRIV_PLANMANAGE_DELETE
+            </summary>
             <returns></returns>
         </member>
         <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.CompanyController">
@@ -441,6 +622,967 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.BaseController.toResponse(TaiheSystem.CBE.Api.Model.StatusCodeType)">
+            <summary>
+            返回封装
+            </summary>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.BaseController.toResponse(TaiheSystem.CBE.Api.Model.StatusCodeType,System.String)">
+            <summary>
+            返回封装
+            </summary>
+            <param name="statusCode"></param>
+            <param name="retMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.BaseController.toResponse``1(``0)">
+            <summary>
+            返回封装
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.BaseController.ResolveUserMenuTree(System.Collections.Generic.List{TaiheSystem.CBE.Api.Model.Sys_Menu},System.String)">
+            <summary>
+            生成系统菜单树
+            </summary>
+            <param name="menus"></param>
+            <param name="parentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.BaseController.ResolveMenuTree(System.Collections.Generic.List{TaiheSystem.CBE.Api.Model.Sys_Menu},System.String)">
+            <summary>
+            生成 Vue Router
+            </summary>
+            <param name="menus"></param>
+            <param name="parentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.BaseController.ResolveDeptTree(System.Collections.Generic.List{TaiheSystem.CBE.Api.Model.Org_Department},System.String)">
+            <summary>
+            生成树形结构
+            </summary>
+            <param name="depts"></param>
+            <param name="parentId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerController">
+            <summary>
+            客户信息
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerController._logger">
+            <summary>
+            日志管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerController._tokenManager">
+            <summary>
+            会话管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerController._customerService">
+            <summary>
+            客户信息接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerController._customerlinkService">
+            <summary>
+            联系人接口
+            </summary>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerController.Query(TaiheSystem.CBE.Api.Model.Dto.CustomerQueryDto)">
+            <summary>
+            查询客户信息列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerController.Get(System.String)">
+            <summary>
+            根据 Id 查询客户信息
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerController.GetAll">
+            <summary>
+            查询所有客户信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerController.Create(TaiheSystem.CBE.Api.Model.Dto.CustomerCreateDto)">
+            <summary>
+            添加客户信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerController.Update(TaiheSystem.CBE.Api.Model.Dto.CustomerUpdateDto)">
+            <summary>
+            更新客户信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerController.Delete(System.String)">
+            <summary>
+            删除客户信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerLinkController">
+            <summary>
+            客户联系人信息
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerLinkController._logger">
+            <summary>
+            日志管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerLinkController._tokenManager">
+            <summary>
+            会话管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerLinkController._customerlinkService">
+            <summary>
+            客户联系人接口
+            </summary>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerLinkController.GetByCustomerID(System.String)">
+            <summary>
+            查询客户联系人信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerLinkController.Get(System.String)">
+            <summary>
+            根据 Id 查询联系人信息
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerLinkController.Create(TaiheSystem.CBE.Api.Model.Dto.CustomerLinkCreateDto)">
+            <summary>
+            添加客户联系人信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerLinkController.Update(TaiheSystem.CBE.Api.Model.Dto.CustomerLinkUpdateDto)">
+            <summary>
+            更新客户联系人信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerLinkController.Delete(System.String)">
+            <summary>
+            删除客户联系人信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerSiteController">
+            <summary>
+            客户分场所信息
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerSiteController._logger">
+            <summary>
+            日志管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerSiteController._tokenManager">
+            <summary>
+            会话管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerSiteController._customersiteervice">
+            <summary>
+            客户分场所接口
+            </summary>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerSiteController.GetByCustomerID(TaiheSystem.CBE.Api.Model.Dto.CustomerSiteDto)">
+            <summary>
+            查询客户分场所信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerSiteController.Get(System.String)">
+            <summary>
+            根据 Id 查询联系人信息
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerSiteController.Create(TaiheSystem.CBE.Api.Model.Dto.CustomerSiteCreateDto)">
+            <summary>
+            添加客户分场所信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerSiteController.Update(TaiheSystem.CBE.Api.Model.Dto.CustomerSiteUpdateDto)">
+            <summary>
+            更新客户分场所信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Business.CustomerSiteController.Delete(System.String)">
+            <summary>
+            删除客户分场所信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Business.PartnersController">
+            <summary>
+            合作伙伴
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Business.PartnersController._logger">
+            <summary>
+            日志管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Business.PartnersController._tokenManager">
+            <summary>
+            会话管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Business.PartnersController._partnerService">
+            <summary>
+            合作伙伴接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Business.PartnersController._ufkhxxService">
+            <summary>
+            数据关系接口
+            </summary>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Business.PartnersController.Query(TaiheSystem.CBE.Api.Model.Dto.PartnerQueryDto)">
+            <summary>
+            查询合作伙伴列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Business.PartnersController.Get(System.String)">
+            <summary>
+            根据 Id 查询合作伙伴
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Business.PartnersController.GetAll(System.Nullable{System.Boolean})">
+            <summary>
+            查询所有合作伙伴
+            </summary>
+            <param name="enable">是否启用（不传返回所有）</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Business.PartnersController.Create(TaiheSystem.CBE.Api.Model.Dto.PartnerCreateDto)">
+            <summary>
+            添加合作伙伴
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Business.PartnersController.Update(TaiheSystem.CBE.Api.Model.Dto.PartnerUpdateDto)">
+            <summary>
+            更新合作伙伴
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Business.PartnersController.Delete(System.String)">
+            <summary>
+            删除合作伙伴
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Gwf.FlowStepController">
+            <summary>
+            流程日志查询接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Gwf.FlowStepController._logger">
+            <summary>
+            日志管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Gwf.FlowStepController._tokenManager">
+            <summary>
+            会话管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Gwf.FlowStepController._stepService">
+            <summary>
+            日志查询接口
+            </summary>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Gwf.FlowStepController.GetAll(System.String,System.String)">
+            <summary>
+            查询操作流程日志记录
+            </summary>
+            <param name="id">查询id</param>
+            <param name="flowcode">流程代号 10-合同流程 20-项目流程 30-任务流程 40-证书流程</param>
+            <returns></returns>
+        </member>
+        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Main.ApproveContractController">
+            <summary>
+            合同审批接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.ApproveContractController._logger">
+            <summary>
+            日志管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.ApproveContractController._tokenManager">
+            <summary>
+            会话管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.ApproveContractController._precontractService">
+            <summary>
+            OA合同接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.ApproveContractController._maincontractService">
+            <summary>
+            合同登记接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.ApproveContractController._customerService">
+            <summary>
+            客户信息接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.ApproveContractController._contractitemService">
+            <summary>
+            合同项目标准项目信息
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.ApproveContractController._contractfcsService">
+            <summary>
+            合同分场所管理
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.ApproveContractController._contractfileService">
+            <summary>
+            附件管理
+            </summary>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Main.ApproveContractController.Query(TaiheSystem.CBE.Api.Model.Dto.MainContractQueryDto)">
+            <summary>
+            查询合同管理信息
+            </summary>
+            <param name="parm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Main.ApproveContractController.Get(System.String)">
+            <summary>
+            根据 Id 获取合同信息
+            Power = PRIV_APPROVECONTRACT_DETAIL
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Main.ApproveContractController.ApprovePass(TaiheSystem.CBE.Api.Model.Dto.ApproveContractSubmitDto)">
+            <summary>
+            提交已审批
+            Power = PRIV_APPROVECONTRACT_APPROVE
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Main.ApproveContractController.ReturnAudit(TaiheSystem.CBE.Api.Model.Dto.ApproveContractSubmitDto)">
+            <summary>
+            退回待评审
+            Power = PRIV_APPROVECONTRACT_RETURN
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Main.ApproveContractController.ContractEnd(TaiheSystem.CBE.Api.Model.Dto.ApproveContractSubmitDto)">
+            <summary>
+            合同终止
+            Power = PRIV_APPROVECONTRACT_END
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Main.ApproveContractController.ApproveCancel(System.String)">
+            <summary>
+            撤销
+            Power = PRIV_APPROVECONTRACT_CANCEL
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Main.ApproveContractController.GetDetail(System.String)">
+            <summary>
+            根据 Id 获取合同及明细全部信息
+            Power = PRIV_APPROVECONTRACT_DETAIL
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Main.ApproveContractController.Update(TaiheSystem.CBE.Api.Model.Dto.AuditContractUpdateDto)">
+            <summary>
+            保存合同信息
+            Power = PRIV_APPROVECONTRACT_UPDATE
+            </summary>
+            <param name="parm">编码</param>
+            <returns></returns>
+        </member>
+        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Main.AuditContractController">
+            <summary>
+            合同评审接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.AuditContractController._logger">
+            <summary>
+            日志管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.AuditContractController._tokenManager">
+            <summary>
+            会话管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.AuditContractController._precontractService">
+            <summary>
+            OA合同接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.AuditContractController._maincontractService">
+            <summary>
+            合同登记接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.AuditContractController._customerService">
+            <summary>
+            客户信息接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.AuditContractController._contractitemService">
+            <summary>
+            合同项目标准项目信息
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.AuditContractController._contractfcsService">
+            <summary>
+            合同分场所管理
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.AuditContractController._contractfileService">
+            <summary>
+            附件管理
+            </summary>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Main.AuditContractController.Query(TaiheSystem.CBE.Api.Model.Dto.MainContractQueryDto)">
+            <summary>
+            查询合同管理信息
+            </summary>
+            <param name="parm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Main.AuditContractController.GetBaseMandays(System.String,System.String)">
+            <summary>
+            获取合同项目初审基础人日信息
+            </summary>
+            <param name="ContractItemID">合同项目ID</param>
+            <param name="RiskIndex">选项index</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Main.AuditContractController.Get(System.String)">
+            <summary>
+            根据 Id 获取合同信息
+            Power = PRIV_CONTRACT_DETAIL
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Main.AuditContractController.SubmitApprove(System.String)">
+            <summary>
+            提交审核
+            Power = PRIV_AUDITCONTRACT_APPROVE
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Main.AuditContractController.AuditReturn(System.String)">
+            <summary>
+            评审退回登记
+            Power = PRIV_AUDITCONTRACT_RETURN
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Main.AuditContractController.GetDetail(System.String)">
+            <summary>
+            根据 Id 获取合同及明细全部信息
+            Power = PRIV_CONTRACT_DETAIL
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Main.AuditContractController.Update(TaiheSystem.CBE.Api.Model.Dto.AuditContractUpdateDto)">
+            <summary>
+            保存合同信息
+            Power = PRIV_AUDITCONTRACT_UPDATE
+            </summary>
+            <param name="parm">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Main.AuditContractController.Delete(System.String)">
+            <summary>
+            删除合同
+            Power = PRIV_AUDITCONTRACT_DELETE
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Main.MainContractController">
+            <summary>
+            合同登记
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.MainContractController._logger">
+            <summary>
+            日志管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.MainContractController._tokenManager">
+            <summary>
+            会话管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.MainContractController._precontractService">
+            <summary>
+            OA合同接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.MainContractController._maincontractService">
+            <summary>
+            合同登记接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.MainContractController._customerService">
+            <summary>
+            客户信息接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.MainContractController._contractitemService">
+            <summary>
+            合同项目标准项目信息
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.MainContractController._contractfcsService">
+            <summary>
+            合同分场所管理
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.MainContractController._contractfileService">
+            <summary>
+            附件管理
+            </summary>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Main.MainContractController.Query(TaiheSystem.CBE.Api.Model.Dto.MainContractQueryDto)">
+            <summary>
+            查询合同管理信息
+            </summary>
+            <param name="parm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Main.MainContractController.Apply(TaiheSystem.CBE.Api.Model.Dto.MainContractCreateDto)">
+            <summary>
+            申请受理合同信息
+            Power = PRIV_CONTRACT_APPLY
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Main.MainContractController.Get(System.String)">
+            <summary>
+            根据 Id 获取合同信息
+            Power = PRIV_CONTRACT_DETAIL
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Main.MainContractController.SubmitAudit(System.String)">
+            <summary>
+            提交评审
+            Power = PRIV_CONTRACT_SUBMIT
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Main.MainContractController.GetDetail(System.String)">
+            <summary>
+            根据 Id 获取合同及明细全部信息
+            Power = PRIV_CONTRACT_DETAIL
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Main.MainContractController.Update(TaiheSystem.CBE.Api.Model.Dto.MainContractUpdateDto)">
+            <summary>
+            更新合同信息
+            Power = PRIV_CONTRACT_UPDATE
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Main.MainContractController.Delete(System.String)">
+            <summary>
+            删除合同
+            Power = PRIV_CONTRACT_DELETE
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Main.PreContractController">
+            <summary>
+            OA合同管理
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.PreContractController._logger">
+            <summary>
+            日志管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.PreContractController._tokenManager">
+            <summary>
+            会话管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.PreContractController._precontractService">
+            <summary>
+            OA合同接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.PreContractController._customerService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Main.PreContractController._accessService">
+            <summary>
+            外部服务接入验证
+            </summary>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Main.PreContractController.Query(TaiheSystem.CBE.Api.Model.Dto.PreContractQueryDto)">
+            <summary>
+            查询OA合同管理信息
+            </summary>
+            <param name="parm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Main.PreContractController.GetRegisterDetail(System.String)">
+            <summary>
+            合同登记初始信息
+            </summary>
+            <param name="id">id</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Main.PreContractController.AcceptContractSingle(System.String,System.String,System.Object)">
+            <summary>
+            OA推送合同信息(单个)
+            </summary>
+            <param name="ExtName">分配账号名称</param>
+            <param name="AuthToken">分配账号密钥</param>
+            <param name="parm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Main.PreContractController.Delete(System.String)">
+            <summary>
+            删除OA合同
+            Power = PRIV_PRECONTRACT_DELETE
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.AuditTimeController">
+            <summary>
+            管理体系审核时间
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.AuditTimeController._tokenManager">
+            <summary>
+            会话管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.AuditTimeController._logger">
+            <summary>
+            日志管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.AuditTimeController._audittimeService">
+            <summary>
+            体系审核时间
+            </summary>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.AuditTimeController.Query(TaiheSystem.CBE.Api.Model.Dto.AuditTimeQueryDto)">
+            <summary>
+            查询列表（分页）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.AuditTimeController.Get(System.String)">
+            <summary>
+            查询详细
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.AuditTimeController.Create(TaiheSystem.CBE.Api.Model.Dto.AuditTimeCreateDto)">
+            <summary>
+            添加
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.AuditTimeController.Update(TaiheSystem.CBE.Api.Model.Dto.AuditTimeUpdateDto)">
+            <summary>
+            更新
+            Power = PRIV_AUDITTIME_UPDATE
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.AuditTimeController.Delete(System.String)">
+            <summary>
+            删除
+            Power = PRIV_AUDITTIME_DELETE
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.AuditTypeController">
+            <summary>
+            审核类型
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.AuditTypeController._tokenManager">
+            <summary>
+            会话管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.AuditTypeController._logger">
+            <summary>
+            日志管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.AuditTypeController._audittypeService">
+            <summary>
+            审核类型接口
+            </summary>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.AuditTypeController.Query(TaiheSystem.CBE.Api.Model.Dto.AuditTypeQueryDto)">
+            <summary>
+            查询列表（分页）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.AuditTypeController.QueryAll(TaiheSystem.CBE.Api.Model.Dto.AuditTypeQueryAllDto)">
+            <summary>
+            查询列表（全部）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.AuditTypeController.Get(System.String)">
+            <summary>
+            查询详细
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.AuditTypeController.Create(TaiheSystem.CBE.Api.Model.Dto.AuditTypeCreateDto)">
+            <summary>
+            添加
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.AuditTypeController.Update(TaiheSystem.CBE.Api.Model.Dto.AuditTypeUpdateDto)">
+            <summary>
+            更新
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.AuditTypeController.Delete(System.String)">
+            <summary>
+            删除
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.BizClassificationController">
+            <summary>
+            业务类别
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.BizClassificationController._tokenManager">
+            <summary>
+            会话管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.BizClassificationController._logger">
+            <summary>
+            日志管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.BizClassificationController._bizclassService">
+            <summary>
+            业务代码接口
+            </summary>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.BizClassificationController.Query(TaiheSystem.CBE.Api.Model.Dto.BizClassificationQueryDto)">
+            <summary>
+            查询列表（分页）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.BizClassificationController.QueryAll(TaiheSystem.CBE.Api.Model.Dto.BizClassificationQueryDto)">
+            <summary>
+            查询列表(已启用)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.BizClassificationController.Get(System.String)">
+            <summary>
+            查询详细
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.BizClassificationController.Create(TaiheSystem.CBE.Api.Model.Dto.BizClassificationCreateDto)">
+            <summary>
+            添加
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.BizClassificationController.Update(TaiheSystem.CBE.Api.Model.Dto.BizClassificationUpdateDto)">
+            <summary>
+            更新
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.BizClassificationController.Delete(System.String)">
+            <summary>
+            删除
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.SysStandardController">
+            <summary>
+            体系标准管理
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.SysStandardController._tokenManager">
+            <summary>
+            会话管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.SysStandardController._logger">
+            <summary>
+            日志管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.SysStandardController._sysstandarService">
+            <summary>
+            体系标准接口
+            </summary>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.SysStandardController.Query(TaiheSystem.CBE.Api.Model.Dto.SystemTypeQueryDto)">
+            <summary>
+            查询列表（分页）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.SysStandardController.QueryAll(TaiheSystem.CBE.Api.Model.Dto.SystemTypeQueryAllDto)">
+            <summary>
+            查询列表（全部启用）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.SysStandardController.Get(System.String)">
+            <summary>
+            查询详细
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.SysStandardController.Create(TaiheSystem.CBE.Api.Model.Dto.SysStandardCreateDto)">
+            <summary>
+            添加
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.SysStandardController.Update(TaiheSystem.CBE.Api.Model.Dto.SysStandardUpdateDto)">
+            <summary>
+            更新
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.SysStandardController.Delete(System.String)">
+            <summary>
+            删除
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.SystemTypeController">
+            <summary>
+            体系认证类别管理
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.SystemTypeController._tokenManager">
+            <summary>
+            会话管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.SystemTypeController._logger">
+            <summary>
+            日志管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.SystemTypeController._systypeService">
+            <summary>
+            体系类别接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.SystemTypeController._sysstandarService">
+            <summary>
+            体系标准接口
+            </summary>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.SystemTypeController.Query(TaiheSystem.CBE.Api.Model.Dto.SystemTypeQueryDto)">
+            <summary>
+            查询列表（分页）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.SystemTypeController.QueryAll(TaiheSystem.CBE.Api.Model.Dto.SystemTypeQueryAllDto)">
+            <summary>
+            查询列表（全部）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.SystemTypeController.Get(System.String)">
+            <summary>
+            查询详细
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.SystemTypeController.Create(TaiheSystem.CBE.Api.Model.Dto.SystemTypeCreateDto)">
+            <summary>
+            添加
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.SystemTypeController.Update(TaiheSystem.CBE.Api.Model.Dto.SystemTypeUpdateDto)">
+            <summary>
+            更新
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.SystemTypeController.Delete(System.String)">
+            <summary>
+            删除
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.AuthController">
             <summary>
             用户验证
@@ -461,6 +1603,11 @@
             用户服务接口
             </summary>
         </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.AuthController._accessService">
+            <summary>
+            外部服务接入验证
+            </summary>
+        </member>
         <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.AuthController._userRelationService">
             <summary>
             用户关系接口
@@ -478,12 +1625,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.AuthController.LoginMiniProgram(TaiheSystem.CBE.Api.Model.Dto.LoginMiniProgramDto)">
-            <summary>
-            微信小程序用户登录
-            </summary>
-            <returns></returns>
-        </member>
         <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.AuthController.LogOut">
             <summary>
             用户退出
@@ -493,36 +1634,6 @@
         <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.AuthController.GetUserInfo">
             <summary>
             用户信息获取
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.AuthController.GetUserCompany">
-            <summary>
-            获取用户公司
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.AuthController.GetUserFactory">
-            <summary>
-            获取用户工厂
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.AuthController.GetUserWorkShop">
-            <summary>
-            获取用户车间
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.AuthController.GetUserProductProcess">
-            <summary>
-            获取用户工序
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.AuthController.GetUserProductLine">
-            <summary>
-            获取用户设备
             </summary>
             <returns></returns>
         </member>
@@ -588,19 +1699,80 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.DeptController">
+            <summary>
+            部门接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.DeptController._tokenManager">
+            <summary>
+            会话管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.DeptController._logger">
+            <summary>
+            日志管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.DeptController._menuService">
+            <summary>
+            菜单接口
+            </summary>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.DeptController.Query(TaiheSystem.CBE.Api.Model.Dto.DeptsQueryDto)">
+            <summary>
+            查询部门列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.DeptController.Get(System.String)">
+            <summary>
+            返回部门信息
+            </summary>
+            <param name="id">部门id</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.DeptController.GetDeptUser(System.String)">
+            <summary>
+            获取部门用户
+            </summary>
+            <param name="id">部门id</param>
+            <returns></returns>
+        </member>
         <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.FileController">
             <summary>
             文件管理
             </summary>
         </member>
-        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.FileController.DownImg(Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.FileController._logger">
             <summary>
-            下载图片（支持中文字符）
+            日志管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.FileController._tokenManager">
+            <summary>
+            会话管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.FileController._gnlfileService">
+            <summary>
+            文件接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.FileController._dataRelationService">
+            <summary>
+            数据关系接口
+            </summary>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.FileController.DownLoad(Microsoft.AspNetCore.Hosting.IWebHostEnvironment,System.String)">
+            <summary>
+            文件获取
             </summary>
             <param name="environment"></param>
+            <param name="FileID">文件id</param>
             <returns></returns>
         </member>
-        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.FileController.UploadFle(Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.FileController.UploadFile(Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
             <summary>
             上传图片,多文件，可以使用 postman 测试，
             如果是单文件，可以 参数写 IFormFile file1
@@ -608,7 +1780,7 @@
             <param name="environment"></param>
             <returns></returns>
         </member>
-        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.FileController.UploadFleAsync(Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.FileController.UploadAsync(Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
             <summary>
             异步上传图片,多文件，可以使用 postman 测试，
             如果是单文件，可以 参数写 IFormFile file1
@@ -1008,6 +2180,115 @@
             <param name="roleId">角色 Id</param>
             <returns></returns>
         </member>
+        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.SelectItemController">
+            <summary>
+            选项类型管理
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.SelectItemController._tokenManager">
+            <summary>
+            会话管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.SelectItemController._logger">
+            <summary>
+            日志管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.SelectItemController._itemService">
+            <summary>
+            选项定义接口
+            </summary>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.SelectItemController.Query(TaiheSystem.CBE.Api.Model.Dto.SelectItemsQueryDto)">
+            <summary>
+            查询选项类型列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.SelectItemController.Get(System.String)">
+            <summary>
+            查询选项类型
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.SelectItemController.Create(TaiheSystem.CBE.Api.Model.Dto.SelectItemCreateDto)">
+            <summary>
+            添加选项类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.SelectItemController.Update(TaiheSystem.CBE.Api.Model.Dto.SelectItemUpdateDto)">
+            <summary>
+            更新选项类型
+            </summary>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.SelectItemController.Delete(System.String)" -->
+        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.SelectItemObjController">
+            <summary>
+            选项管理
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.SelectItemObjController._tokenManager">
+            <summary>
+            会话管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.SelectItemObjController._logger">
+            <summary>
+            日志管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.SelectItemObjController._itemobjService">
+            <summary>
+            字典定义接口
+            </summary>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.SelectItemObjController.Query(TaiheSystem.CBE.Api.Model.Dto.SelectItemObjQueryDto)">
+            <summary>
+            查询选项列表（分页）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.SelectItemObjController.QueryAll(TaiheSystem.CBE.Api.Model.Dto.SelectItemObjQueryAllDto)">
+            <summary>
+            查询选项列表（全部）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.SelectItemObjController.QueryMutilate(TaiheSystem.CBE.Api.Model.Dto.SelectItemObjsQueryDto)">
+            <summary>
+            查询多个SelectItemCode对应选项列表(只返回已启用)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.SelectItemObjController.Get(System.String)">
+            <summary>
+            查询字典
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.SelectItemObjController.Create(TaiheSystem.CBE.Api.Model.Dto.SelectItemObjCreateDto)">
+            <summary>
+            添加选项
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.SelectItemObjController.Update(TaiheSystem.CBE.Api.Model.Dto.SelectItemObjUpdateDto)">
+            <summary>
+            更新选项
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.SelectItemObjController.Delete(System.String)">
+            <summary>
+            删除选项
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.TasksController">
             <summary>
             计划任务
@@ -1119,6 +2400,71 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.UserClassificationController">
+            <summary>
+            业务代码管理
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.UserClassificationController._tokenManager">
+            <summary>
+            会话管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.UserClassificationController._logger">
+            <summary>
+            日志管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.UserClassificationController._usersystemtypeService">
+            <summary>
+            注册资格管理
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.UserClassificationController._userclassificationService">
+            <summary>
+            业务代码管理
+            </summary>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.UserClassificationController.GetListbyUserID(System.String)">
+            <summary>
+            查询当前人的业务类别代码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.UserClassificationController.GetListbySystemTyID(System.String)">
+            <summary>
+            查询当前人注册资格下的业务类别代码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.UserClassificationController.Get(System.String)">
+            <summary>
+            获取业务代码详情
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.UserClassificationController.Create(TaiheSystem.CBE.Api.Model.Dto.UserClassificationCreateDto)">
+            <summary>
+            添加业务代码
+            Power = PRIV_USERCLASSIFICATION_CREATE
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.UserClassificationController.Update(TaiheSystem.CBE.Api.Model.Dto.UserClassificationUpdateDto)">
+            <summary>
+            更新/添加业务代码
+            Power = PRIV_USERCLASSIFICATION_UPDATE
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.UserClassificationController.Delete(System.String)">
+            <summary>
+            删除业务代码
+            Power = PRIV_USERCLASSIFICATION_DELETE
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.UsersController">
             <summary>
             用户管理
@@ -1184,6 +2530,65 @@
         <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.UsersController.ResetPassword(TaiheSystem.CBE.Api.Model.Dto.UsersResetPasswordDto)">
             <summary>
             重置密码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.UserSystemtypeController">
+            <summary>
+            注册资格管理
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.UserSystemtypeController._tokenManager">
+            <summary>
+            会话管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.UserSystemtypeController._logger">
+            <summary>
+            日志管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.UserSystemtypeController._usersystemtypeService">
+            <summary>
+            注册资格管理
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.UserSystemtypeController._userclassificationService">
+            <summary>
+            业务代码管理
+            </summary>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.UserSystemtypeController.GetListbyUserID(System.String)">
+            <summary>
+            查询当前人的注册资格
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.UserSystemtypeController.Get(System.String)">
+            <summary>
+            获取人员注册资格详情
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.UserSystemtypeController.Create(TaiheSystem.CBE.Api.Model.Dto.UserSystemTypeCreateDto)">
+            <summary>
+            添加注册资格
+            Power = PRIV_USERSYSTEMTYPE_CREATE
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.UserSystemtypeController.Update(TaiheSystem.CBE.Api.Model.Dto.UserSystemTypeUpdateDto)">
+            <summary>
+            更新注册资格
+            Power = PRIV_USERSYSTEMTYPE_UPDATE
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Sys.UserSystemtypeController.Delete(System.String)">
+            <summary>
+            删除注册资格
+            Power = PRIV_USERSYSTEMTYPE_DELETE
             </summary>
             <returns></returns>
         </member>

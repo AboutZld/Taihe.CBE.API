@@ -37,8 +37,16 @@ namespace TaiheSystem.CBE.Api.Model.Dto
     public class UsersCreateDto
     {
         /// <summary>
-        /// 描述 : 用户账号 
+        /// 描述 :  
         /// 空值 : False
+        /// 默认 : 
+        /// </summary>
+        [Display(Name = "主键")]
+        public string ID { get; set; }
+
+        /// <summary>
+        /// 描述 :用户账号
+        /// 空值 : True
         /// 默认 : 
         /// </summary>
         [Display(Name = "用户账号")]
@@ -419,6 +427,15 @@ namespace TaiheSystem.CBE.Api.Model.Dto
 
     public class UsersResetPasswordDto
     {
+        /// <summary>
+        /// 描述 : ID 
+        /// 空值 : False
+        /// 默认 : 
+        /// </summary>
+        [Display(Name = "ID")]
+        [Required(ErrorMessage = "ID不能为空")]
+        public string ID { get; set; }
+
         /// <summary>
         /// 描述 : 用户账号 
         /// 空值 : False

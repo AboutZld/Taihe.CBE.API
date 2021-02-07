@@ -1,0 +1,18 @@
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-01 16:09:08.7123 
+ 日志来源 ： Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware 
+ 日志级别 ： ERROR 
+ 日志内容 ： An unhandled exception has occurred while executing the request.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-01 16:10:52.8299 
+ 日志来源 ： Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware 
+ 日志级别 ： ERROR 
+ 日志内容 ： An unhandled exception has occurred while executing the request.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-01 16:18:08.5723 
+ 日志来源 ： Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware 
+ 日志级别 ： ERROR 
+ 日志内容 ： An unhandled exception has occurred while executing the request.
+

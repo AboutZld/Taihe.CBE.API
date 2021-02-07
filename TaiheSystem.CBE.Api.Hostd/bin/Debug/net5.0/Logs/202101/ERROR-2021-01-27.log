@@ -1,0 +1,182 @@
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-27 11:02:04.7293 
+ 日志来源 ： TaiheSystem.CBE.Api.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：列名 'systemTypeID,uplimit' 无效。 
+【异常类型】：SqlException 
+【异常信息】：列名 'systemTypeID,uplimit' 无效。 
+【堆栈调用】：   at SqlSugar.AdoProvider.GetDataReader(String sql, SugarParameter[] parameters)
+   at SqlSugar.QueryableProvider`1.GetData[TResult](KeyValuePair`2 sqlObj)
+   at SqlSugar.QueryableProvider`1._ToList[TResult]()
+   at SqlSugar.QueryableProvider`1.ToList()
+   at SqlSugar.QueryableProvider`1.ToPageList(Int32 pageIndex, Int32 pageSize)
+   at TaiheSystem.CBE.Api.Interfaces.QueryableExtension.ToPage[T](ISugarQueryable`1 source, PageParm parm) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Interfaces\Extensions\QueryableExtension.cs:line 68
+   at TaiheSystem.CBE.Api.Interfaces.BaseService`1.GetPages(Expression`1 where, PageParm parm) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Interfaces\BaseService.cs:line 215
+   at Castle.Proxies.Invocations.IBaseService`1_GetPages_5.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.IBaseService`1Proxy_5.GetPages(Expression`1 where, PageParm parm)
+   at TaiheSystem.CBE.Api.Hostd.Controllers.Standard.AuditTimeController.Query(AuditTimeQueryDto parm) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Controllers\Standard\AuditTimeController.cs:line 61
+   at lambda_method675(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-27 20:01:33.7195 
+ 日志来源 ： TaiheSystem.CBE.Api.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：SubmitAuditTime can't  convert decimal to datetime 
+【异常类型】：SqlSugarException 
+【异常信息】：SubmitAuditTime can't  convert decimal to datetime 
+【堆栈调用】：   at SqlSugar.IDataReaderEntityBuilder`1.CheckType(List`1 invalidTypes, String bindProperyTypeName, String validPropertyType, String propertyName)
+   at SqlSugar.IDataReaderEntityBuilder`1.BindMethod(ILGenerator generator, EntityColumnInfo columnInfo, Int32 ordinal)
+   at SqlSugar.IDataReaderEntityBuilder`1.BindField(ILGenerator generator, LocalBuilder result, EntityColumnInfo columnInfo, String fieldName)
+   at SqlSugar.IDataReaderEntityBuilder`1.CreateBuilder(Type type)
+   at SqlSugar.DbBindAccessory.<>c__DisplayClass0_0`1.<GetEntityList>b__0()
+   at SqlSugar.ReflectionInoCore`1.GetOrCreate(String cacheKey, Func`1 create)
+   at SqlSugar.ReflectionInoCacheService.GetOrCreate[V](String cacheKey, Func`1 create, Int32 cacheDurationInSeconds)
+   at SqlSugar.DbBindAccessory.GetEntityList[T](SqlSugarProvider context, IDataReader dataReader)
+   at SqlSugar.DbBindProvider.DataReaderToList[T](Type type, IDataReader dataReader)
+   at SqlSugar.QueryableProvider`1.GetData[TResult](Boolean isComplexModel, Type entityType, IDataReader dataReader)
+   at SqlSugar.QueryableProvider`1.GetData[TResult](KeyValuePair`2 sqlObj)
+   at SqlSugar.QueryableProvider`1._ToList[TResult]()
+   at SqlSugar.QueryableProvider`1.ToList()
+   at SqlSugar.QueryableProvider`1.ToPageList(Int32 pageIndex, Int32 pageSize)
+   at TaiheSystem.CBE.Api.Interfaces.QueryableExtension.ToPage[T](ISugarQueryable`1 source, PageParm parm) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Interfaces\Extensions\QueryableExtension.cs:line 68
+   at TaiheSystem.CBE.Api.Interfaces.BaseService`1.GetPages(Expression`1 where, PageParm parm) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Interfaces\BaseService.cs:line 215
+   at Castle.Proxies.Invocations.IBaseService`1_GetPages_11.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.IBaseService`1Proxy_11.GetPages(Expression`1 where, PageParm parm)
+   at TaiheSystem.CBE.Api.Hostd.Controllers.Main.AuditContractController.Query(MainContractQueryDto parm) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Controllers\Main\AuditContractController.cs:line 128
+   at lambda_method680(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-27 20:03:06.0504 
+ 日志来源 ： TaiheSystem.CBE.Api.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：SubmitAuditTime can't  convert decimal to datetime 
+【异常类型】：SqlSugarException 
+【异常信息】：SubmitAuditTime can't  convert decimal to datetime 
+【堆栈调用】：   at SqlSugar.IDataReaderEntityBuilder`1.CheckType(List`1 invalidTypes, String bindProperyTypeName, String validPropertyType, String propertyName)
+   at SqlSugar.IDataReaderEntityBuilder`1.BindMethod(ILGenerator generator, EntityColumnInfo columnInfo, Int32 ordinal)
+   at SqlSugar.IDataReaderEntityBuilder`1.BindField(ILGenerator generator, LocalBuilder result, EntityColumnInfo columnInfo, String fieldName)
+   at SqlSugar.IDataReaderEntityBuilder`1.CreateBuilder(Type type)
+   at SqlSugar.DbBindAccessory.<>c__DisplayClass0_0`1.<GetEntityList>b__0()
+   at SqlSugar.ReflectionInoCore`1.GetOrCreate(String cacheKey, Func`1 create)
+   at SqlSugar.ReflectionInoCacheService.GetOrCreate[V](String cacheKey, Func`1 create, Int32 cacheDurationInSeconds)
+   at SqlSugar.DbBindAccessory.GetEntityList[T](SqlSugarProvider context, IDataReader dataReader)
+   at SqlSugar.DbBindProvider.DataReaderToList[T](Type type, IDataReader dataReader)
+   at SqlSugar.QueryableProvider`1.GetData[TResult](Boolean isComplexModel, Type entityType, IDataReader dataReader)
+   at SqlSugar.QueryableProvider`1.GetData[TResult](KeyValuePair`2 sqlObj)
+   at SqlSugar.QueryableProvider`1._ToList[TResult]()
+   at SqlSugar.QueryableProvider`1.ToList()
+   at SqlSugar.QueryableProvider`1.ToPageList(Int32 pageIndex, Int32 pageSize)
+   at TaiheSystem.CBE.Api.Interfaces.QueryableExtension.ToPage[T](ISugarQueryable`1 source, PageParm parm) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Interfaces\Extensions\QueryableExtension.cs:line 68
+   at TaiheSystem.CBE.Api.Interfaces.BaseService`1.GetPages(Expression`1 where, PageParm parm) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Interfaces\BaseService.cs:line 215
+   at Castle.Proxies.Invocations.IBaseService`1_GetPages_11.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.IBaseService`1Proxy_11.GetPages(Expression`1 where, PageParm parm)
+   at TaiheSystem.CBE.Api.Hostd.Controllers.Main.AuditContractController.Query(MainContractQueryDto parm) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Controllers\Main\AuditContractController.cs:line 128
+   at lambda_method680(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-27 20:04:18.7095 
+ 日志来源 ： TaiheSystem.CBE.Api.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：Attempted to divide by zero. 
+【异常类型】：DivideByZeroException 
+【异常信息】：Attempted to divide by zero. 
+【堆栈调用】：   at TaiheSystem.CBE.Api.Interfaces.QueryableExtension.ToPage[T](ISugarQueryable`1 source, PageParm parm) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Interfaces\Extensions\QueryableExtension.cs:line 59
+   at TaiheSystem.CBE.Api.Interfaces.BaseService`1.GetPages(Expression`1 where, PageParm parm) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Interfaces\BaseService.cs:line 215
+   at Castle.Proxies.Invocations.IBaseService`1_GetPages_11.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.IBaseService`1Proxy_11.GetPages(Expression`1 where, PageParm parm)
+   at TaiheSystem.CBE.Api.Hostd.Controllers.Main.MainContractController.Query(MainContractQueryDto parm) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Controllers\Main\MainContractController.cs:line 132
+   at lambda_method721(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-01-27 20:04:48.3603 
+ 日志来源 ： TaiheSystem.CBE.Api.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：SubmitAuditTime can't  convert decimal to datetime 
+【异常类型】：SqlSugarException 
+【异常信息】：SubmitAuditTime can't  convert decimal to datetime 
+【堆栈调用】：   at SqlSugar.IDataReaderEntityBuilder`1.CheckType(List`1 invalidTypes, String bindProperyTypeName, String validPropertyType, String propertyName)
+   at SqlSugar.IDataReaderEntityBuilder`1.BindMethod(ILGenerator generator, EntityColumnInfo columnInfo, Int32 ordinal)
+   at SqlSugar.IDataReaderEntityBuilder`1.BindField(ILGenerator generator, LocalBuilder result, EntityColumnInfo columnInfo, String fieldName)
+   at SqlSugar.IDataReaderEntityBuilder`1.CreateBuilder(Type type)
+   at SqlSugar.DbBindAccessory.<>c__DisplayClass0_0`1.<GetEntityList>b__0()
+   at SqlSugar.ReflectionInoCore`1.GetOrCreate(String cacheKey, Func`1 create)
+   at SqlSugar.ReflectionInoCacheService.GetOrCreate[V](String cacheKey, Func`1 create, Int32 cacheDurationInSeconds)
+   at SqlSugar.DbBindAccessory.GetEntityList[T](SqlSugarProvider context, IDataReader dataReader)
+   at SqlSugar.DbBindProvider.DataReaderToList[T](Type type, IDataReader dataReader)
+   at SqlSugar.QueryableProvider`1.GetData[TResult](Boolean isComplexModel, Type entityType, IDataReader dataReader)
+   at SqlSugar.QueryableProvider`1.GetData[TResult](KeyValuePair`2 sqlObj)
+   at SqlSugar.QueryableProvider`1._ToList[TResult]()
+   at SqlSugar.QueryableProvider`1.ToList()
+   at SqlSugar.QueryableProvider`1.ToPageList(Int32 pageIndex, Int32 pageSize)
+   at TaiheSystem.CBE.Api.Interfaces.QueryableExtension.ToPage[T](ISugarQueryable`1 source, PageParm parm) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Interfaces\Extensions\QueryableExtension.cs:line 68
+   at TaiheSystem.CBE.Api.Interfaces.BaseService`1.GetPages(Expression`1 where, PageParm parm) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Interfaces\BaseService.cs:line 215
+   at Castle.Proxies.Invocations.IBaseService`1_GetPages_11.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.IBaseService`1Proxy_11.GetPages(Expression`1 where, PageParm parm)
+   at TaiheSystem.CBE.Api.Hostd.Controllers.Main.MainContractController.Query(MainContractQueryDto parm) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Controllers\Main\MainContractController.cs:line 132
+   at lambda_method721(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Message\\TaiheSystem.CBE.Api.Message.csproj": {}
+    "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Message\\TaiheSystem.CBE.Api.Message.csproj": {}
   },
   "projects": {
-    "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Message\\TaiheSystem.CBE.Api.Message.csproj": {
+    "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Message\\TaiheSystem.CBE.Api.Message.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Message\\TaiheSystem.CBE.Api.Message.csproj",
+        "projectUniqueName": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Message\\TaiheSystem.CBE.Api.Message.csproj",
         "projectName": "TaiheSystem.CBE.Api.Message",
-        "projectPath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Message\\TaiheSystem.CBE.Api.Message.csproj",
+        "projectPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Message\\TaiheSystem.CBE.Api.Message.csproj",
         "packagesPath": "C:\\Users\\zhuld\\.nuget\\packages\\",
-        "outputPath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Message\\obj\\",
+        "outputPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Message\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Microsoft\\Xamarin\\NuGet\\"

@@ -12,6 +12,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="images\**" />
+    <Content Remove="images\**" />
+    <EmbeddedResource Remove="images\**" />
+    <None Remove="images\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
     <PackageReference Include="Autofac.Extras.DynamicProxy" Version="6.0.0" />
     <PackageReference Include="CSRedisCore" Version="3.6.5" />
@@ -37,6 +44,7 @@
     <ProjectReference Include="..\TaiheSystem.CBE.Api.Model\TaiheSystem.CBE.Api.Model.csproj" />
     <ProjectReference Include="..\TaiheSystem.CBE.Api.Tasks\TaiheSystem.CBE.Api.Tasks.csproj" />
     <ProjectReference Include="..\TaiheSystem.CBE.Api.Tools\TaiheSystem.CBE.Api.Tools.csproj" />
+    <ProjectReference Include="..\TaiSystem.CBE.Api.GWF\TaiheSystem.CBE.Api.GWF.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,7 +54,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\Business\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aoz5a4LR2Jq1fiJ1cMWlpedKifRFcuybLBrvulOn15KVAZkE1s4ToARAlJvmxIIZIf7EpHf/ZDLushXPmLowpw==",
+  "dgSpecHash": "24eZQeH/NcRctzD0I7yRb8q2T5i6BvO869PokJmNJEhPpT9D0AAj5n0u+ltD0D8odDisBnjxcOCbn8J3xvoWAA==",
   "success": true,
-  "projectFilePath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Hostd\\TaiheSystem.CBE.Api.Hostd.csproj",
+  "projectFilePath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Hostd\\TaiheSystem.CBE.Api.Hostd.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\zhuld\\.nuget\\packages\\aliyun-net-sdk-core\\1.5.10\\aliyun-net-sdk-core.1.5.10.nupkg.sha512",
     "C:\\Users\\zhuld\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",
@@ -127,7 +127,7 @@
     "C:\\Users\\zhuld\\.nuget\\packages\\ssh.net\\2016.1.0\\ssh.net.2016.1.0.nupkg.sha512",
     "C:\\Users\\zhuld\\.nuget\\packages\\sshnet.security.cryptography\\1.2.0\\sshnet.security.cryptography.1.2.0.nupkg.sha512",
     "C:\\Users\\zhuld\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
-    "C:\\Users\\zhuld\\.nuget\\packages\\swashbuckle.aspnetcore.annotations\\5.0.0\\swashbuckle.aspnetcore.annotations.5.0.0.nupkg.sha512",
+    "C:\\Users\\zhuld\\.nuget\\packages\\swashbuckle.aspnetcore.annotations\\5.6.3\\swashbuckle.aspnetcore.annotations.5.6.3.nupkg.sha512",
     "C:\\Users\\zhuld\\.nuget\\packages\\swashbuckle.aspnetcore.filters\\6.0.1\\swashbuckle.aspnetcore.filters.6.0.1.nupkg.sha512",
     "C:\\Users\\zhuld\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
     "C:\\Users\\zhuld\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",

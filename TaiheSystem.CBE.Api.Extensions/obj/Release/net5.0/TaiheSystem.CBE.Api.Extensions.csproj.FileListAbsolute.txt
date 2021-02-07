@@ -1,0 +1,17 @@
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Extensions\bin\Release\net5.0\TaiheSystem.CBE.Api.Extensions.deps.json
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Extensions\bin\Release\net5.0\TaiheSystem.CBE.Api.Extensions.dll
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Extensions\bin\Release\net5.0\ref\TaiheSystem.CBE.Api.Extensions.dll
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Extensions\bin\Release\net5.0\TaiheSystem.CBE.Api.Extensions.pdb
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Extensions\bin\Release\net5.0\TaiheSystem.CBE.Api.Common.dll
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Extensions\bin\Release\net5.0\TaiheSystem.CBE.Api.Model.dll
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Extensions\bin\Release\net5.0\TaiheSystem.CBE.Api.Common.pdb
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Extensions\bin\Release\net5.0\TaiheSystem.CBE.Api.Model.pdb
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Extensions\obj\Release\net5.0\TaiheSystem.CBE.Api.Extensions.csprojAssemblyReference.cache
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Extensions\obj\Release\net5.0\TaiheSystem.CBE.Api.Extensions.GeneratedMSBuildEditorConfig.editorconfig
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Extensions\obj\Release\net5.0\TaiheSystem.CBE.Api.Extensions.AssemblyInfoInputs.cache
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Extensions\obj\Release\net5.0\TaiheSystem.CBE.Api.Extensions.AssemblyInfo.cs
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Extensions\obj\Release\net5.0\TaiheSystem.CBE.Api.Extensions.csproj.CoreCompileInputs.cache
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Extensions\obj\Release\net5.0\TaiheSystem.CBE.Api.Extensions.csproj.CopyComplete
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Extensions\obj\Release\net5.0\TaiheSystem.CBE.Api.Extensions.dll
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Extensions\obj\Release\net5.0\ref\TaiheSystem.CBE.Api.Extensions.dll
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Extensions\obj\Release\net5.0\TaiheSystem.CBE.Api.Extensions.pdb

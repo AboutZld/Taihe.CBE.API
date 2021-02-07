@@ -17,6 +17,13 @@ namespace TaiheSystem.CBE.Api.Model
 {
     public class UserSessionVM
     {
+        /// <summary>
+        /// 描述 : 用户ID 
+        /// 空值 : False
+        /// 默认 : 
+        /// </summary>
+        [Display(Name = "用户ID")]
+        public string ID { get; set; }
 
         /// <summary>
         /// 描述 : 用户账号 

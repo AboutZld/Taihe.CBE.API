@@ -58,7 +58,6 @@ namespace TaiheSystem.CBE.Api.Hostd
             #region 说明文档
             services.AddSwaggerGen(c =>
             {
-
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
@@ -71,6 +70,9 @@ namespace TaiheSystem.CBE.Api.Hostd
                     //就是这里
                     var xmlPath = Path.Combine(AppContext.BaseDirectory, "TaiheSystem.CBE.Api.Hostd.xml");//这个就是刚刚配置的xml文件名
                     c.IncludeXmlComments(xmlPath, true);//默认的第二个参数是false，这个是controller的注释，记得修改
+
+                    var xmlModelPath = Path.Combine(AppContext.BaseDirectory, "TaiheSystem.CBE.Api.Model.xml");//这个就是刚刚配置的xml文件名
+                    c.IncludeXmlComments(xmlModelPath, true);//默认的第二个参数是false，这个是controller的注释，记得修改
 
                 }
                 catch (Exception ex)
@@ -95,6 +97,7 @@ namespace TaiheSystem.CBE.Api.Hostd
                 options.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:mm:ss";
                 // 如字段为null值，该字段不会返回到前端
                 //options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+                //options.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver();//json字符串大小写原样输出
             });
             #endregion
 

@@ -1,0 +1,68 @@
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-05 16:40:50.1589 
+ 日志来源 ： TaiheSystem.CBE.Api.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：不能将值 NULL 插入列 'ID'，表 'CBESystemDB.dbo.Sys_User_SystemType_Standard'；列不允许有 Null 值。INSERT 失败。
+语句已终止。 
+【异常类型】：SqlException 
+【异常信息】：不能将值 NULL 插入列 'ID'，表 'CBESystemDB.dbo.Sys_User_SystemType_Standard'；列不允许有 Null 值。INSERT 失败。
+语句已终止。 
+【堆栈调用】：   at SqlSugar.AdoProvider.ExecuteCommand(String sql, SugarParameter[] parameters)
+   at SqlSugar.InsertableProvider`1.ExecuteCommand()
+   at TaiheSystem.CBE.Api.Interfaces.BaseService`1.Add(T parm) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Interfaces\BaseService.cs:line 64
+   at Castle.Proxies.Invocations.IBaseService`1_Add_8.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.IBaseService`1Proxy_4.Add(Sys_User_SystemType_Standard parm)
+   at TaiheSystem.CBE.Api.Hostd.Controllers.Sys.UserSystemtypeController.Update(UserSystemTypeUpdateDto parm) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Controllers\Sys\UserSystemtypeController.cs:line 134
+   at lambda_method632(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-05 17:10:28.6315 
+ 日志来源 ： TaiheSystem.CBE.Api.Hostd.Global.GlobalExceptions 
+ 日志级别 ： ERROR 
+ 日志内容 ： 
+【自定义错误】：Object reference not set to an instance of an object. 
+【异常类型】：NullReferenceException 
+【异常信息】：Object reference not set to an instance of an object. 
+【堆栈调用】：   at SqlSugar.ExpressionTool.GetMemberValue(MemberInfo member, Expression expression)
+   at SqlSugar.MemberExpressionResolve.ResolveMemberValue(ExpressionParameter parameter, ExpressionParameter baseParameter, Nullable`1 isLeft, Boolean isSetTempData, MemberExpression expression)
+   at SqlSugar.MemberExpressionResolve..ctor(ExpressionParameter parameter)
+   at SqlSugar.BaseResolve.Start()
+   at SqlSugar.BinaryExpressionResolve..ctor(ExpressionParameter parameter)
+   at SqlSugar.BaseResolve.Start()
+   at SqlSugar.LambdaExpressionResolve..ctor(ExpressionParameter parameter)
+   at SqlSugar.BaseResolve.Start()
+   at SqlSugar.ExpressionContext.Resolve(Expression expression, ResolveExpressType resolveType)
+   at SqlSugar.QueryBuilder.GetExpressionValue(Expression expression, ResolveExpressType resolveType)
+   at SqlSugar.QueryableProvider`1._Where(Expression expression)
+   at SqlSugar.QueryableProvider`1.Where(Expression`1 expression)
+   at TaiheSystem.CBE.Api.Interfaces.BaseService`1.GetWhere(Expression`1 where, Boolean useCache, Int32 cacheSecond) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Interfaces\BaseService.cs:line 226
+   at Castle.Proxies.Invocations.IBaseService`1_GetWhere_8.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.IBaseService`1Proxy_4.GetWhere(Expression`1 where, Boolean useCache, Int32 cacheSecond)
+   at TaiheSystem.CBE.Api.Hostd.Controllers.Sys.UserSystemtypeController.Get(String id) in D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\Controllers\Sys\UserSystemtypeController.cs:line 83
+   at lambda_method719(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+

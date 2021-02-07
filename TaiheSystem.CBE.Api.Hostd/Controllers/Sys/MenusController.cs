@@ -194,9 +194,17 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Sys
         {
             var _userSession = _tokenManager.GetSessionInfo();
 
-            var menus = _menuService.GetWhere(m => (string.IsNullOrEmpty(m.ViewPower) || _userSession.UserPower.Contains(m.ViewPower)) && m.System == system, m => m.SortIndex);
+            if (_userSession.Administrator)
+            {
+                var menus = _menuService.GetAll();
+                return toResponse(ResolveUserMenuTree(menus));
+            }
+            else
+            {
+                var menus = _menuService.GetWhere(m => (string.IsNullOrEmpty(m.ViewPower) || _userSession.UserPower.Contains(m.ViewPower)) && m.System == system, m => m.SortIndex);
 
-            return toResponse(ResolveUserMenuTree(menus));
+                return toResponse(ResolveUserMenuTree(menus));
+            }
         }
     }
 }

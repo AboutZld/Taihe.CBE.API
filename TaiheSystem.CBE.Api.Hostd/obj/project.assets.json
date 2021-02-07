@@ -1844,10 +1844,10 @@
           "build/Swashbuckle.AspNetCore.props": {}
         }
       },
-      "Swashbuckle.AspNetCore.Annotations/5.0.0": {
+      "Swashbuckle.AspNetCore.Annotations/5.6.3": {
         "type": "package",
         "dependencies": {
-          "Swashbuckle.AspNetCore.SwaggerGen": "5.0.0"
+          "Swashbuckle.AspNetCore.SwaggerGen": "5.6.3"
         },
         "compile": {
           "lib/netcoreapp3.0/Swashbuckle.AspNetCore.Annotations.dll": {}
@@ -3499,14 +3499,18 @@
           "Microsoft.Extensions.DependencyInjection": "5.0.1",
           "Microsoft.Extensions.Options": "5.0.0",
           "Newtonsoft.Json": "12.0.3",
-          "System.Drawing.Common": "5.0.0"
+          "System.Drawing.Common": "5.0.0",
+          "TaiheSystem.CBE.Api.Model": "1.0.0"
         },
         "compile": {
           "bin/placeholder/TaiheSystem.CBE.Api.Common.dll": {}
         },
         "runtime": {
           "bin/placeholder/TaiheSystem.CBE.Api.Common.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "TaiheSystem.CBE.Api.Core/1.0.0": {
         "type": "project",
@@ -3522,7 +3526,10 @@
         },
         "runtime": {
           "bin/placeholder/TaiheSystem.CBE.Api.Core.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "TaiheSystem.CBE.Api.Extensions/1.0.0": {
         "type": "project",
@@ -3537,7 +3544,27 @@
         },
         "runtime": {
           "bin/placeholder/TaiheSystem.CBE.Api.Extensions.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "TaiheSystem.CBE.Api.GWF/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "TaiheSystem.CBE.Api.Interfaces": "1.0.0",
+          "TaiheSystem.CBE.Api.Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/TaiheSystem.CBE.Api.GWF.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TaiheSystem.CBE.Api.GWF.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "TaiheSystem.CBE.Api.Interfaces/1.0.0": {
         "type": "project",
@@ -3553,7 +3580,10 @@
         },
         "runtime": {
           "bin/placeholder/TaiheSystem.CBE.Api.Interfaces.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "TaiheSystem.CBE.Api.Message/1.0.0": {
         "type": "project",
@@ -3572,6 +3602,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
+          "Swashbuckle.AspNetCore.Annotations": "5.6.3",
           "sqlSugarCore": "5.0.1.7"
         },
         "compile": {
@@ -3579,7 +3610,10 @@
         },
         "runtime": {
           "bin/placeholder/TaiheSystem.CBE.Api.Model.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "TaiheSystem.CBE.Api.Tasks/1.0.0": {
         "type": "project",
@@ -3596,7 +3630,10 @@
         },
         "runtime": {
           "bin/placeholder/TaiheSystem.CBE.Api.Tasks.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "TaiheSystem.CBE.Api.Tools/1.0.0": {
         "type": "project",
@@ -3609,7 +3646,10 @@
         },
         "runtime": {
           "bin/placeholder/TaiheSystem.CBE.Api.Tools.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -6411,18 +6451,20 @@
         "swashbuckle.aspnetcore.nuspec"
       ]
     },
-    "Swashbuckle.AspNetCore.Annotations/5.0.0": {
-      "sha512": "HrCFKfQNFFEdCdbsMiuZK2NDYlIR1Osik46XK4X3rJlDKngdMrGenUb2ax7JWO5wEr77OGPEMidQ39fgCyTaDQ==",
+    "Swashbuckle.AspNetCore.Annotations/5.6.3": {
+      "sha512": "ucCJueBMJZ86z2w43wwdziBGdvjpkBXndSlr34Zz2dDXXfTA0kIsUbSzS/PWMCOINozJkFSWadWQ0BP+zOxQcA==",
       "type": "package",
-      "path": "swashbuckle.aspnetcore.annotations/5.0.0",
+      "path": "swashbuckle.aspnetcore.annotations/5.6.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netcoreapp3.0/Swashbuckle.AspNetCore.Annotations.dll",
+        "lib/netcoreapp3.0/Swashbuckle.AspNetCore.Annotations.pdb",
         "lib/netcoreapp3.0/Swashbuckle.AspNetCore.Annotations.xml",
         "lib/netstandard2.0/Swashbuckle.AspNetCore.Annotations.dll",
+        "lib/netstandard2.0/Swashbuckle.AspNetCore.Annotations.pdb",
         "lib/netstandard2.0/Swashbuckle.AspNetCore.Annotations.xml",
-        "swashbuckle.aspnetcore.annotations.5.0.0.nupkg.sha512",
+        "swashbuckle.aspnetcore.annotations.5.6.3.nupkg.sha512",
         "swashbuckle.aspnetcore.annotations.nuspec"
       ]
     },
@@ -10845,6 +10887,11 @@
       "path": "../TaiheSystem.CBE.Api.Extensions/TaiheSystem.CBE.Api.Extensions.csproj",
       "msbuildProject": "../TaiheSystem.CBE.Api.Extensions/TaiheSystem.CBE.Api.Extensions.csproj"
     },
+    "TaiheSystem.CBE.Api.GWF/1.0.0": {
+      "type": "project",
+      "path": "../TaiSystem.CBE.Api.GWF/TaiheSystem.CBE.Api.GWF.csproj",
+      "msbuildProject": "../TaiSystem.CBE.Api.GWF/TaiheSystem.CBE.Api.GWF.csproj"
+    },
     "TaiheSystem.CBE.Api.Interfaces/1.0.0": {
       "type": "project",
       "path": "../TaiheSystem.CBE.Api.Interfaces/TaiheSystem.CBE.Api.Interfaces.csproj",
@@ -10890,6 +10937,7 @@
       "TaiheSystem.CBE.Api.Common >= 1.0.0",
       "TaiheSystem.CBE.Api.Core >= 1.0.0",
       "TaiheSystem.CBE.Api.Extensions >= 1.0.0",
+      "TaiheSystem.CBE.Api.GWF >= 1.0.0",
       "TaiheSystem.CBE.Api.Interfaces >= 1.0.0",
       "TaiheSystem.CBE.Api.Message >= 1.0.0",
       "TaiheSystem.CBE.Api.Model >= 1.0.0",
@@ -10904,11 +10952,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Hostd\\TaiheSystem.CBE.Api.Hostd.csproj",
+      "projectUniqueName": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Hostd\\TaiheSystem.CBE.Api.Hostd.csproj",
       "projectName": "TaiheSystem.CBE.Api.Hostd",
-      "projectPath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Hostd\\TaiheSystem.CBE.Api.Hostd.csproj",
+      "projectPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Hostd\\TaiheSystem.CBE.Api.Hostd.csproj",
       "packagesPath": "C:\\Users\\zhuld\\.nuget\\packages\\",
-      "outputPath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Hostd\\obj\\",
+      "outputPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Hostd\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Microsoft\\Xamarin\\NuGet\\"
@@ -10929,29 +10977,32 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Common\\TaiheSystem.CBE.Api.Common.csproj": {
-              "projectPath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Common\\TaiheSystem.CBE.Api.Common.csproj"
+            "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Common\\TaiheSystem.CBE.Api.Common.csproj": {
+              "projectPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Common\\TaiheSystem.CBE.Api.Common.csproj"
             },
-            "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Core\\TaiheSystem.CBE.Api.Core.csproj": {
-              "projectPath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Core\\TaiheSystem.CBE.Api.Core.csproj"
+            "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Core\\TaiheSystem.CBE.Api.Core.csproj": {
+              "projectPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Core\\TaiheSystem.CBE.Api.Core.csproj"
             },
-            "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Extensions\\TaiheSystem.CBE.Api.Extensions.csproj": {
-              "projectPath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Extensions\\TaiheSystem.CBE.Api.Extensions.csproj"
+            "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Extensions\\TaiheSystem.CBE.Api.Extensions.csproj": {
+              "projectPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Extensions\\TaiheSystem.CBE.Api.Extensions.csproj"
             },
-            "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Interfaces\\TaiheSystem.CBE.Api.Interfaces.csproj": {
-              "projectPath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Interfaces\\TaiheSystem.CBE.Api.Interfaces.csproj"
+            "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Interfaces\\TaiheSystem.CBE.Api.Interfaces.csproj": {
+              "projectPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Interfaces\\TaiheSystem.CBE.Api.Interfaces.csproj"
             },
-            "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Message\\TaiheSystem.CBE.Api.Message.csproj": {
-              "projectPath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Message\\TaiheSystem.CBE.Api.Message.csproj"
+            "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Message\\TaiheSystem.CBE.Api.Message.csproj": {
+              "projectPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Message\\TaiheSystem.CBE.Api.Message.csproj"
             },
-            "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj": {
-              "projectPath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj"
+            "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj": {
+              "projectPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Model\\TaiheSystem.CBE.Api.Model.csproj"
             },
-            "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Tasks\\TaiheSystem.CBE.Api.Tasks.csproj": {
-              "projectPath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Tasks\\TaiheSystem.CBE.Api.Tasks.csproj"
+            "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Tasks\\TaiheSystem.CBE.Api.Tasks.csproj": {
+              "projectPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Tasks\\TaiheSystem.CBE.Api.Tasks.csproj"
             },
-            "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Tools\\TaiheSystem.CBE.Api.Tools.csproj": {
-              "projectPath": "D:\\SourceCode\\TaiheSystem.CBE.Api\\TaiheSystem.CBE.Api.Tools\\TaiheSystem.CBE.Api.Tools.csproj"
+            "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Tools\\TaiheSystem.CBE.Api.Tools.csproj": {
+              "projectPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Tools\\TaiheSystem.CBE.Api.Tools.csproj"
+            },
+            "D:\\SourceCode\\Taihe.CBE.API\\TaiSystem.CBE.Api.GWF\\TaiheSystem.CBE.Api.GWF.csproj": {
+              "projectPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiSystem.CBE.Api.GWF\\TaiheSystem.CBE.Api.GWF.csproj"
             }
           }
         }

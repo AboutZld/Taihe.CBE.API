@@ -41,22 +41,23 @@ namespace TaiheSystem.CBE.Api.Hostd.Authorization
             #endregion
 
             #region 判断是否拥有权限
-            if (!string.IsNullOrEmpty(Power))
+            //超级管理员可以访问全部接口信息
+            if (!string.IsNullOrEmpty(Power) && !_tokenManager.GetSessionInfo().Administrator)
             {
-                if (Convert.ToBoolean(AppSettings.Configuration["AppSettings:Demo"]))
-                {
-                    if (Power.Contains("UPDATE") || Power.Contains("CREATE") || Power.Contains("DELETE") || Power.Contains("RESETPASSWD"))
-                    {
-                        ApiResult response = new ApiResult
-                        {
-                            StatusCode = (int)StatusCodeType.Error,
-                            Message = "当前为演示模式 , 您无权修改任何数据"
-                        };
+                //if (Convert.ToBoolean(AppSettings.Configuration["AppSettings:Demo"]))
+                //{
+                //    if (Power.Contains("UPDATE") || Power.Contains("CREATE") || Power.Contains("DELETE") || Power.Contains("RESETPASSWD"))
+                //    {
+                //        ApiResult response = new ApiResult
+                //        {
+                //            StatusCode = (int)StatusCodeType.Error,
+                //            Message = "当前为演示模式 , 您无权修改任何数据"
+                //        };
 
-                        context.Result = new JsonResult(response) { StatusCode = (int)StatusCodeType.Success };
-                        return;
-                    }
-                }
+                //        context.Result = new JsonResult(response) { StatusCode = (int)StatusCodeType.Success };
+                //        return;
+                //    }
+                //}
 
                 if (!_tokenManager.GetSessionInfo().UserPower.Contains(Power))
                 {
