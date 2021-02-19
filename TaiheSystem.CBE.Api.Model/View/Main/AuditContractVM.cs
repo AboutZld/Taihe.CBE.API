@@ -344,6 +344,27 @@ namespace TaiheSystem.CBE.Api.Model.View.Main
         public string ApproveName { get; set; }
 
         /// <summary>
+        /// 描述 : 体系一体化程度(%) 
+        /// 空值 : True
+        /// 默认 : 
+        /// </summary>
+        [Display(Name = "体系一体化程度(%)")]
+        public decimal? IntegrationLevel { get; set; }
+
+        /// <summary>
+        /// 描述 : 支持方式 
+        /// 空值 : True
+        /// 默认 : 
+        /// </summary>
+        [Display(Name = "支持方式")]
+        public string SupportWay { get; set; }
+
+        /// <summary>
+        /// 支持方式选项
+        /// </summary>
+        public List<Frm_SelectItemObj> SupportWayList { get; set; }
+
+        /// <summary>
         /// 描述 : 关联客户信息 
         /// 空值 : false
         /// 默认 : 

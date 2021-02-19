@@ -115,7 +115,7 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Sys
             var userSession = _tokenManager.GetSessionInfo();
             
             //判断是更新还是新增
-            if(string.IsNullOrEmpty(parm.ID))
+            if(!string.IsNullOrEmpty(parm.ID))
             {
                 if (_itemService.Any(m => m.SelectItemCode == parm.SelectItemCode))
                 {

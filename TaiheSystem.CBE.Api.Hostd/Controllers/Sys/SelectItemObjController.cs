@@ -146,7 +146,7 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Sys
             var userSession = _tokenManager.GetSessionInfo();
 
             //判断是新增还是更新
-            if(string.IsNullOrEmpty(parm.ID))
+            if (!string.IsNullOrEmpty(parm.ID))
             {
                 if (_itemobjService.Any(m => m.SelectItemCode == parm.SelectItemCode && m.SelectItemObjCode == parm.SelectItemObjCode))
                 {
@@ -157,18 +157,20 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Sys
 
                 return toResponse(_itemobjService.Add(options));
             }
-
-            return toResponse(_itemobjService.Update(m => m.ID == parm.ID, m => new Frm_SelectItemObj()
+            else
             {
-                SelectItemObjCode = parm.SelectItemObjCode,
-                SelectItemObjName = parm.SelectItemObjName,
-                SortIndex = parm.SortIndex,
-                SelectItmeObjDecr = parm.SelectItmeObjDecr,
-                Enabled = parm.Enabled,
-                UpdateID = userSession.UserID,
-                UpdateName = userSession.UserName,
-                UpdateTime = DateTime.Now
-            }));
+                return toResponse(_itemobjService.Update(m => m.ID == parm.ID, m => new Frm_SelectItemObj()
+                {
+                    SelectItemObjCode = parm.SelectItemObjCode,
+                    SelectItemObjName = parm.SelectItemObjName,
+                    SortIndex = parm.SortIndex,
+                    SelectItmeObjDecr = parm.SelectItmeObjDecr,
+                    Enabled = parm.Enabled,
+                    UpdateID = userSession.UserID,
+                    UpdateName = userSession.UserName,
+                    UpdateTime = DateTime.Now
+                }));
+            }
         }
 
         /// <summary>

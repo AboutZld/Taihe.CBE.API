@@ -22,6 +22,7 @@ namespace TaiheSystem.CBE.Api.Model
 
             this.ID =Guid.NewGuid().ToString();
             this.CreateTime =DateTime.Now;
+            this.status =Convert.ToInt32("40000");
 
            }
            /// <summary>
@@ -40,7 +41,7 @@ namespace TaiheSystem.CBE.Api.Model
            /// </summary>
            [Display(Name = "")]           
            [SugarColumn(IsIdentity=true)]
-           public int PlanAuditorID {get;set;}
+           public int AutoID {get;set;}
 
            /// <summary>
            /// 描述 :  
@@ -57,6 +58,14 @@ namespace TaiheSystem.CBE.Api.Model
            /// </summary>
            [Display(Name = "")]           
            public string UserID {get;set;}
+
+           /// <summary>
+           /// 描述 :  
+           /// 空值 : True
+           /// 默认 : 
+           /// </summary>
+           [Display(Name = "")]           
+           public string UserName {get;set;}
 
            /// <summary>
            /// 描述 :  
@@ -81,6 +90,22 @@ namespace TaiheSystem.CBE.Api.Model
            /// </summary>
            [Display(Name = "")]           
            public string CreateName {get;set;}
+
+           /// <summary>
+           /// 描述 :  
+           /// 空值 : True
+           /// 默认 : 40000
+           /// </summary>
+           [Display(Name = "")]           
+           public int? status {get;set;}
+
+           /// <summary>
+           /// 描述 : 计划备注 
+           /// 空值 : True
+           /// 默认 : 
+           /// </summary>
+           [Display(Name = "计划备注")]           
+           public string PlanRemark {get;set;}
 
     }
 }

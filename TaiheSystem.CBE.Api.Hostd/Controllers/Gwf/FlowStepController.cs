@@ -71,6 +71,9 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Gwf
                     case "30":
                         sqlWhere += $" and Biz_Contract_Plan_ID = '{id}'";
                         break;
+                    case "40":
+                        sqlWhere += $" and Biz_Contract_PlanAuditor_Item_ID = '{id}'";
+                        break;
                 }
 
                 var response = db.SqlQueryable<object>(sql + sqlWhere + Sortby).ToList();

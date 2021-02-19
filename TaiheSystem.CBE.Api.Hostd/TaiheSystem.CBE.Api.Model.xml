@@ -91,6 +91,231 @@
             排序方式
             </summary>
         </member>
+        <member name="T:TaiheSystem.CBE.Api.Model.Dto.AuditorPlanDto">
+            <summary>
+            查询审核安排信息
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.AuditorPlanDto.status">
+            <summary>
+            描述 : 状态 0-未完成 1- 已编制 2-评定通过 3-评定未通过 4-评审有问题
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.AuditorPlanDto.ContractItemNo">
+            <summary>
+            描述 : 项目编号 
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.AuditorPlanDto.khmc">
+            <summary>
+            描述 : 客户名称 
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.AuditorPlanDto.hzhb">
+            <summary>
+            描述 : 合作伙伴 
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.AuditorPlanDto.AcceptStartDateStart">
+            <summary>
+            描述 : 审核开始起
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.AuditorPlanDto.AcceptStartDateEnd">
+            <summary>
+            描述 : 审核开始止
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.AuditorPlanDto.AcceptEndDateStart">
+            <summary>
+            描述 : 审核结束起
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.AuditorPlanDto.AcceptEndDateEnd">
+            <summary>
+            描述 : 审核结束止
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="T:TaiheSystem.CBE.Api.Model.Dto.AuditorDrawUpdateDto">
+            <summary>
+            计划日志编制
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.AuditorDrawUpdateDto.ID">
+            <summary>
+            描述 :  
+            空值 : False
+            默认 : newid()
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.AuditorDrawUpdateDto.AutoID">
+            <summary>
+            描述 :  
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.AuditorDrawUpdateDto.ContractPlanID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.AuditorDrawUpdateDto.UserID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Model.Dto.AuditorDrawUpdateDto.PlanAuditorDrawList">
+            <summary>
+            编制计划列表
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Model.Dto.AuditorDrawUpdateDto.PlanAuditorDrawList_update">
+            <summary>
+            编制计划列表(更新)
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Model.Dto.AuditorDrawUpdateDto.PlanAuditorDrawList_insert">
+            <summary>
+            编制计划列表(插入)
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Model.Dto.AuditorDrawUpdateDto.PlanAuditorDrawList_delete">
+            <summary>
+            编制计划列表(删除)
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Model.Dto.AuditorDrawUpdateDto.ContractsubitemList">
+            <summary>
+            项目列表
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Model.Dto.AuditorDrawUpdateDto.ContractsubitemFileList">
+            <summary>
+            上传文件列表
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.SubItemFileCreateDto.ContractItemSubID">
+            <summary>
+            描述 : 子项目id 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.SubItemFileCreateDto.FileID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.SubItemFileCreateDto.FileType">
+            <summary>
+            描述 : 0-合同评审文件 1-流转文件 3-一阶段 4-二阶段 5-本次审核文件 6-流转文件 7-评定纠正文件 9-其他 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.SubItemFileCreateDto.FileTypeName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="T:TaiheSystem.CBE.Api.Model.Dto.AuditorPlanConfirmDto">
+            <summary>
+            查询审核员计划确认
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.AuditorPlanConfirmDto.status">
+            <summary>
+            描述 : 状态 0-未编制 1- 已编制 2-需调整 3-已确认
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.AuditorPlanConfirmDto.ContractItemNo">
+            <summary>
+            描述 : 项目编号 
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.AuditorPlanConfirmDto.khmc">
+            <summary>
+            描述 : 客户名称 
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.AuditorPlanConfirmDto.AcceptStartDateStart">
+            <summary>
+            描述 : 审核开始起
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.AuditorPlanConfirmDto.AcceptStartDateEnd">
+            <summary>
+            描述 : 审核开始止
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.AuditorPlanConfirmDto.AcceptEndDateStart">
+            <summary>
+            描述 : 审核结束起
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.AuditorPlanConfirmDto.AcceptEndDateEnd">
+            <summary>
+            描述 : 审核结束止
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="T:TaiheSystem.CBE.Api.Model.Dto.AuditorConfrmSubmitDto">
+            <summary>
+            审核员计划提交信息
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.AuditorConfrmSubmitDto.id">
+            <summary>
+            描述 : 计划备注 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.AuditorConfrmSubmitDto.PlanRemark">
+            <summary>
+            描述 : 计划备注 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
         <member name="T:TaiheSystem.CBE.Api.Model.Dto.PlanApproveDto">
             <summary>
             查询审核安排信息
@@ -124,16 +349,30 @@
             默认 : 
             </summary>
         </member>
-        <member name="P:TaiheSystem.CBE.Api.Model.Dto.PlanApproveDto.AcceptDateStart">
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.PlanApproveDto.AcceptStartDateStart">
             <summary>
-            描述 : 受理日期开始 
+            描述 : 审核开始起
             空值 : False
             默认 : 
             </summary>
         </member>
-        <member name="P:TaiheSystem.CBE.Api.Model.Dto.PlanApproveDto.AcceptDateEnd">
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.PlanApproveDto.AcceptStartDateEnd">
             <summary>
-            描述 : 受理日期止
+            描述 : 审核开始止
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.PlanApproveDto.AcceptEndDateStart">
+            <summary>
+            描述 : 审核结束起
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.PlanApproveDto.AcceptEndDateEnd">
+            <summary>
+            描述 : 审核结束止
             空值 : False
             默认 : 
             </summary>
@@ -242,16 +481,30 @@
             默认 : 
             </summary>
         </member>
-        <member name="P:TaiheSystem.CBE.Api.Model.Dto.PlanManageDto.AcceptDateStart">
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.PlanManageDto.AcceptStartDateStart">
             <summary>
-            描述 : 受理日期开始 
+            描述 : 审核开始起
             空值 : False
             默认 : 
             </summary>
         </member>
-        <member name="P:TaiheSystem.CBE.Api.Model.Dto.PlanManageDto.AcceptDateEnd">
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.PlanManageDto.AcceptStartDateEnd">
             <summary>
-            描述 : 受理日期止
+            描述 : 审核开始止
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.PlanManageDto.AcceptEndDateStart">
+            <summary>
+            描述 : 审核结束起
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.PlanManageDto.AcceptEndDateEnd">
+            <summary>
+            描述 : 审核结束止
             空值 : False
             默认 : 
             </summary>
@@ -1657,6 +1910,356 @@
             默认 : 
             </summary>
         </member>
+        <member name="T:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDto">
+            <summary>
+            资料回收确认
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDto.status">
+            <summary>
+            描述 : 状态 0-待回收 1- 待补充 2-已补充 3-回收完成
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDto.ContractItemNo">
+            <summary>
+            描述 : 项目编号 
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDto.khmc">
+            <summary>
+            描述 : 客户名称 
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDto.AcceptStartDateStart">
+            <summary>
+            描述 : 审核开始起
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDto.AcceptStartDateEnd">
+            <summary>
+            描述 : 审核开始止
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDto.AcceptEndDateStart">
+            <summary>
+            描述 : 审核结束起
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDto.AcceptEndDateEnd">
+            <summary>
+            描述 : 审核结束止
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="T:TaiheSystem.CBE.Api.Model.Dto.DataRecoverySubmitDto">
+            <summary>
+            审核员计划提交信息
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoverySubmitDto.id">
+            <summary>
+            描述 : 计划备注 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoverySubmitDto.ReviewerID">
+            <summary>
+            描述 : 阅卷老师ID 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoverySubmitDto.ReviewerName">
+            <summary>
+            描述 : 阅卷老师名称 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoverySubmitDto.DataRecoveryDate">
+            <summary>
+            描述 : 资料回收日期
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoverySubmitDto.DataRecoveryRemark">
+            <summary>
+            描述 : 资料回收备注 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoverySubmitDto.ReplenishRemark">
+            <summary>
+            描述 : 待补充资料 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="T:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail">
+            <summary>
+            资料回收详情
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.ID">
+            <summary>
+            描述 :  
+            空值 : False
+            默认 : newid()
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.AutoID">
+            <summary>
+            描述 :  
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.CustomerID">
+            <summary>
+            描述 : 客户id 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.ContractPlanNo">
+            <summary>
+            描述 : 任务编号 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.PlanStartDate">
+            <summary>
+            描述 : 计划起始日期 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.PlanEndDate">
+            <summary>
+            描述 : 计划结束日期 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.PlanRemark">
+            <summary>
+            描述 : 任务备注 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.Remark">
+            <summary>
+            描述 : 备注 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.status">
+            <summary>
+            描述 : 状态 
+            空值 : True
+            默认 : 30000
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.CreateTime">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : DateTime.Now
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.CreateID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.CreateName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.UpdateTime">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.UpdateID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.UpdateName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.SendSubmitTime">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.SendSubmitID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.SendSubmitName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.ApproveTime">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.ApproveRemark">
+            <summary>
+            描述 : 审批备注 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.ApproveID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.ApproveName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.ReviewerID">
+            <summary>
+            描述 : 阅卷老师ID 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.ReviewerName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.DataRecoveryDate">
+            <summary>
+            描述 : 资料回收日期 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.DataRecoveryRemark">
+            <summary>
+            描述 : 资料回收备注 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.ReplenishRemark">
+            <summary>
+            描述 : 待补充资料 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.DataRecoverySubmitDate">
+            <summary>
+            描述 : 提交时间 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.DataRecoverySubmitID">
+            <summary>
+            描述 : 提交人ID 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.DataRecoverySubmitName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.SystemTypeNames">
+            <summary>
+            描述 :  体系名称
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.AuditTypeNames">
+            <summary>
+            描述 :  审核类型
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.CustomerInfo">
+            <summary>
+            客户组织信息
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.CustomerParterList">
+            <summary>
+            分场所信息
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.ContractItemSubList">
+            <summary>
+            项目信息
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDetail.ContractsubitemFileList">
+            <summary>
+            上传文件列表
+            </summary>
+        </member>
         <member name="T:TaiheSystem.CBE.Api.Model.Dto.ApproveContractSubmitDto">
             <summary>
             审批提交操作
@@ -1962,6 +2565,11 @@
             描述 : 体系一体化程度(%) 
             空值 : True
             默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.AuditContractUpdateDto.SupportWayList">
+            <summary>
+            支持方式选项
             </summary>
         </member>
         <member name="F:TaiheSystem.CBE.Api.Model.Dto.AuditContractUpdateDto.ContractCustomerInfo">
@@ -3486,6 +4094,25 @@
             </summary>
         </member>
         <member name="P:TaiheSystem.CBE.Api.Model.Dto.SysStandardQueryAllDto.QueryText">
+            <summary>
+            描述 : 查询选项
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="T:TaiheSystem.CBE.Api.Model.Dto.SystemType2QueryDto">
+            <summary>
+            按照业务体系类别查询
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.SystemType2QueryDto.SystemTypeID">
+            <summary>
+            描述 : 查询选项
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Dto.SystemType2QueryDto.QueryText">
             <summary>
             描述 : 查询选项
             空值 : False
@@ -6034,7 +6661,7 @@
             默认 : newid()
             </summary>
         </member>
-        <member name="P:TaiheSystem.CBE.Api.Model.Abi_BizClassification.BizClassificationID">
+        <member name="P:TaiheSystem.CBE.Api.Model.Abi_BizClassification.AutoID">
             <summary>
             描述 :  
             空值 : False
@@ -6188,7 +6815,7 @@
             默认 : newid()
             </summary>
         </member>
-        <member name="P:TaiheSystem.CBE.Api.Model.Abi_SysStandard.SysStandardID">
+        <member name="P:TaiheSystem.CBE.Api.Model.Abi_SysStandard.AutoID">
             <summary>
             描述 :  
             空值 : False
@@ -6797,7 +7424,7 @@
             默认 : newid()
             </summary>
         </member>
-        <member name="P:TaiheSystem.CBE.Api.Model.Biz_ContractFcs.ContractFcsID">
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_ContractFcs.AutoID">
             <summary>
             描述 :  
             空值 : False
@@ -6853,7 +7480,7 @@
             默认 : newid()
             </summary>
         </member>
-        <member name="P:TaiheSystem.CBE.Api.Model.Biz_ContractFile.ContractFileID">
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_ContractFile.AutoID">
             <summary>
             描述 :  
             空值 : False
@@ -6923,7 +7550,7 @@
             默认 : newid()
             </summary>
         </member>
-        <member name="P:TaiheSystem.CBE.Api.Model.Biz_ContractItem.ContractItemID">
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_ContractItem.AutoID">
             <summary>
             描述 :  
             空值 : False
@@ -7168,6 +7795,13 @@
             默认 : 
             </summary>
         </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_ContractItem.SupportWay">
+            <summary>
+            描述 : 支持方式 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
         <member name="P:TaiheSystem.CBE.Api.Model.Biz_ContractItem_Add.ID">
             <summary>
             描述 :  
@@ -7175,7 +7809,7 @@
             默认 : newid()
             </summary>
         </member>
-        <member name="P:TaiheSystem.CBE.Api.Model.Biz_ContractItem_Add.ContractItemAddID">
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_ContractItem_Add.AutoID">
             <summary>
             描述 :  
             空值 : False
@@ -7217,6 +7851,13 @@
             默认 : newid()
             </summary>
         </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_ContractItem_BizClassification.AutoID">
+            <summary>
+            描述 :  
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
         <member name="P:TaiheSystem.CBE.Api.Model.Biz_ContractItem_BizClassification.ContractItemID">
             <summary>
             描述 : 合同项目ID 
@@ -7238,7 +7879,7 @@
             默认 : newid()
             </summary>
         </member>
-        <member name="P:TaiheSystem.CBE.Api.Model.Biz_ContractItem_Minus.ContractItemMinusID">
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_ContractItem_Minus.AutoID">
             <summary>
             描述 :  
             空值 : False
@@ -7280,7 +7921,7 @@
             默认 : newid()
             </summary>
         </member>
-        <member name="P:TaiheSystem.CBE.Api.Model.Biz_ContractItem_Sub.ContractItemSubID">
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_ContractItem_Sub.AutoID">
             <summary>
             描述 :  
             空值 : False
@@ -7434,6 +8075,76 @@
             默认 : 
             </summary>
         </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_ContractItem_Sub_File.ID">
+            <summary>
+            描述 :  
+            空值 : False
+            默认 : newid()
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_ContractItem_Sub_File.AutoID">
+            <summary>
+            描述 :  
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_ContractItem_Sub_File.ContractPlanID">
+            <summary>
+            描述 : 任务ID 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_ContractItem_Sub_File.PlanAuditorID">
+            <summary>
+            描述 : 任务分配审核员ID 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_ContractItem_Sub_File.FileID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_ContractItem_Sub_File.FileType">
+            <summary>
+            描述 : 0-合同评审文件 1-流转文件 3-一阶段 4-二阶段 5-本次审核文件 6-流转文件 7-评定纠正文件 9-其他 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_ContractItem_Sub_File.FileTypeName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_ContractItem_Sub_File.CreateTime">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : DateTime.Now
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_ContractItem_Sub_File.CreateID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_ContractItem_Sub_File.CreateName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
         <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_Plan.ID">
             <summary>
             描述 :  
@@ -7441,7 +8152,7 @@
             默认 : newid()
             </summary>
         </member>
-        <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_Plan.ContractPlanID">
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_Plan.AutoID">
             <summary>
             描述 :  
             空值 : False
@@ -7588,6 +8299,62 @@
             默认 : 
             </summary>
         </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_Plan.ReviewerID">
+            <summary>
+            描述 : 阅卷老师ID 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_Plan.ReviewerName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_Plan.DataRecoveryDate">
+            <summary>
+            描述 : 资料回收日期 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_Plan.DataRecoveryRemark">
+            <summary>
+            描述 : 资料回收备注 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_Plan.ReplenishRemark">
+            <summary>
+            描述 : 待补充资料 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_Plan.DataRecoverySubmitDate">
+            <summary>
+            描述 : 提交时间 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_Plan.DataRecoverySubmitID">
+            <summary>
+            描述 : 提交人ID 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_Plan.DataRecoverySubmitName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
         <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_PlanAuditor.ID">
             <summary>
             描述 :  
@@ -7595,7 +8362,7 @@
             默认 : newid()
             </summary>
         </member>
-        <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_PlanAuditor.PlanAuditorID">
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_PlanAuditor.AutoID">
             <summary>
             描述 :  
             空值 : False
@@ -7610,6 +8377,13 @@
             </summary>
         </member>
         <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_PlanAuditor.UserID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_PlanAuditor.UserName">
             <summary>
             描述 :  
             空值 : True
@@ -7637,6 +8411,83 @@
             默认 : 
             </summary>
         </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_PlanAuditor.status">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 40000
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_PlanAuditor.PlanRemark">
+            <summary>
+            描述 : 计划备注 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_PlanAuditor_Draw.ID">
+            <summary>
+            描述 :  
+            空值 : False
+            默认 : newid()
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_PlanAuditor_Draw.AutoID">
+            <summary>
+            描述 :  
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_PlanAuditor_Draw.PlanAuditorID">
+            <summary>
+            描述 : 审核员ID 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_PlanAuditor_Draw.DrawStartTime">
+            <summary>
+            描述 : 计划开始时间 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_PlanAuditor_Draw.DrawEndTime">
+            <summary>
+            描述 : 计划结束时间 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_PlanAuditor_Draw.Department">
+            <summary>
+            描述 : 部门 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_PlanAuditor_Draw.DrawContent">
+            <summary>
+            描述 : 计划内容 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_PlanAuditor_Draw.DrawClause">
+            <summary>
+            描述 : 条款 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_PlanAuditor_Draw.CreateTime">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : DateTime.Now
+            </summary>
+        </member>
         <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_PlanAuditor_Item.ID">
             <summary>
             描述 :  
@@ -7644,7 +8495,7 @@
             默认 : newid()
             </summary>
         </member>
-        <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_PlanAuditor_Item.PlanAuditorItemID">
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_PlanAuditor_Item.AutoID">
             <summary>
             描述 :  
             空值 : False
@@ -7742,6 +8593,13 @@
             默认 : 
             </summary>
         </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_Contract_PlanAuditor_Item.status">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 40000
+            </summary>
+        </member>
         <member name="P:TaiheSystem.CBE.Api.Model.Biz_MainContract.ID">
             <summary>
             描述 :  
@@ -7749,7 +8607,7 @@
             默认 : newid()
             </summary>
         </member>
-        <member name="P:TaiheSystem.CBE.Api.Model.Biz_MainContract.MainContractID">
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_MainContract.AutoID">
             <summary>
             描述 :  
             空值 : False
@@ -8043,6 +8901,13 @@
             默认 : 
             </summary>
         </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_MainContract.SupportWay">
+            <summary>
+            描述 : 支持方式 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
         <member name="P:TaiheSystem.CBE.Api.Model.Biz_PreContract.ID">
             <summary>
             描述 :  
@@ -8050,7 +8915,7 @@
             默认 : newid()
             </summary>
         </member>
-        <member name="P:TaiheSystem.CBE.Api.Model.Biz_PreContract.PreContractID">
+        <member name="P:TaiheSystem.CBE.Api.Model.Biz_PreContract.AutoID">
             <summary>
             描述 :  
             空值 : False
@@ -8190,7 +9055,7 @@
             默认 : newid()
             </summary>
         </member>
-        <member name="P:TaiheSystem.CBE.Api.Model.Cfg_AuditType.AuditTypeID">
+        <member name="P:TaiheSystem.CBE.Api.Model.Cfg_AuditType.AutoID">
             <summary>
             描述 :  
             空值 : False
@@ -8302,7 +9167,7 @@
             默认 : newid()
             </summary>
         </member>
-        <member name="P:TaiheSystem.CBE.Api.Model.Cfg_ServiceType.ServiceTypeID">
+        <member name="P:TaiheSystem.CBE.Api.Model.Cfg_ServiceType.AutoID">
             <summary>
             描述 :  
             空值 : False
@@ -8393,7 +9258,7 @@
             默认 : newid()
             </summary>
         </member>
-        <member name="P:TaiheSystem.CBE.Api.Model.Cfg_SystemType.TypeID">
+        <member name="P:TaiheSystem.CBE.Api.Model.Cfg_SystemType.AutoID">
             <summary>
             描述 :  
             空值 : False
@@ -8491,7 +9356,7 @@
             默认 : newid()
             </summary>
         </member>
-        <member name="P:TaiheSystem.CBE.Api.Model.Frm_SelectItem.SelectItemID">
+        <member name="P:TaiheSystem.CBE.Api.Model.Frm_SelectItem.AutoID">
             <summary>
             描述 :  
             空值 : False
@@ -9016,6 +9881,13 @@
             默认 : 
             </summary>
         </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Gwf_Step.Biz_Contract_PlanAuditor_ID">
+            <summary>
+            描述 : 审核员ID 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
         <member name="P:TaiheSystem.CBE.Api.Model.Org_Department.ID">
             <summary>
             描述 :  
@@ -9023,7 +9895,7 @@
             默认 : 
             </summary>
         </member>
-        <member name="P:TaiheSystem.CBE.Api.Model.Org_Department.DeptID">
+        <member name="P:TaiheSystem.CBE.Api.Model.Org_Department.AutoID">
             <summary>
             描述 :  
             空值 : False
@@ -9147,6 +10019,13 @@
             描述 :  
             空值 : False
             默认 : newid()
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.Sys_AuditTime.AutoID">
+            <summary>
+            描述 :  
+            空值 : False
+            默认 : 
             </summary>
         </member>
         <member name="P:TaiheSystem.CBE.Api.Model.Sys_AuditTime.SystemTypeID">
@@ -10332,7 +11211,7 @@
             默认 : newid()
             </summary>
         </member>
-        <member name="P:TaiheSystem.CBE.Api.Model.Sys_User_Classification.UserClassificationID">
+        <member name="P:TaiheSystem.CBE.Api.Model.Sys_User_Classification.AutoID">
             <summary>
             描述 :  
             空值 : False
@@ -10477,7 +11356,7 @@
             默认 : newid()
             </summary>
         </member>
-        <member name="P:TaiheSystem.CBE.Api.Model.Sys_User_SystemType.UserSystemTypeID">
+        <member name="P:TaiheSystem.CBE.Api.Model.Sys_User_SystemType.AutoID">
             <summary>
             描述 :  
             空值 : False
@@ -11710,6 +12589,179 @@
         <member name="P:TaiheSystem.CBE.Api.Model.MessageModel`1.data">
             <summary>
             返回数据集合
+            </summary>
+        </member>
+        <member name="T:TaiheSystem.CBE.Api.Model.View.Standard.ContractItemSubVM">
+            <summary>
+            审核安排项目信息
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Standard.ContractItemSubVM.ID">
+            <summary>
+            描述 :  
+            空值 : False
+            默认 : newid()
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Standard.ContractItemSubVM.AutoID">
+            <summary>
+            描述 :  
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Standard.ContractItemSubVM.MainContractID">
+            <summary>
+            描述 : 合同ID 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Standard.ContractItemSubVM.ContractItemID">
+            <summary>
+            描述 : 主项目ID 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Standard.ContractItemSubVM.ContractItemSubType">
+            <summary>
+            描述 : 项目类型ID(0-一阶段；1-二阶段；3-其他) 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Standard.ContractItemSubVM.ContractItemSubTypeCode">
+            <summary>
+            描述 : 子项目类型 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Standard.ContractItemSubVM.ContractPlanID">
+            <summary>
+            描述 : 审核任务ID 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Standard.ContractItemSubVM.IsScene">
+            <summary>
+            描述 : 初审一阶段是否现场 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Standard.ContractItemSubVM.MultiSiteAddDays">
+            <summary>
+            描述 : 多场所增加人日 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Standard.ContractItemSubVM.AuditCombinDegree">
+            <summary>
+            描述 : 审核结合度(%) 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Standard.ContractItemSubVM.DeletionScale">
+            <summary>
+            描述 : 删减比例(%) 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Standard.ContractItemSubVM.PlanTotalDays">
+            <summary>
+            描述 : 策划总人日 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Standard.ContractItemSubVM.OffSiteDays">
+            <summary>
+            描述 : 非现场人日 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Standard.ContractItemSubVM.FirstDays">
+            <summary>
+            描述 : 一阶段(现场) 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Standard.ContractItemSubVM.SecondDays">
+            <summary>
+            描述 : 二阶段 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Standard.ContractItemSubVM.MultiSitetTravelDays">
+            <summary>
+            描述 : 多场所增加人日 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Standard.ContractItemSubVM.OtherAddDays">
+            <summary>
+            描述 : 其他增减人日 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Standard.ContractItemSubVM.TrueFirstDays">
+            <summary>
+            描述 : 审核实际安排初审一阶段 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Standard.ContractItemSubVM.TrueSecondDays">
+            <summary>
+            描述 : 审核实际安排初审二阶段 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Standard.ContractItemSubVM.status">
+            <summary>
+            描述 : 项目状态 
+            空值 : True
+            默认 : 20000
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Standard.ContractItemSubVM.CreateTime">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Standard.ContractItemSubVM.CreateID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Standard.ContractItemSubVM.CreateName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Standard.ContractItemSubVM.SystemTypeName">
+            <summary>
+            描述 :  体系类型名称
+            空值 : True
+            默认 : 
             </summary>
         </member>
         <member name="T:TaiheSystem.CBE.Api.Model.View.Standard.ItemPlanVM">
@@ -12992,6 +14044,25 @@
             默认 : 
             </summary>
         </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Main.AuditContractVM.IntegrationLevel">
+            <summary>
+            描述 : 体系一体化程度(%) 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Main.AuditContractVM.SupportWay">
+            <summary>
+            描述 : 支持方式 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Main.AuditContractVM.SupportWayList">
+            <summary>
+            支持方式选项
+            </summary>
+        </member>
         <member name="F:TaiheSystem.CBE.Api.Model.View.Main.AuditContractVM.ContractCustomerInfo">
             <summary>
             描述 : 关联客户信息 
@@ -13558,6 +14629,13 @@
             默认 : 
             </summary>
         </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View.Main.ContractItemVM.SupportWay">
+            <summary>
+            描述 : 支持方式 
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
         <member name="F:TaiheSystem.CBE.Api.Model.View.Main.ContractItemVM.ContractItemAddList">
             <summary>
             增人日依据
@@ -13957,6 +15035,496 @@
             默认 : 
             </summary>
         </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorItem.ID">
+            <summary>
+            描述 :  
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorItem.AutoID">
+            <summary>
+            描述 :  
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorItem.ContractPlanID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorItem.UserID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorItem.CreateTime">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorItem.CreateID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorItem.CreateName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorItem.status">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorItem.PlanRemark">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorItem.PlanStartDate">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorItem.PlanEndDate">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorItem.zzmc">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorItem.StandardNos">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorItem.ContractItemNos">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorItem.AuditTypeNames">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.ContractNo">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.CustomerID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.AcceptTime">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.zzmc">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.xzqhmc">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.mc">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.MainContractID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.ContractItemID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.ContractItemSubType">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.ContractItemSubTypeCode">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.ItemName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.ContractItemNo">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.ContractPlanNo">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.PlanStartDate">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.PlanEndDate">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.ApproveTime">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.ItemStatusName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.planStatusName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.UrgentFlag">
+            <summary>
+            描述 :  
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.ID">
+            <summary>
+            描述 :  
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.PlanAuditorItemID">
+            <summary>
+            描述 :  
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.ContractPlanID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.ContractItemSubID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.PlanAuditorID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.GroupIdentityID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.GroupIdentityName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.WitnessTypeID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.WitnessTypeName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.WitnessTypeUserName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.GroupCode">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.ProfessionCode">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.CreateTime">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.CreateID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.CreateName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.status">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_AuditorPlanVM.DrawSubmitTime">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_ItemPlanVM.ID">
+            <summary>
+            描述 :  
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_ItemPlanVM.ContractNo">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_ItemPlanVM.CustomerID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_ItemPlanVM.CreateTime">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_ItemPlanVM.zzmc">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_ItemPlanVM.xzqhmc">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_ItemPlanVM.mc">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_ItemPlanVM.ContractItemSubID">
+            <summary>
+            描述 :  
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_ItemPlanVM.MainContractID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_ItemPlanVM.ContractItemID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_ItemPlanVM.ContractItemSubType">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_ItemPlanVM.ContractItemSubTypeCode">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_ItemPlanVM.ItemName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_ItemPlanVM.ContractItemNo">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_ItemPlanVM.ContractPlanNo">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_ItemPlanVM.PlanStartDate">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_ItemPlanVM.PlanEndDate">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_ItemPlanVM.ApproveTime">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_ItemPlanVM.StatusName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
         <member name="P:TaiheSystem.CBE.Api.Model.view_PlanVM.ID">
             <summary>
             描述 :  
@@ -14140,6 +15708,265 @@
             </summary>
         </member>
         <member name="P:TaiheSystem.CBE.Api.Model.view_PlanVM.AuditTypeNames">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.ID">
+            <summary>
+            描述 :  
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.AutoID">
+            <summary>
+            描述 :  
+            空值 : False
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.CustomerID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.ContractPlanNo">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.PlanStartDate">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.PlanEndDate">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.PlanRemark">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.Remark">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.status">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.CreateTime">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.CreateID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.CreateName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.UpdateTime">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.UpdateID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.UpdateName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.SendSubmitTime">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.SendSubmitID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.SendSubmitName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.ApproveTime">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.ApproveRemark">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.ApproveID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.ApproveName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.ReviewerID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.ReviewerName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.DataRecoveryDate">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.DataRecoveryRemark">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.ReplenishRemark">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.DataRecoverySubmitDate">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.DataRecoverySubmitID">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.DataRecoverySubmitName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.zzmc">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.mc">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.ContractNo">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.AuditTypeName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.ItemName">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.ContractItemNo">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.view_dataRecovery.UserName">
             <summary>
             描述 :  
             空值 : True
@@ -14335,11 +16162,6 @@
             默认 :   
             </summary>
         </member>
-        <member name="T:TaiheSystem.CBE.Api.Model.View_MainContract">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="P:TaiheSystem.CBE.Api.Model.View_MainContract.ID">
             <summary>
             描述 :  
@@ -14347,7 +16169,7 @@
             默认 : 
             </summary>
         </member>
-        <member name="P:TaiheSystem.CBE.Api.Model.View_MainContract.MainContractID">
+        <member name="P:TaiheSystem.CBE.Api.Model.View_MainContract.AutoID">
             <summary>
             描述 :  
             空值 : False
@@ -14635,6 +16457,13 @@
             </summary>
         </member>
         <member name="P:TaiheSystem.CBE.Api.Model.View_MainContract.IntegrationLevel">
+            <summary>
+            描述 :  
+            空值 : True
+            默认 : 
+            </summary>
+        </member>
+        <member name="P:TaiheSystem.CBE.Api.Model.View_MainContract.SupportWay">
             <summary>
             描述 :  
             空值 : True

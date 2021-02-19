@@ -40,7 +40,7 @@ namespace TaiheSystem.CBE.Api.Model
            /// </summary>
            [Display(Name = "")]           
            [SugarColumn(IsIdentity=true)]
-           public int ServiceTypeID {get;set;}
+           public int AutoID {get;set;}
 
            /// <summary>
            /// 描述 : 业务归属名称 

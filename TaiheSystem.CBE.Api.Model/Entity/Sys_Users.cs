@@ -48,7 +48,7 @@ namespace TaiheSystem.CBE.Api.Model
            /// 默认 : 
            /// </summary>
            [Display(Name = "oaid")]           
-           public string oaid {get;set;}
+           public int? oaid {get;set;}
 
            /// <summary>
            /// 描述 : 登录名 

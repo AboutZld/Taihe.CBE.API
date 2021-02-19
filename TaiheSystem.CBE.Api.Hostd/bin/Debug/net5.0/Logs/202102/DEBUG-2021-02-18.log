@@ -1,0 +1,126 @@
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-18 14:28:00.4562 
+ 日志来源 ： TaiheSystem.CBE.Api.Tasks.HostedService.Job1TimedService 
+ 日志级别 ： DEBUG 
+ 日志内容 ： Run RemoveExpiredSession Succeed.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-18 14:28:00.4911 
+ 日志来源 ： Quartz.Simpl.TaskSchedulingThreadPool 
+ 日志级别 ： DEBUG 
+ 日志内容 ： TaskSchedulingThreadPool configured with max concurrency of 10 and TaskScheduler ThreadPoolTaskScheduler.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-18 14:33:00.0011 
+ 日志来源 ： TaiheSystem.CBE.Api.Tasks.HostedService.Job1TimedService 
+ 日志级别 ： DEBUG 
+ 日志内容 ： Run RemoveExpiredSession Succeed.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-18 14:38:00.0934 
+ 日志来源 ： TaiheSystem.CBE.Api.Tasks.HostedService.Job1TimedService 
+ 日志级别 ： DEBUG 
+ 日志内容 ： Run RemoveExpiredSession Succeed.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-18 14:43:00.0054 
+ 日志来源 ： TaiheSystem.CBE.Api.Tasks.HostedService.Job1TimedService 
+ 日志级别 ： DEBUG 
+ 日志内容 ： Run RemoveExpiredSession Succeed.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-18 14:48:00.0852 
+ 日志来源 ： TaiheSystem.CBE.Api.Tasks.HostedService.Job1TimedService 
+ 日志级别 ： DEBUG 
+ 日志内容 ： Run RemoveExpiredSession Succeed.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-18 14:53:00.0102 
+ 日志来源 ： TaiheSystem.CBE.Api.Tasks.HostedService.Job1TimedService 
+ 日志级别 ： DEBUG 
+ 日志内容 ： Run RemoveExpiredSession Succeed.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-18 14:58:00.0079 
+ 日志来源 ： TaiheSystem.CBE.Api.Tasks.HostedService.Job1TimedService 
+ 日志级别 ： DEBUG 
+ 日志内容 ： Run RemoveExpiredSession Succeed.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-18 15:03:00.0858 
+ 日志来源 ： TaiheSystem.CBE.Api.Tasks.HostedService.Job1TimedService 
+ 日志级别 ： DEBUG 
+ 日志内容 ： Run RemoveExpiredSession Succeed.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-18 16:01:23.8594 
+ 日志来源 ： Quartz.Simpl.TaskSchedulingThreadPool 
+ 日志级别 ： DEBUG 
+ 日志内容 ： TaskSchedulingThreadPool configured with max concurrency of 10 and TaskScheduler ThreadPoolTaskScheduler.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-18 16:01:23.8594 
+ 日志来源 ： TaiheSystem.CBE.Api.Tasks.HostedService.Job1TimedService 
+ 日志级别 ： DEBUG 
+ 日志内容 ： Run RemoveExpiredSession Succeed.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-18 16:08:43.0040 
+ 日志来源 ： Quartz.Simpl.TaskSchedulingThreadPool 
+ 日志级别 ： DEBUG 
+ 日志内容 ： TaskSchedulingThreadPool configured with max concurrency of 10 and TaskScheduler ThreadPoolTaskScheduler.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-18 16:08:43.0914 
+ 日志来源 ： TaiheSystem.CBE.Api.Tasks.HostedService.Job1TimedService 
+ 日志级别 ： DEBUG 
+ 日志内容 ： Run RemoveExpiredSession Succeed.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-18 16:10:29.4863 
+ 日志来源 ： TaiheSystem.CBE.Api.Tasks.HostedService.Job1TimedService 
+ 日志级别 ： DEBUG 
+ 日志内容 ： Run RemoveExpiredSession Succeed.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-18 16:10:29.4980 
+ 日志来源 ： Quartz.Simpl.TaskSchedulingThreadPool 
+ 日志级别 ： DEBUG 
+ 日志内容 ： TaskSchedulingThreadPool configured with max concurrency of 10 and TaskScheduler ThreadPoolTaskScheduler.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-18 16:13:53.9242 
+ 日志来源 ： Quartz.Simpl.TaskSchedulingThreadPool 
+ 日志级别 ： DEBUG 
+ 日志内容 ： TaskSchedulingThreadPool configured with max concurrency of 10 and TaskScheduler ThreadPoolTaskScheduler.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-18 16:13:53.9996 
+ 日志来源 ： TaiheSystem.CBE.Api.Tasks.HostedService.Job1TimedService 
+ 日志级别 ： DEBUG 
+ 日志内容 ： Run RemoveExpiredSession Succeed.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-18 17:53:03.2559 
+ 日志来源 ： Quartz.Simpl.TaskSchedulingThreadPool 
+ 日志级别 ： DEBUG 
+ 日志内容 ： TaskSchedulingThreadPool configured with max concurrency of 10 and TaskScheduler ThreadPoolTaskScheduler.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-18 17:53:03.3468 
+ 日志来源 ： TaiheSystem.CBE.Api.Tasks.HostedService.Job1TimedService 
+ 日志级别 ： DEBUG 
+ 日志内容 ： Run RemoveExpiredSession Succeed.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-18 17:57:11.2910 
+ 日志来源 ： Quartz.Simpl.TaskSchedulingThreadPool 
+ 日志级别 ： DEBUG 
+ 日志内容 ： TaskSchedulingThreadPool configured with max concurrency of 10 and TaskScheduler ThreadPoolTaskScheduler.
+
+**************************************************************************************************************************
+ 日志时间 ： 2021-02-18 17:57:11.3787 
+ 日志来源 ： TaiheSystem.CBE.Api.Tasks.HostedService.Job1TimedService 
+ 日志级别 ： DEBUG 
+ 日志内容 ： Run RemoveExpiredSession Succeed.
+

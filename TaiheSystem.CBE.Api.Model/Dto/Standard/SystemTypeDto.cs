@@ -29,6 +29,8 @@ namespace TaiheSystem.CBE.Api.Model.Dto
         public string QueryText { get; set; }
     }
 
+
+
     /// <summary>
     /// 查询选项定义(不分页)
     /// </summary>

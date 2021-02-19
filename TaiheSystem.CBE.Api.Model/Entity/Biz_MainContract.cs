@@ -39,7 +39,7 @@ namespace TaiheSystem.CBE.Api.Model
            /// </summary>
            [Display(Name = "")]           
            [SugarColumn(IsIdentity=true)]
-           public int MainContractID {get;set;}
+           public int AutoID {get;set;}
 
            /// <summary>
            /// 描述 : OA推送合同关联的订单号 
@@ -368,6 +368,14 @@ namespace TaiheSystem.CBE.Api.Model
            /// </summary>
            [Display(Name = "体系一体化程度(%)")]           
            public decimal? IntegrationLevel {get;set;}
+
+           /// <summary>
+           /// 描述 : 支持方式 
+           /// 空值 : True
+           /// 默认 : 
+           /// </summary>
+           [Display(Name = "支持方式")]           
+           public string SupportWay {get;set;}
 
     }
 }

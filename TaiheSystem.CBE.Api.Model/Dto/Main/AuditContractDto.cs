@@ -348,6 +348,11 @@ namespace TaiheSystem.CBE.Api.Model.Dto
         public decimal? IntegrationLevel { get; set; }
 
         /// <summary>
+        /// 支持方式选项
+        /// </summary>
+        public List<Frm_SelectItemObj> SupportWayList { get; set; }
+
+        /// <summary>
         /// 描述 : 关联客户信息 
         /// 空值 : false
         /// 默认 : 

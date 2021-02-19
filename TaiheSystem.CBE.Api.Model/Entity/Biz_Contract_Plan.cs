@@ -41,7 +41,7 @@ namespace TaiheSystem.CBE.Api.Model
            /// </summary>
            [Display(Name = "")]           
            [SugarColumn(IsIdentity=true)]
-           public int ContractPlanID {get;set;}
+           public int AutoID {get;set;}
 
            /// <summary>
            /// 描述 : 客户id 
@@ -202,6 +202,70 @@ namespace TaiheSystem.CBE.Api.Model
            /// </summary>
            [Display(Name = "")]           
            public string ApproveName {get;set;}
+
+           /// <summary>
+           /// 描述 : 阅卷老师ID 
+           /// 空值 : True
+           /// 默认 : 
+           /// </summary>
+           [Display(Name = "阅卷老师ID")]           
+           public string ReviewerID {get;set;}
+
+           /// <summary>
+           /// 描述 :  
+           /// 空值 : True
+           /// 默认 : 
+           /// </summary>
+           [Display(Name = "")]           
+           public string ReviewerName {get;set;}
+
+           /// <summary>
+           /// 描述 : 资料回收日期 
+           /// 空值 : True
+           /// 默认 : 
+           /// </summary>
+           [Display(Name = "资料回收日期")]           
+           public DateTime? DataRecoveryDate {get;set;}
+
+           /// <summary>
+           /// 描述 : 资料回收备注 
+           /// 空值 : True
+           /// 默认 : 
+           /// </summary>
+           [Display(Name = "资料回收备注")]           
+           public string DataRecoveryRemark {get;set;}
+
+           /// <summary>
+           /// 描述 : 待补充资料 
+           /// 空值 : True
+           /// 默认 : 
+           /// </summary>
+           [Display(Name = "待补充资料")]           
+           public string ReplenishRemark {get;set;}
+
+           /// <summary>
+           /// 描述 : 提交时间 
+           /// 空值 : True
+           /// 默认 : 
+           /// </summary>
+           [Display(Name = "提交时间")]           
+           public DateTime? DataRecoverySubmitDate {get;set;}
+
+           /// <summary>
+           /// 描述 : 提交人ID 
+           /// 空值 : True
+           /// 默认 : 
+           /// </summary>
+           [Display(Name = "提交人ID")]           
+           public string DataRecoverySubmitID {get;set;}
+
+           /// <summary>
+           /// 描述 :  
+           /// 空值 : True
+           /// 默认 : 
+           /// </summary>
+           [Display(Name = "")]           
+           public string DataRecoverySubmitName {get;set;}
 
     }
 }

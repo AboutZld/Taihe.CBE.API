@@ -33,6 +33,15 @@ namespace TaiheSystem.CBE.Api.Model
            public string ID {get;set;}
 
            /// <summary>
+           /// 描述 :  
+           /// 空值 : False
+           /// 默认 : 
+           /// </summary>
+           [Display(Name = "")]           
+           [SugarColumn(IsIdentity=true)]
+           public int AutoID {get;set;}
+
+           /// <summary>
            /// 描述 : 合同项目ID 
            /// 空值 : True
            /// 默认 : 

@@ -46,6 +46,21 @@
             任务安排
             </summary>
         </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Auditor.AuditorPlanController._contractplanauditorService">
+            <summary>
+            审核员信息
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Auditor.AuditorPlanController._planauditoritemService">
+            <summary>
+            审核员计划信息
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Auditor.AuditorPlanController._contractsubitemfileService">
+            <summary>
+            项目文档
+            </summary>
+        </member>
         <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Auditor.AuditorPlanController.Query(TaiheSystem.CBE.Api.Model.Dto.AuditorPlanDto)">
             <summary>
             查询未安排列表
@@ -66,6 +81,114 @@
             Power = PRIV_PLANDRAW_REGISTER
             </summary>
             <param name="parm">ids</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Auditor.AuditorPlanController.SubmitCompiled(System.String)">
+            <summary>
+            提交已编制
+            Power = PRIV_PLANRAW_COMPILED
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Auditor.AuditorPlanController.SubmitReplenished(System.String)">
+            <summary>
+            文档提交已补充
+            Power = PRIV_PLANRAW_REPLENISHED
+            </summary>
+            <param name="id">任务编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Auditor.AuditorPlanController.GetItemFIle(System.String)">
+            <summary>
+            获取审核员上传文档信息
+            Power = PRIV_PLANRAW_DELETE
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Auditor.AuditorPlanController.AddFile(TaiheSystem.CBE.Api.Model.Dto.SubItemFileCreateDto)">
+            <summary>
+            文档上传
+            Power = PRIV_PLANRAWFILE_ADD
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Auditor.AuditorPlanController.DeleteItemFile(System.String)">
+            <summary>
+            删除审核员上传文件
+            Power = PRIV_PLANRAWFILE_DELETE
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.AuditorPlanConfirmController">
+            <summary>
+            审核员计划确认
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.AuditorPlanConfirmController._logger">
+            <summary>
+            日志管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.AuditorPlanConfirmController._tokenManager">
+            <summary>
+            会话管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.AuditorPlanConfirmController._contractitemsubService">
+            <summary>
+            合同子项目接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.AuditorPlanConfirmController._contractitemService">
+            <summary>
+            项目接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.AuditorPlanConfirmController._contractitemplanService">
+            <summary>
+            任务安排
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.AuditorPlanConfirmController._contractplanauditorService">
+            <summary>
+            审核员
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.AuditorPlanConfirmController._contractplanauditoritemService">
+            <summary>
+            审核员项目信息
+            </summary>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.AuditorPlanConfirmController.Query(TaiheSystem.CBE.Api.Model.Dto.AuditorPlanConfirmDto)">
+            <summary>
+            查询审核安排列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.AuditorPlanConfirmController.GetPlanDetail(System.String)">
+            <summary>
+            获取编制计划详情
+            Power = PRIV_PLANDRAW_DETAIL
+            </summary>
+            <param name="parm">ids</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.AuditorPlanConfirmController.SubmitConfirm(TaiheSystem.CBE.Api.Model.Dto.AuditorConfrmSubmitDto)">
+            <summary>
+            提交确认
+            Power = PRIV_AUDITORPLAN_CONFIRM
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.AuditorPlanConfirmController.SubmitReturn(TaiheSystem.CBE.Api.Model.Dto.AuditorConfrmSubmitDto)">
+            <summary>
+            已编制退回调整
+            Power = PRIV_AUDITORPLAN_RETURN
+            </summary>
+            <param name="id">编码</param>
             <returns></returns>
         </member>
         <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Basic.PlanApproveController">
@@ -1007,6 +1130,76 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Evaluation.DataRecoveryController">
+            <summary>
+            资料回收
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Evaluation.DataRecoveryController._logger">
+            <summary>
+            日志管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Evaluation.DataRecoveryController._tokenManager">
+            <summary>
+            会话管理接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Evaluation.DataRecoveryController._contractitemsubService">
+            <summary>
+            合同子项目接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Evaluation.DataRecoveryController._contractitemService">
+            <summary>
+            项目接口
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Evaluation.DataRecoveryController._contractitemplanService">
+            <summary>
+            任务安排
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Evaluation.DataRecoveryController._contractplanauditorService">
+            <summary>
+            审核员
+            </summary>
+        </member>
+        <member name="F:TaiheSystem.CBE.Api.Hostd.Controllers.Evaluation.DataRecoveryController._contractplanauditoritemService">
+            <summary>
+            审核员项目信息
+            </summary>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Evaluation.DataRecoveryController.Query(TaiheSystem.CBE.Api.Model.Dto.DataRecoveryDto)">
+            <summary>
+            查询审核安排列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Evaluation.DataRecoveryController.GetPlanDetail(System.String)">
+            <summary>
+            获取资料回收详情
+            Power = PRIV_RECOVERY_DETAIL
+            </summary>
+            <param name="parm">ids</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Evaluation.DataRecoveryController.SubmitConfirm(TaiheSystem.CBE.Api.Model.Dto.DataRecoverySubmitDto)">
+            <summary>
+            资料回收完成
+            Power = PRIV_RECOVERY_FINISH
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Evaluation.DataRecoveryController.SubmitReturn(TaiheSystem.CBE.Api.Model.Dto.DataRecoverySubmitDto)">
+            <summary>
+            提交资料待补充
+            Power = PRIV_RECOVERY_REPLENISH
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
         <member name="T:TaiheSystem.CBE.Api.Hostd.Controllers.Gwf.FlowStepController">
             <summary>
             流程日志查询接口
@@ -1595,9 +1788,15 @@
             体系标准接口
             </summary>
         </member>
-        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.SysStandardController.Query(TaiheSystem.CBE.Api.Model.Dto.SystemTypeQueryDto)">
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.SysStandardController.Query(TaiheSystem.CBE.Api.Model.Dto.SysStandardQueryDto)">
             <summary>
             查询列表（分页）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TaiheSystem.CBE.Api.Hostd.Controllers.Standard.SysStandardController.QueryBySystemType(TaiheSystem.CBE.Api.Model.Dto.SystemType2QueryDto)">
+            <summary>
+            根据认证体系类别获取业务类别列表（分页）
             </summary>
             <returns></returns>
         </member>

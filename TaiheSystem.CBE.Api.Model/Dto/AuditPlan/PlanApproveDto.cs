@@ -55,20 +55,36 @@ namespace TaiheSystem.CBE.Api.Model.Dto
         public string hzhb { get; set; }
 
         /// <summary>
-        /// 描述 : 受理日期开始 
+        /// 描述 : 审核开始起
         /// 空值 : False
         /// 默认 : 
         /// </summary>
-        [Display(Name = "受理日期开始")]
-        public string AcceptDateStart { get; set; }
+        [Display(Name = "审核开始起")]
+        public string AcceptStartDateStart { get; set; }
 
         /// <summary>
-        /// 描述 : 受理日期止
+        /// 描述 : 审核开始止
         /// 空值 : False
         /// 默认 : 
         /// </summary>
-        [Display(Name = "受理日期止")]
-        public string AcceptDateEnd { get; set; }
+        [Display(Name = "审核开始止")]
+        public string AcceptStartDateEnd { get; set; }
+
+        /// <summary>
+        /// 描述 : 审核结束起
+        /// 空值 : False
+        /// 默认 : 
+        /// </summary>
+        [Display(Name = "审核结束起")]
+        public string AcceptEndDateStart { get; set; }
+
+        /// <summary>
+        /// 描述 : 审核结束止
+        /// 空值 : False
+        /// 默认 : 
+        /// </summary>
+        [Display(Name = "审核结束止")]
+        public string AcceptEndDateEnd { get; set; }
 
     }
 

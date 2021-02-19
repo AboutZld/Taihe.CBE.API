@@ -55,20 +55,36 @@ namespace TaiheSystem.CBE.Api.Model.Dto
         public string hzhb { get; set; }
 
         /// <summary>
-        /// 描述 : 受理日期开始 
+        /// 描述 : 审核开始起
         /// 空值 : False
         /// 默认 : 
         /// </summary>
-        [Display(Name = "受理日期开始")]
-        public string AcceptDateStart { get; set; }
+        [Display(Name = "审核开始起")]
+        public string AcceptStartDateStart { get; set; }
 
         /// <summary>
-        /// 描述 : 受理日期止
+        /// 描述 : 审核开始止
         /// 空值 : False
         /// 默认 : 
         /// </summary>
-        [Display(Name = "受理日期止")]
-        public string AcceptDateEnd { get; set; }
+        [Display(Name = "审核开始止")]
+        public string AcceptStartDateEnd { get; set; }
+
+        /// <summary>
+        /// 描述 : 审核结束起
+        /// 空值 : False
+        /// 默认 : 
+        /// </summary>
+        [Display(Name = "审核结束起")]
+        public string AcceptEndDateStart { get; set; }
+
+        /// <summary>
+        /// 描述 : 审核结束止
+        /// 空值 : False
+        /// 默认 : 
+        /// </summary>
+        [Display(Name = "审核结束止")]
+        public string AcceptEndDateEnd { get; set; }
     }
 
     /// <summary>
@@ -90,119 +106,23 @@ namespace TaiheSystem.CBE.Api.Model.Dto
         /// 默认 : 
         /// </summary>
         [Display(Name = "")]
-        public int PlanAuditorItemID { get; set; }
+        public int AutoID { get; set; }
 
         /// <summary>
-        /// 描述 : 任务id 
+        /// 描述 :  
         /// 空值 : True
         /// 默认 : 
         /// </summary>
-        [Display(Name = "任务id")]
+        [Display(Name = "")]
         public string ContractPlanID { get; set; }
 
         /// <summary>
-        /// 描述 : 项目id 
-        /// 空值 : True
-        /// 默认 : 
-        /// </summary>
-        [Display(Name = "项目id")]
-        public string ContractItemSubID { get; set; }
-
-        /// <summary>
-        /// 描述 : 任务审核员id 
-        /// 空值 : True
-        /// 默认 : 
-        /// </summary>
-        [Display(Name = "任务审核员id")]
-        public string PlanAuditorID { get; set; }
-
-        /// <summary>
-        /// 描述 : 组内身份ID（选项） 
-        /// 空值 : True
-        /// 默认 : 
-        /// </summary>
-        [Display(Name = "组内身份ID（选项）")]
-        public int? GroupIdentityID { get; set; }
-
-        /// <summary>
-        /// 描述 : 组内身份名称 
-        /// 空值 : True
-        /// 默认 : 
-        /// </summary>
-        [Display(Name = "组内身份名称")]
-        public string GroupIdentityName { get; set; }
-
-        /// <summary>
-        /// 描述 : 见证类型ID（选项） 
-        /// 空值 : True
-        /// 默认 : 
-        /// </summary>
-        [Display(Name = "见证类型ID（选项）")]
-        public int? WitnessTypeID { get; set; }
-
-        /// <summary>
-        /// 描述 : 见证类型 
-        /// 空值 : True
-        /// 默认 : 
-        /// </summary>
-        [Display(Name = "见证类型")]
-        public string WitnessTypeName { get; set; }
-
-        /// <summary>
         /// 描述 :  
         /// 空值 : True
         /// 默认 : 
         /// </summary>
         [Display(Name = "")]
-        public string WitnessTypeUserName { get; set; }
-
-        /// <summary>
-        /// 描述 : 分组代码 
-        /// 空值 : True
-        /// 默认 : 
-        /// </summary>
-        [Display(Name = "分组代码")]
-        public string GroupCode { get; set; }
-
-        /// <summary>
-        /// 描述 : 专业代码 
-        /// 空值 : True
-        /// 默认 : 
-        /// </summary>
-        [Display(Name = "专业代码")]
-        public string ProfessionCode { get; set; }
-
-        /// <summary>
-        /// 描述 :  
-        /// 空值 : True
-        /// 默认 : 
-        /// </summary>
-        [Display(Name = "")]
-        public DateTime? CreateTime { get; set; }
-
-        /// <summary>
-        /// 描述 :  
-        /// 空值 : True
-        /// 默认 : 
-        /// </summary>
-        [Display(Name = "")]
-        public string CreateID { get; set; }
-
-        /// <summary>
-        /// 描述 :  
-        /// 空值 : True
-        /// 默认 : 
-        /// </summary>
-        [Display(Name = "")]
-        public string CreateName { get; set; }
-
-        /// <summary>
-        /// 描述 :  
-        /// 空值 : True
-        /// 默认 : 40000
-        /// </summary>
-        [Display(Name = "")]
-        public int? status { get; set; }
+        public string UserID { get; set; }
 
         /// <summary>
         /// 编制计划列表
@@ -224,6 +144,53 @@ namespace TaiheSystem.CBE.Api.Model.Dto
         /// </summary>
         public List<Biz_Contract_PlanAuditor_Draw> PlanAuditorDrawList_delete;
 
+        /// <summary>
+        /// 项目列表
+        /// </summary>
+        public List<Biz_Contract_PlanAuditor_Item> ContractsubitemList;
 
+        /// <summary>
+        /// 上传文件列表
+        /// </summary>
+        public List<Biz_ContractItem_Sub_File> ContractsubitemFileList;
+
+
+    }
+
+    public class SubItemFileCreateDto
+    {
+
+        /// <summary>
+        /// 描述 : 子项目id 
+        /// 空值 : True
+        /// 默认 : 
+        /// </summary>
+        [Display(Name = "子项目id")]
+        public string ContractItemSubID { get; set; }
+
+        /// <summary>
+        /// 描述 :  
+        /// 空值 : True
+        /// 默认 : 
+        /// </summary>
+        [Display(Name = "文件ID")]
+        [Required(ErrorMessage = "文件ID不允许为空")]
+        public string FileID { get; set; }
+
+        /// <summary>
+        /// 描述 : 0-合同评审文件 1-流转文件 3-一阶段 4-二阶段 5-本次审核文件 6-流转文件 7-评定纠正文件 9-其他 
+        /// 空值 : True
+        /// 默认 : 
+        /// </summary>
+        [Display(Name = "0-合同评审文件 1-流转文件 3-一阶段 4-二阶段 5-本次审核文件 6-流转文件 7-评定纠正文件 9-其他")]
+        public int? FileType { get; set; }
+
+        /// <summary>
+        /// 描述 :  
+        /// 空值 : True
+        /// 默认 : 
+        /// </summary>
+        [Display(Name = "")]
+        public string FileTypeName { get; set; }
     }
 }

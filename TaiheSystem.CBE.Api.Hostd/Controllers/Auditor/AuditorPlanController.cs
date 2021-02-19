@@ -49,14 +49,32 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Auditor
         /// </summary>
         private readonly IBizContractPlanService _contractitemplanService;
 
+        /// <summary>
+        /// 审核员信息
+        /// </summary>
+        private readonly IBizContractPlanAuditorService _contractplanauditorService;
 
-        public AuditorPlanController(ILogger<AuditorPlanController> logger, TokenManager tokenManager, IBizContractItemSubService contractitemsubService, IBizContractItemService contractitemService, IBizContractPlanService contractitemplanService)
+        /// <summary>
+        /// 审核员计划信息
+        /// </summary>
+        private readonly IBizContractPlanAuditorItemService _planauditoritemService;
+
+        /// <summary>
+        /// 项目文档
+        /// </summary>
+        private readonly IBizContractItemSubFileService _contractsubitemfileService;
+
+
+        public AuditorPlanController(ILogger<AuditorPlanController> logger, TokenManager tokenManager, IBizContractItemSubService contractitemsubService, IBizContractItemService contractitemService, IBizContractPlanService contractitemplanService, IBizContractItemSubFileService contractsubitemfileService, IBizContractPlanAuditorItemService planauditoritemService, IBizContractPlanAuditorService contractplanauditorService)
         {
             _logger = logger;
             _tokenManager = tokenManager;
             _contractitemsubService = contractitemsubService;
             _contractitemService = contractitemService;
             _contractitemplanService = contractitemplanService;
+            _contractsubitemfileService = contractsubitemfileService;
+            _planauditoritemService = planauditoritemService;
+            _contractplanauditorService = contractplanauditorService;
         }
 
 
@@ -74,7 +92,7 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Auditor
             switch (parm.status)
             {
                 case 0:
-                    predicate = predicate.And(m => m.status == 40000);
+                    predicate = predicate.And(m => m.status == 40000 || m.status == 40005);
                     break;
                 case 1:
                     predicate = predicate.And(m => m.status == 40010);
@@ -99,10 +117,15 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Auditor
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.khmc), m => m.zzmc.Contains(parm.khmc));
             //合作伙伴
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.hzhb), m => m.mc.Contains(parm.hzhb));
-            //受理日期开始
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.AcceptDateStart), m => m.AcceptTime >= DateTime.Parse(parm.AcceptDateStart));
-            //受理日期结束
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.AcceptDateEnd), m => m.AcceptTime <= DateTime.Parse(parm.AcceptDateEnd));
+            //审核开始起
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.AcceptStartDateStart), m => m.PlanStartDate >= DateTime.Parse(parm.AcceptStartDateStart));
+            //审核开始止
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.AcceptStartDateEnd), m => m.PlanStartDate <= DateTime.Parse(parm.AcceptStartDateEnd));
+
+            //审核结束起
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.AcceptEndDateStart), m => m.PlanEndDate >= DateTime.Parse(parm.AcceptEndDateStart));
+            //审核结束止
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.AcceptEndDateEnd), m => m.PlanEndDate <= DateTime.Parse(parm.AcceptEndDateEnd));
 
             //var response = _contractitemsubService.GetPages(predicate.ToExpression(), parm);
 
@@ -143,16 +166,20 @@ WHERE   (m.deleted = 0)
             }
             using (SqlSugarClient db = Core.DbContext.CurrentDB)
             {
-                Biz_Contract_PlanAuditor_Item plan = db.Queryable<Biz_Contract_PlanAuditor_Item>().First(m => m.ID == id);
+                Biz_Contract_PlanAuditor plan = db.Queryable<Biz_Contract_PlanAuditor>().First(m => m.ID == id);
                 if (plan == null)
                 {
                     return toResponse(StatusCodeType.Error, "查询不到相关项目信息，请核对！");
                 }
 
                 //已编制的任务信息
-                AuditorDrawUpdateDto plandata = Api.Common.Helpers.ComHelper.Mapper<AuditorDrawUpdateDto, Biz_Contract_PlanAuditor_Item>(plan);
-                plandata.PlanAuditorDrawList = db.Queryable<Biz_Contract_PlanAuditor_Draw>().Where(m => m.PlanAuditorItemID == plandata.ID).ToList();
-
+                AuditorDrawUpdateDto plandata = Api.Common.Helpers.ComHelper.Mapper<AuditorDrawUpdateDto, Biz_Contract_PlanAuditor>(plan);
+                //审核员项目列表
+                plandata.ContractsubitemList = db.Queryable<Biz_Contract_PlanAuditor_Item>().Where(m => m.PlanAuditorID == plandata.ID).ToList();
+                //编制计划列表信息
+                plandata.PlanAuditorDrawList = db.Queryable<Biz_Contract_PlanAuditor_Draw>().Where(m => m.PlanAuditorID == plandata.ID).ToList();
+                //附件信息
+                plandata.ContractsubitemFileList = db.Queryable<Biz_ContractItem_Sub_File>().Where(m=>m.PlanAuditorID == plandata.ID).ToList();
                 return toResponse(plandata);
             }
         }
@@ -223,6 +250,176 @@ WHERE   (m.deleted = 0)
                     Core.DbContext.RollbackTran();
                     return toResponse(StatusCodeType.Error, ex.Message);
 
+                }
+            }
+        }
+
+        /// <summary>
+        /// 提交已编制
+        /// Power = PRIV_PLANRAW_COMPILED
+        /// </summary>
+        /// <param name="id">编码</param>
+        /// <returns></returns>
+        [HttpPost]
+        [Authorization(Power = "PRIV_PLANRAW_COMPILED")]
+        public IActionResult SubmitCompiled(string id = null)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return toResponse(StatusCodeType.Error, "Id 不能为空");
+            }
+            var userinfo = _tokenManager.GetSessionInfo();
+            var subitem = _contractplanauditorService.GetId(id);
+
+            if(subitem == null)
+            {
+                return toResponse(StatusCodeType.Error, "数据为空，请核对！");
+            }
+
+            using (SqlSugarClient db = Core.DbContext.CurrentDB)
+            {
+                Core.DbContext.BeginTran();
+                try
+                {
+                    List<SugarParameter> parameters = new List<SugarParameter>();
+                    parameters.Add(new SugarParameter("UserID", userinfo.UserID));
+                    parameters.Add(new SugarParameter("UserName", userinfo.UserName));
+                    Step.Submit(db, subitem, "Biz_Contract_PlanAuditor", "ID", "status", "401", parameters, UpdateBizEntityAfterSubmitted, "提交已编制");
+                    Core.DbContext.CommitTran();
+                    return toResponse("提交成功");
+                }
+                catch (Exception ex)
+                {
+                    Core.DbContext.RollbackTran();
+                    return toResponse(StatusCodeType.Error, ex.Message);
+                }
+            }
+        }
+
+
+        public static Action<SqlSugarClient, List<SugarParameter>> UpdateBizEntityAfterSubmitted = (SqlSugarClient db, List<SugarParameter> paramters) =>
+        {
+            if (db.Ado.ExecuteCommand(@"UPDATE Biz_Contract_PlanAuditor SET Status = @Node_To
+WHERE ID = @Biz_Contract_PlanAuditor_ID AND Status = @Node_From", paramters) == 0)
+            {
+                throw new Exception(GWF.Step.DIRTY_DATA_PROMPT);
+            }
+        };
+
+
+        /// <summary>
+        /// 文档提交已补充
+        /// Power = PRIV_PLANRAW_REPLENISHED
+        /// </summary>
+        /// <param name="id">任务编号</param>
+        /// <returns></returns>
+        [HttpPost]
+        [Authorization(Power = "PRIV_PLANRAW_REPLENISHED")]
+        public IActionResult SubmitReplenished(string id = null)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return toResponse(StatusCodeType.Error, "Id 不能为空");
+            }
+            var userinfo = _tokenManager.GetSessionInfo();
+            var subitem = _contractitemplanService.GetId(id);
+
+            if (subitem == null)
+            {
+                return toResponse(StatusCodeType.Error, "数据为空，请核对！");
+            }
+
+            using (SqlSugarClient db = Core.DbContext.CurrentDB)
+            {
+                Core.DbContext.BeginTran();
+                try
+                {
+                    List<SugarParameter> parameters = new List<SugarParameter>();
+                    parameters.Add(new SugarParameter("UserID", userinfo.UserID));
+                    parameters.Add(new SugarParameter("UserName", userinfo.UserName));
+                    Step.Submit(db, subitem, "Biz_Contract_Plan", "ID", "status", "306", parameters, UpdatePlanAfterSubmitted, "资料补充完成");
+                    Core.DbContext.CommitTran();
+                    return toResponse("提交成功");
+                }
+                catch (Exception ex)
+                {
+                    Core.DbContext.RollbackTran();
+                    return toResponse(StatusCodeType.Error, ex.Message);
+                }
+            }
+        }
+
+
+        public static Action<SqlSugarClient, List<SugarParameter>> UpdatePlanAfterSubmitted = (SqlSugarClient db, List<SugarParameter> paramters) =>
+        {
+            if (db.Ado.ExecuteCommand(@"UPDATE Biz_Contract_Plan SET Status = @Node_To
+WHERE ID = @Biz_Contract_Plan_ID AND Status = @Node_From", paramters) == 0)
+            {
+                throw new Exception(GWF.Step.DIRTY_DATA_PROMPT);
+            }
+        };
+
+        /// <summary>
+        /// 获取审核员上传文档信息
+        /// Power = PRIV_PLANRAW_DELETE
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Authorization(Power = "PRIV_PLANRAW_DELETE")]
+        public IActionResult GetItemFIle(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return toResponse(StatusCodeType.Error, "Id 不能为空");
+            }
+            return toResponse(_contractsubitemfileService.GetWhere(m=>m.PlanAuditorID == id));
+        }
+
+        /// <summary>
+        /// 文档上传
+        /// Power = PRIV_PLANRAWFILE_ADD
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Authorization(Power = "PRIV_PLANRAWFILE_ADD")]
+        public IActionResult AddFile(SubItemFileCreateDto parm)
+        {
+            //从 Dto 映射到 实体
+            var options = parm.Adapt<Biz_ContractItem_Sub_File>().ToCreate(_tokenManager.GetSessionInfo());
+
+            return toResponse(_contractsubitemfileService.Add(options));
+        }
+
+        /// <summary>
+        /// 删除审核员上传文件
+        /// Power = PRIV_PLANRAWFILE_DELETE
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Authorization(Power = "PRIV_PLANRAWFILE_DELETE")]
+        public IActionResult DeleteItemFile(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return toResponse(StatusCodeType.Error, "Id 不能为空");
+            }
+            using (SqlSugarClient db = Core.DbContext.Current)
+            {
+                Core.DbContext.BeginTran();
+                try
+                {
+                    //删除文件
+                    db.Deleteable<Biz_ContractItem_Sub_File>().Where(m => m.ID == id).ExecuteCommand();
+
+                    Core.DbContext.CommitTran();
+
+                    return toResponse("删除成功");
+                }
+                catch (Exception ex)
+                {
+                    Core.DbContext.RollbackTran();
+                    return toResponse(StatusCodeType.Error, ex.Message);
                 }
             }
         }

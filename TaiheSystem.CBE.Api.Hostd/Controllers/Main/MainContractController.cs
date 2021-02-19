@@ -203,7 +203,7 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Main
                             contractitem.CreateName = userinfo.UserName;
                             contractitem.deleted = 0;
 
-                            var standard = db.Queryable<Abi_SysStandard>().First(m => m.SysStandardID == int.Parse(Item.ItemStandardID));
+                            var standard = db.Queryable<Abi_SysStandard>().First(m => m.AutoID == int.Parse(Item.ItemStandardID));
                             contractitem.ContractItemNo = options.ContractNo + standard.SysStandardNo;
 
                             db.Insertable<Biz_ContractItem>(contractitem).ExecuteCommand();
@@ -420,7 +420,7 @@ WHERE ID = @Biz_MainContract_ID AND Status = @Node_From", paramters) == 0)
                     {
                         foreach (var Item in ItemList_update)
                         {
-                            var standard = db.Queryable<Abi_SysStandard>().First(m => m.SysStandardID == int.Parse(Item.ItemStandardID));
+                            var standard = db.Queryable<Abi_SysStandard>().First(m => m.ID == Item.ItemStandardID);
                             string itemno = parm.ContractNo + standard.SysStandardNo;
                             db.Updateable<Biz_ContractItem>().SetColumns(m => new Biz_ContractItem()
                             {
@@ -461,7 +461,7 @@ WHERE ID = @Biz_MainContract_ID AND Status = @Node_From", paramters) == 0)
                             contractitem.CreateName = userinfo.UserName;
                             contractitem.deleted = 0;
 
-                            var standard = db.Queryable<Abi_SysStandard>().First(m => m.SysStandardID == int.Parse(Item.ItemStandardID));
+                            var standard = db.Queryable<Abi_SysStandard>().First(m => m.ID == Item.ItemStandardID);
                             contractitem.ContractItemNo = parm.ContractNo + standard.SysStandardNo;
 
                             db.Insertable<Biz_ContractItem>(contractitem).ExecuteCommand();

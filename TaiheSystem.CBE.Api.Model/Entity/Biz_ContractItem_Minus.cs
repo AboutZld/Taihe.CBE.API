@@ -38,7 +38,8 @@ namespace TaiheSystem.CBE.Api.Model
            /// 默认 : 
            /// </summary>
            [Display(Name = "")]           
-           public int ContractItemMinusID {get;set;}
+           [SugarColumn(IsIdentity=true)]
+           public int AutoID {get;set;}
 
            /// <summary>
            /// 描述 :  

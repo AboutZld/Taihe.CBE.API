@@ -302,6 +302,16 @@ namespace TaiheSystem.CBE.Api.Model.View.Main
         public decimal? RecertificationTotalDays { get; set; }
 
         /// <summary>
+        /// 描述 : 支持方式 
+        /// 空值 : True
+        /// 默认 : 
+        /// </summary>
+        [Display(Name = "支持方式")]
+        public string SupportWay { get; set; }
+
+
+
+        /// <summary>
         /// 增人日依据
         /// </summary>
         [Display(Name = "增人日依据")]

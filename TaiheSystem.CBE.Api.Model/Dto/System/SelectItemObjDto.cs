@@ -151,7 +151,6 @@ namespace TaiheSystem.CBE.Api.Model.Dto
         /// 默认 : 
         /// </summary>
         [Display(Name = "UUID")]
-        [Required(ErrorMessage = "更新ID不能为空")]
         public string ID { get; set; }
 
         /// <summary>

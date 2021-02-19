@@ -39,7 +39,7 @@ namespace TaiheSystem.CBE.Api.Model
            /// </summary>
            [Display(Name = "")]           
            [SugarColumn(IsIdentity=true)]
-           public int ContractItemID {get;set;}
+           public int AutoID {get;set;}
 
            /// <summary>
            /// 描述 : 合同ID 
@@ -312,6 +312,14 @@ namespace TaiheSystem.CBE.Api.Model
            /// </summary>
            [Display(Name = "再认证总人日")]           
            public decimal? RecertificationTotalDays {get;set;}
+
+           /// <summary>
+           /// 描述 : 支持方式 
+           /// 空值 : True
+           /// 默认 : 
+           /// </summary>
+           [Display(Name = "支持方式")]           
+           public string SupportWay {get;set;}
 
     }
 }

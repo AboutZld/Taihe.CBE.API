@@ -40,15 +40,15 @@ namespace TaiheSystem.CBE.Api.Model
            /// </summary>
            [Display(Name = "")]           
            [SugarColumn(IsIdentity=true)]
-           public int PlanDrawID {get;set;}
+           public int AutoID {get;set;}
 
            /// <summary>
-           /// 描述 : 审核员项目项目ID 
+           /// 描述 : 审核员ID 
            /// 空值 : True
            /// 默认 : 
            /// </summary>
-           [Display(Name = "审核员项目项目ID")]           
-           public string PlanAuditorItemID {get;set;}
+           [Display(Name = "审核员ID")]           
+           public string PlanAuditorID {get;set;}
 
            /// <summary>
            /// 描述 : 计划开始时间 

@@ -185,7 +185,7 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Main
 
                     foreach (var Item in itemList)
                     {
-                        var AuditType = db.Queryable<Cfg_AuditType>().First(m => m.AuditTypeID == int.Parse(Item.AuditTypeID));
+                        var AuditType = db.Queryable<Cfg_AuditType>().First(m => m.AutoID == int.Parse(Item.AuditTypeID));
                         if ((bool)AuditType.NeedFirstStage)
                         {
                             ContractItemSubCreateDto itemsub1 = new ContractItemSubCreateDto();
@@ -574,7 +574,7 @@ WHERE ID = @Biz_MainContract_ID AND Status = @Node_From", paramters) == 0)
                             }
                             //保存项目信息
                             {
-                                var standard = db.Queryable<Abi_SysStandard>().First(m => m.SysStandardID == int.Parse(Item.ItemStandardID));
+                                var standard = db.Queryable<Abi_SysStandard>().First(m => m.AutoID == int.Parse(Item.ItemStandardID));
                                 string itemno = parm.ContractNo + standard.SysStandardNo;
                                 db.Updateable<Biz_ContractItem>().SetColumns(m => new Biz_ContractItem()
                                 {

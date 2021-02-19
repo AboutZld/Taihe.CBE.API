@@ -49,11 +49,32 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Standard
         /// <returns></returns>
         [HttpPost]
         [Authorization]
-        public IActionResult Query([FromBody] SystemTypeQueryDto parm)
+        public IActionResult Query([FromBody] SysStandardQueryDto parm)
         {
             //开始拼装查询条件
             var predicate = Expressionable.Create<Abi_SysStandard>();
 
+            //关键字搜索匹配：编码、上报编码、简称
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.QueryText), m => m.SysStandardCode.Contains(parm.QueryText) || m.SysStandardReportCode.Contains(parm.QueryText) || m.SysStandardShortName.Contains(parm.QueryText));
+
+            var response = _sysstandarService.GetPages(predicate.ToExpression(), parm);
+
+            return toResponse(response);
+        }
+
+        /// <summary>
+        /// 根据认证体系类别获取业务类别列表（分页）
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [Authorization]
+        public IActionResult QueryBySystemType([FromBody] SystemType2QueryDto parm)
+        {
+
+            //开始拼装查询条件
+            var predicate = Expressionable.Create<Abi_SysStandard>();
+
+            predicate = predicate.And(m=>m.SystemTypeID == parm.SystemTypeID);
             //关键字搜索匹配：编码、上报编码、简称
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.QueryText), m => m.SysStandardCode.Contains(parm.QueryText) || m.SysStandardReportCode.Contains(parm.QueryText) || m.SysStandardShortName.Contains(parm.QueryText));
 

@@ -179,7 +179,7 @@ WHERE   m.deleted = 0 and s.status = 20000
                     {
                         throw new Exception("提交数据不包含体系项目信息，请核对！");
                     }
-                    string IDs = string.Join(",", subitemlist.Select(m => m.ContractItemSubID));
+                    string IDs = string.Join(",", subitemlist.Select(m => m.AutoID));
 
                     if (db.Ado.GetScalar("select 1 from Biz_ContractItem_Sub where status > 20000 and ContractItemSubID in (@ids)", new { ids = IDs }) != null)
                     {

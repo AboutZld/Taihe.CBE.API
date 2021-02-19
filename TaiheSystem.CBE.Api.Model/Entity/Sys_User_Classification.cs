@@ -40,7 +40,7 @@ namespace TaiheSystem.CBE.Api.Model
            /// </summary>
            [Display(Name = "")]           
            [SugarColumn(IsIdentity=true)]
-           public int UserClassificationID {get;set;}
+           public int AutoID {get;set;}
 
            /// <summary>
            /// 描述 : 注册资格ID 

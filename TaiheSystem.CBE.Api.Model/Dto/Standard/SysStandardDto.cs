@@ -44,6 +44,29 @@ namespace TaiheSystem.CBE.Api.Model.Dto
     }
 
     /// <summary>
+    /// 按照业务体系类别查询
+    /// </summary>
+    public class SystemType2QueryDto : PageParm
+    {
+        /// <summary>
+        /// 描述 : 查询选项
+        /// 空值 : False
+        /// 默认 : 
+        /// </summary>
+        [Display(Name = "认证体系类别ID")]
+        [Required(ErrorMessage = "认证体系类别ID不能为空")]
+        public string SystemTypeID { get; set; }
+
+        /// <summary>
+        /// 描述 : 查询选项
+        /// 空值 : False
+        /// 默认 : 
+        /// </summary>
+        [Display(Name = "查询字符串")]
+        public string QueryText { get; set; }
+    }
+
+    /// <summary>
     /// 新增类别
     /// </summary>
     public class SysStandardCreateDto

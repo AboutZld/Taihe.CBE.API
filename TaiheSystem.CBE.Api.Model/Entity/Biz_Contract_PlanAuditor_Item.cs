@@ -40,7 +40,7 @@ namespace TaiheSystem.CBE.Api.Model
            /// </summary>
            [Display(Name = "")]           
            [SugarColumn(IsIdentity=true)]
-           public int PlanAuditorItemID {get;set;}
+           public int AutoID {get;set;}
 
            /// <summary>
            /// 描述 : 任务id 
@@ -153,14 +153,6 @@ namespace TaiheSystem.CBE.Api.Model
            /// </summary>
            [Display(Name = "")]           
            public int? status {get;set;}
-
-           /// <summary>
-           /// 描述 : 提交编制时间 
-           /// 空值 : True
-           /// 默认 : 
-           /// </summary>
-           [Display(Name = "提交编制时间")]           
-           public DateTime? DrawSubmitTime {get;set;}
 
     }
 }

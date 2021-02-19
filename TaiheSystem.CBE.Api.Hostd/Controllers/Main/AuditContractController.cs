@@ -151,7 +151,7 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Main
             }
             using (SqlSugarClient db = Core.DbContext.CurrentDB)
             {
-                DataTable contrcatitem = db.Ado.GetDataTable("select PropleNum,SystemTypeID from Biz_ContractItem b inner join Abi_SysStandard c on b.ItemStandardID = c.SysStandarID where b.ID  =@ID", new { ID = ID }); //获取体系人数
+                DataTable contrcatitem = db.Ado.GetDataTable("select PropleNum,SystemTypeID from Biz_ContractItem b inner join Abi_SysStandard c on b.ItemStandardID = c.ID where b.ID  =@ID", new { ID = ID }); //获取体系人数
                 if(contrcatitem.Rows.Count == 0)
                 {
                     return toResponse(StatusCodeType.Error, "项目信息获取失败");
@@ -289,34 +289,58 @@ WHERE ID = @Biz_MainContract_ID AND Status = @Node_From", paramters) == 0)
                 return toResponse(StatusCodeType.Error, "Id 不能为空");
             }
             var userinfo = _tokenManager.GetSessionInfo();
-            var contract = _maincontractService.GetId(id);
-            if(contract == null || contract.deleted == 1)
+            using (SqlSugarClient db = Core.DbContext.CurrentDB)
             {
-                return toResponse(StatusCodeType.Error, "当前合同信息不存在");
-            }
+                var contract = _maincontractService.GetId(id);
+                if (contract == null || contract.deleted == 1)
+                {
+                    return toResponse(StatusCodeType.Error, "当前合同信息不存在");
+                }
 
-            AuditContractVM maincotract = Api.Common.Helpers.ComHelper.Mapper<AuditContractVM, Biz_MainContract>(contract);
+                AuditContractVM maincotract = Api.Common.Helpers.ComHelper.Mapper<AuditContractVM, Biz_MainContract>(contract);
 
-            //获取客户信息
-            maincotract.ContractCustomerInfo = _customerService.GetId(maincotract.CustomerID);
-            //获取合同体系项目
-            List<Biz_ContractItem> itemlist = _contractitemService.GetWhere(m=>m.MainContractID == maincotract.ID && m.deleted == 0);
-            List<ContractItemVM> ItemVMList = new List<ContractItemVM>();
-            foreach(var item in itemlist)
-            {
-                ContractItemVM itemVM = Api.Common.Helpers.ComHelper.Mapper<ContractItemVM, Biz_ContractItem>(item);
+                //获取客户信息
+                maincotract.ContractCustomerInfo = _customerService.GetId(maincotract.CustomerID);
+                //获取合同体系项目
+                List<Biz_ContractItem> itemlist = _contractitemService.GetWhere(m => m.MainContractID == maincotract.ID && m.deleted == 0);
+                List<ContractItemVM> ItemVMList = new List<ContractItemVM>();
+                foreach (var item in itemlist)
+                {
+                    ContractItemVM itemVM = Api.Common.Helpers.ComHelper.Mapper<ContractItemVM, Biz_ContractItem>(item);
 
-                //增人日依据
-                itemVM.ContractItemAddList = Core.DbContext.Db.Queryable<Biz_ContractItem_Add>().Where(m => m.ContractItemID == item.ID).ToList();
+                    //默认赋值基础人日
 
-                //减人日依据
-                itemVM.ContractItemMinusList = Core.DbContext.Db.Queryable<Biz_ContractItem_Minus>().Where(m => m.ContractItemID == item.ID).ToList();
+                    DataTable contrcatitem = db.Ado.GetDataTable("select PropleNum,SystemTypeID from Biz_ContractItem b inner join Abi_SysStandard c on b.ItemStandardID = c.ID where b.ID  =@ID", new { ID = item.ID }); //获取体系人数
+                    if (contrcatitem.Rows.Count == 0)
+                    {
+                        return toResponse(StatusCodeType.Error, "项目信息获取失败");
+                    }
 
-                //体系业务代码
-                itemVM.ContractItemBizClassificationList = Core.DbContext.Db.Queryable<Biz_ContractItem_BizClassification, Abi_BizClassification>((a, b) => new object[] {
-                    JoinType.Left,a.BizClassificationID == b.ID}).Where((a, b) => a.ContractItemID == item.ID && b.Enabled == true).Select((a,b)=> new ContractItemBizClassVM
-                    { 
-                        ID=a.ID,
+                    object auditdays = db.Ado
+        .GetDecimal(@"select AuditDays from Sys_AuditTime where SystemTypeID = @SystemTypeID and (isnull(RiskRegisterID,0) = 0)
+                    and (isnull(DownLimt,0) < @PropleNum and isnull(UpLimit,99999) > @PropleNum)", new { SystemTypeID = contrcatitem.Rows[0]["SystemTypeID"].ToString(), PropleNum = contrcatitem.Rows[0]["PropleNum"].ToString() });
+                    if (auditdays == null)
+                    {
+                        return toResponse(StatusCodeType.Error, "匹配基础人日信息失败，请核对！");
+                    }
+
+                    itemVM.FirstTrialBaseDays = (decimal)auditdays;//初审基础人日
+                    itemVM.SupervisionBaseDays = Math.Round(((decimal)auditdays / 3), 2); //监督基础人日
+                    itemVM.RecertificationBaseDays = Math.Round(((decimal)auditdays / 3) * 2, 2); //再认证基础人日
+
+
+
+                    //增人日依据
+                    itemVM.ContractItemAddList = Core.DbContext.Db.Queryable<Biz_ContractItem_Add>().Where(m => m.ContractItemID == item.ID).ToList();
+
+                    //减人日依据
+                    itemVM.ContractItemMinusList = Core.DbContext.Db.Queryable<Biz_ContractItem_Minus>().Where(m => m.ContractItemID == item.ID).ToList();
+
+                    //体系业务代码
+                    itemVM.ContractItemBizClassificationList = Core.DbContext.Db.Queryable<Biz_ContractItem_BizClassification, Abi_BizClassification>((a, b) => new object[] {
+                    JoinType.Left,a.BizClassificationID == b.ID}).Where((a, b) => a.ContractItemID == item.ID && b.Enabled == true).Select((a, b) => new ContractItemBizClassVM
+                    {
+                        ID = a.ID,
                         ContractItemID = item.ID,
                         BizClassificationID = a.BizClassificationID,
                         SystemTypeID = b.SystemTypeID,
@@ -331,17 +355,25 @@ WHERE ID = @Biz_MainContract_ID AND Status = @Node_From", paramters) == 0)
                         CNAS = b.CNAS
                     }).ToList();
 
-                ItemVMList.Add(itemVM);
-            }
-            maincotract.ContractItemList = ItemVMList;
-            //获取合同分场所信息
-            maincotract.ContractfcsList = Core.DbContext.Db.Queryable<Biz_ContractFcs, uf_fcsxx>((a, b) => new object[] {
-        JoinType.Left,a.fcsID==b.fcsID}).OrderBy((a,b) => b.fcslx).Where((a, b) =>a.MainContractID == maincotract.ID)
-      .Select((a, b) => new FcsVM { ID = a.ID, fcsID = (int)a.fcsID,fcslx = b.fcslx, fcslxmc=b.fcslxmc, fcsmc=b.fcsmc, fcsmcy=b.fcsmcy, dz=b.dz, dzy=b.dzy, lxdh=b.lxdh, cz=b.cz, lxr=b.lxr, lxrsj=b.lxrsj, fxcrs=b.fxcrs, jzbjl=b.jzbjl, znbm=b.znbm, fcshd=b.fcshd, bz=b.bz }).ToList(); //固定场所排序显示
-            //获取合同附件信息
-            maincotract.ContractFileList = _contractfileService.GetWhere(m=>m.MainContractID == maincotract.ID);
 
-            return toResponse(maincotract);
+                    ItemVMList.Add(itemVM);
+                }
+                maincotract.ContractItemList = ItemVMList;
+                //获取合同分场所信息
+                maincotract.ContractfcsList = Core.DbContext.Db.Queryable<Biz_ContractFcs, uf_fcsxx>((a, b) => new object[] {
+        JoinType.Left,a.fcsID==b.fcsID}).OrderBy((a, b) => b.fcslx).Where((a, b) => a.MainContractID == maincotract.ID)
+          .Select((a, b) => new FcsVM { ID = a.ID, fcsID = (int)a.fcsID, fcslx = b.fcslx, fcslxmc = b.fcslxmc, fcsmc = b.fcsmc, fcsmcy = b.fcsmcy, dz = b.dz, dzy = b.dzy, lxdh = b.lxdh, cz = b.cz, lxr = b.lxr, lxrsj = b.lxrsj, fxcrs = b.fxcrs, jzbjl = b.jzbjl, znbm = b.znbm, fcshd = b.fcshd, bz = b.bz }).ToList(); //固定场所排序显示
+                                                                                                                                                                                                                                                                                                                            //获取合同附件信息
+                maincotract.ContractFileList = _contractfileService.GetWhere(m => m.MainContractID == maincotract.ID);
+
+                //支持方式
+                if (maincotract.SupportWay != null)
+                {
+                    string[] IDs = maincotract.SupportWay.Split(',');
+                    maincotract.SupportWayList = db.Queryable<Frm_SelectItemObj>().Where(m => IDs.Contains(m.SelectItemIndex.ToString())).ToList();
+                }
+                return toResponse(maincotract);
+            }
         }
 
 
@@ -372,6 +404,11 @@ WHERE ID = @Biz_MainContract_ID AND Status = @Node_From", paramters) == 0)
                 Core.DbContext.BeginTran();
                 try
                 {
+                    string SupportWay = "";
+                    if (parm.SupportWayList != null)
+                    {
+                        SupportWay = string.Join(",", parm.SupportWayList.Select(m => m.SelectItemIndex));
+                    }
                     //从 Dto 映射到 实体
                     _maincontractService.Update(m => m.ID == parm.ID, m => new Biz_MainContract()
                     {
@@ -385,6 +422,7 @@ WHERE ID = @Biz_MainContract_ID AND Status = @Node_From", paramters) == 0)
                         AuditTeamRemark = parm.AuditTeamRemark,
                         AuditRemark = parm.AuditRemark,
                         IntegrationLevel = parm.IntegrationLevel,
+                        SupportWay = SupportWay,
                         UpdateID = userinfo.ID,
                         UpdateName=userinfo.UserName,
                         UpdateTime = DateTime.Now
@@ -494,7 +532,7 @@ WHERE ID = @Biz_MainContract_ID AND Status = @Node_From", paramters) == 0)
                             }
                             //保存项目信息
                             {
-                                var standard = db.Queryable<Abi_SysStandard>().First(m => m.SysStandardID == int.Parse(Item.ItemStandardID));
+                                var standard = db.Queryable<Abi_SysStandard>().First(m => m.AutoID == int.Parse(Item.ItemStandardID));
                                 string itemno = parm.ContractNo + standard.SysStandardNo;
                                 db.Updateable<Biz_ContractItem>().SetColumns(m => new Biz_ContractItem()
                                 {

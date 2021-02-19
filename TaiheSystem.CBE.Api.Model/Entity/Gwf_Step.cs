@@ -119,5 +119,13 @@ namespace TaiheSystem.CBE.Api.Model
            [Display(Name = "项目ID")]           
            public string Biz_ContractItem_Sub_ID {get;set;}
 
+           /// <summary>
+           /// 描述 : 审核员ID 
+           /// 空值 : True
+           /// 默认 : 
+           /// </summary>
+           [Display(Name = "审核员ID")]           
+           public string Biz_Contract_PlanAuditor_ID {get;set;}
+
     }
 }
