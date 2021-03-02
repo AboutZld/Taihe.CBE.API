@@ -42,7 +42,7 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Evaluation
         /// <summary>
         /// 项目接口
         /// </summary>
-        private readonly IBizContractItemService  _contractitemService;
+        private readonly IBizContractItemService _contractitemService;
 
         /// <summary>
         /// 任务安排
@@ -73,7 +73,7 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Evaluation
 
 
         /// <summary>
-        /// 查询审核安排列表
+        /// 查询资料回收列表
         /// </summary>
         /// <returns></returns>
         [HttpPost]
@@ -91,10 +91,10 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Evaluation
                 case 1:
                     predicate = predicate.And(m => m.status == 30025);
                     break;
-                case 3:
+                case 2:
                     predicate = predicate.And(m => m.status == 30028);
                     break;
-                case 4:
+                case 3:
                     predicate = predicate.And(m => m.status == 30030);
                     break;
                 default:
@@ -170,7 +170,7 @@ inner join Abi_SysStandard s on s.ID = ci.ItemStandardID where cis.ContractPlanI
 
                 plandata.SystemTypeNames = string.Join(",", plandata.ContractItemSubList.Select(m => m.SystemTypeName)); //体系认证类型
 
-                plandata.AuditTypeNames = string.Join(",", plandata.ContractItemSubList.Select(m=>m.ContractItemSubTypeCode)); //审核类型
+                plandata.AuditTypeNames = string.Join(",", plandata.ContractItemSubList.Select(m => m.ContractItemSubTypeCode)); //审核类型
 
 
                 //附件信息
@@ -264,6 +264,20 @@ WHERE ID = @Biz_Contract_Plan_ID AND Status = @Node_From", paramters) == 0)
                     return toResponse(StatusCodeType.Error, ex.Message);
                 }
             }
+        }
+
+        /// <summary>
+        /// 提交资料待补充
+        /// Power = PRIV_RECOVERY_REPLENISH
+        /// </summary>
+        /// <param name="id">编码</param>
+        /// <returns></returns>
+        [HttpPost]
+        //[Authorization(Power = "PRIV_RECOVERY_REPLENISH")]
+        public IActionResult Generate()
+        {
+            TaiheSystem.CBE.Api.Generate.Class1.test();
+            return toResponse("提交成功");
         }
     }
 }

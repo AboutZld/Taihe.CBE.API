@@ -49,7 +49,7 @@ namespace TaiheSystem.CBE.Api.Model.Dto
         /// 默认 : 
         /// </summary>
         [Display(Name = "合同审批日期")]
-        [Required(ErrorMessage = "合同审批日期不允许为空")]
+        [Required(ErrorMessage = "")]
         public string ApproveRemark { get; set; }
 
 

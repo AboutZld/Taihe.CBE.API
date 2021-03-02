@@ -37,23 +37,27 @@ values (@FlowCode,@OperationCode,@Node_From,@Node_To,@StepRemark,getdate(),@User
             {
                 throw new Exception("当前流程配置不存在");
             }
+            List<SugarParameter> stepparameters = new List<SugarParameter>();
+
+            stepparameters.AddRange(parameters);
+
             var operation = Operation.OperationList.First(m => m.OperationCode == OperactionCode && m.Node_From== jBizEntity[StatusFrom].ToString());
-            
-            parameters.Add(new SugarParameter("FlowCode", operation.FlowCode));
-            parameters.Add(new SugarParameter("OperationCode", operation.OperationCode));
-            parameters.Add(new SugarParameter("Node_From", operation.Node_From));
-            parameters.Add(new SugarParameter("Node_To", operation.Node_To));
-            parameters.Add(new SugarParameter(tableName + "_" + KeyIDValue, jBizEntity[KeyIDValue].ToString()));
-            parameters.Add(new SugarParameter("StepRemark", StepRemark));
+
+            stepparameters.Add(new SugarParameter("FlowCode", operation.FlowCode));
+            stepparameters.Add(new SugarParameter("OperationCode", operation.OperationCode));
+            stepparameters.Add(new SugarParameter("Node_From", operation.Node_From));
+            stepparameters.Add(new SugarParameter("Node_To", operation.Node_To));
+            stepparameters.Add(new SugarParameter(tableName + "_" + KeyIDValue, jBizEntity[KeyIDValue].ToString()));
+            stepparameters.Add(new SugarParameter("StepRemark", StepRemark));
 
             if (updateBizEntity != null)
             {
-                updateBizEntity(db, parameters);
+                updateBizEntity(db, stepparameters);
             }
             //记录流程步骤(如果前后状态都一致, 就不用记录日志，比如报验登记和报验修改用的都是一个Operation，都不用记录日志)
             if (operation.Node_From != operation.Node_To)
             {
-                db.Ado.ExecuteCommand(string.Format(Step_Insert_Sql, tableName + "_" + KeyIDValue, jBizEntity[KeyIDValue].ToString()), parameters);
+                db.Ado.ExecuteCommand(string.Format(Step_Insert_Sql, tableName + "_" + KeyIDValue, jBizEntity[KeyIDValue].ToString()), stepparameters);
             }
 
             //后置操作

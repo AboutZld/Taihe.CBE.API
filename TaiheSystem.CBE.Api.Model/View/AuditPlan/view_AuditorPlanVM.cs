@@ -310,5 +310,13 @@ namespace TaiheSystem.CBE.Api.Model
            [Display(Name = "")]           
            public DateTime? DrawSubmitTime {get;set;}
 
+        /// <summary>
+        /// 描述 :  是否评审有问题
+        /// 空值 : True
+        /// 默认 : 是否评审有问题
+        /// </summary>
+        [Display(Name = "是否评审有问题")]
+        public int? ProblemFlag { get; set; }
+
     }
 }

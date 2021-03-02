@@ -215,6 +215,21 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Sys
             }
         }
 
+        /// <summary>
+        /// 查询详细
+        /// </summary>
+        /// <param name="id">编码</param>
+        /// <returns></returns>
+        [HttpGet]
+        [Authorization]
+        public IActionResult Get(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return toResponse(StatusCodeType.Error, "id不能为空");
+            }
+            return toResponse(_gnlfileService.GetId(id));
+        }
 
 
         [HttpGet]

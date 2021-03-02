@@ -309,27 +309,24 @@ WHERE ID = @Biz_MainContract_ID AND Status = @Node_From", paramters) == 0)
                     ContractItemVM itemVM = Api.Common.Helpers.ComHelper.Mapper<ContractItemVM, Biz_ContractItem>(item);
 
                     //默认赋值基础人日
-
                     DataTable contrcatitem = db.Ado.GetDataTable("select PropleNum,SystemTypeID from Biz_ContractItem b inner join Abi_SysStandard c on b.ItemStandardID = c.ID where b.ID  =@ID", new { ID = item.ID }); //获取体系人数
-                    if (contrcatitem.Rows.Count == 0)
+                    if (contrcatitem.Rows.Count > 0 && (item.FirstTrialBaseDays == null || item.FirstTrialBaseDays == 0))
                     {
-                        return toResponse(StatusCodeType.Error, "项目信息获取失败");
-                    }
-
-                    object auditdays = db.Ado
+                        //return toResponse(StatusCodeType.Error, "项目信息获取失败");
+                        object auditdays = db.Ado
         .GetDecimal(@"select AuditDays from Sys_AuditTime where SystemTypeID = @SystemTypeID and (isnull(RiskRegisterID,0) = 0)
                     and (isnull(DownLimt,0) < @PropleNum and isnull(UpLimit,99999) > @PropleNum)", new { SystemTypeID = contrcatitem.Rows[0]["SystemTypeID"].ToString(), PropleNum = contrcatitem.Rows[0]["PropleNum"].ToString() });
-                    if (auditdays == null)
-                    {
-                        return toResponse(StatusCodeType.Error, "匹配基础人日信息失败，请核对！");
+                        if (auditdays == null)
+                        {
+                            return toResponse(StatusCodeType.Error, "匹配基础人日信息失败，请核对！");
+                        }
+
+                        itemVM.FirstTrialBaseDays = (decimal)auditdays;//初审基础人日
+                        itemVM.SupervisionBaseDays = Math.Round(((decimal)auditdays / 3), 2); //监督基础人日
+                        itemVM.RecertificationBaseDays = Math.Round(((decimal)auditdays / 3) * 2, 2); //再认证基础人日
                     }
 
-                    itemVM.FirstTrialBaseDays = (decimal)auditdays;//初审基础人日
-                    itemVM.SupervisionBaseDays = Math.Round(((decimal)auditdays / 3), 2); //监督基础人日
-                    itemVM.RecertificationBaseDays = Math.Round(((decimal)auditdays / 3) * 2, 2); //再认证基础人日
-
-
-
+                    
                     //增人日依据
                     itemVM.ContractItemAddList = Core.DbContext.Db.Queryable<Biz_ContractItem_Add>().Where(m => m.ContractItemID == item.ID).ToList();
 
@@ -428,18 +425,18 @@ WHERE ID = @Biz_MainContract_ID AND Status = @Node_From", paramters) == 0)
                         UpdateTime = DateTime.Now
                     });
                     //更新合同关联项目信息
-                    List<ContractItemVM> ItemList = parm.ContractItemList_update;
+                    List<ContractItemVM> ItemList = parm.ContractItemList;
                     if (ItemList != null)
                     {
                         foreach (var Item in ItemList)
                         {
                             //增人日依据
-                            List<Biz_ContractItem_Add> addlist_update = Item.ContractItemAddList_update; //更新
-                            List<Biz_ContractItem_Add> addlist_insert = Item.ContractItemAddList_insert; //插入
-                            List<Biz_ContractItem_Add> addlist_delete = Item.ContractItemAddList_delete; //删除
+                            List<Biz_ContractItem_Add> addlist_update = Item.ContractItemAddList.Where(m => m.AutoID > 0).ToList(); //更新
+                            List<Biz_ContractItem_Add> addlist_insert = Item.ContractItemAddList.Where(m => m.AutoID == 0).ToList(); //插入
+                            List<Biz_ContractItem_Add> addlist_delete = Item.ContractItemAddList; //删除
                             //删除增人日依据
                             string[] addids = addlist_delete.Where(x => !string.IsNullOrEmpty(x.ID)).Select(x => x.ID).ToArray();
-                            db.Deleteable<Biz_ContractItem_Add>().Where(m => m.ContractItemID == Item.ID && addids.Contains(m.ID)).ExecuteCommand();
+                            db.Deleteable<Biz_ContractItem_Add>().Where(m => m.ContractItemID == Item.ID && !addids.Contains(m.ID)).ExecuteCommand();
                             if(addlist_update != null)
                             {
                                 foreach (var add in addlist_update) //更新
@@ -462,12 +459,12 @@ WHERE ID = @Biz_MainContract_ID AND Status = @Node_From", paramters) == 0)
                                 }
                             }
                             //减人日依据
-                            List<Biz_ContractItem_Minus> minuslist_update = Item.ContractItemMinusList_update; //更新
-                            List<Biz_ContractItem_Minus> minuslist_insert = Item.ContractItemMinusList_insert; //插入
-                            List<Biz_ContractItem_Minus> minuslist_delete = Item.ContractItemMinusList_delete; //删除
+                            List<Biz_ContractItem_Minus> minuslist_update = Item.ContractItemMinusList.Where(m => m.AutoID > 0).ToList(); //更新
+                            List<Biz_ContractItem_Minus> minuslist_insert = Item.ContractItemMinusList.Where(m => m.AutoID == 0).ToList(); //插入
+                            List<Biz_ContractItem_Minus> minuslist_delete = Item.ContractItemMinusList; //删除
                             //删除减人日依据
                             string[] minusids = minuslist_delete.Where(x => !string.IsNullOrEmpty(x.ID)).Select(x => x.ID).ToArray();
-                            db.Deleteable<Biz_ContractItem_Minus>().Where(m => m.ContractItemID == Item.ID && minusids.Contains(m.ID)).ExecuteCommand();
+                            db.Deleteable<Biz_ContractItem_Minus>().Where(m => m.ContractItemID == Item.ID && !minusids.Contains(m.ID)).ExecuteCommand();
                             if (minuslist_update != null)
                             {
                                 foreach (var minus in minuslist_update) //更新
@@ -490,12 +487,12 @@ WHERE ID = @Biz_MainContract_ID AND Status = @Node_From", paramters) == 0)
                                 }
                             }
                             //业务类别处理
-                            List<ContractItemBizClassVM> classlist_update = Item.ContractItemBizClassificationList_update;//更新
-                            List<ContractItemBizClassVM> classlist_insert = Item.ContractItemBizClassificationList_insert;//插入
-                            List<ContractItemBizClassVM> classlist_delete = Item.ContractItemBizClassificationList_delete;//删除
+                            List<ContractItemBizClassVM> classlist_update = Item.ContractItemBizClassificationList.Where(m => !string.IsNullOrEmpty(m.ID)).ToList();//更新
+                            List<ContractItemBizClassVM> classlist_insert = Item.ContractItemBizClassificationList.Where(m => string.IsNullOrEmpty(m.ID)).ToList();//插入
+                            List<ContractItemBizClassVM> classlist_delete = Item.ContractItemBizClassificationList.Where(m => !string.IsNullOrEmpty(m.ID)).ToList();//删除
                             //删除管理业务类别
                             string[] classids = classlist_delete.Where(x => !string.IsNullOrEmpty(x.ID)).Select(x => x.ID).ToArray();
-                            db.Deleteable<Biz_ContractItem_BizClassification>().Where(m => m.ContractItemID == Item.ID && classids.Contains(m.ID)).ExecuteCommand();
+                            db.Deleteable<Biz_ContractItem_BizClassification>().Where(m => m.ContractItemID == Item.ID && !classids.Contains(m.ID)).ExecuteCommand();
                             if (classlist_update != null)
                             {
                                 foreach (var cl in classlist_update)
@@ -519,7 +516,9 @@ WHERE ID = @Biz_MainContract_ID AND Status = @Node_From", paramters) == 0)
                             decimal AddPris = (decimal)addlist_update.Sum(x=>x.AddPri) + (decimal)addlist_insert.Sum(x => x.AddPri); //增人日比例汇总
                             decimal MinusPris = (decimal)minuslist_update.Sum(x => x.MinusPri) + (decimal)minuslist_insert.Sum(x => x.MinusPri); //减人日比例汇总
 
-                            decimal basePris = 1+ ((AddPris - MinusPris) / 100);//增减比例
+                            decimal TotalbasePris = AddPris - MinusPris;
+
+                            decimal basePris = 1+ (TotalbasePris / 100);//增减比例
 
                             decimal firstTrialTotalDays = 0;//初审总人日计算(基础人日*（1+增减比例）)
                             decimal supervisionTotalDays = 0; //监督总人日
@@ -532,7 +531,7 @@ WHERE ID = @Biz_MainContract_ID AND Status = @Node_From", paramters) == 0)
                             }
                             //保存项目信息
                             {
-                                var standard = db.Queryable<Abi_SysStandard>().First(m => m.AutoID == int.Parse(Item.ItemStandardID));
+                                var standard = db.Queryable<Abi_SysStandard>().First(m => m.ID == Item.ItemStandardID);
                                 string itemno = parm.ContractNo + standard.SysStandardNo;
                                 db.Updateable<Biz_ContractItem>().SetColumns(m => new Biz_ContractItem()
                                 {
@@ -545,6 +544,7 @@ WHERE ID = @Biz_MainContract_ID AND Status = @Node_From", paramters) == 0)
                                     CNAS = Item.CNAS,
                                     AuditScope = Item.AuditScope,
                                     AuditScopeEN = Item.AuditScopeEN,
+                                    TotalBasePris = TotalbasePris,
                                     FirstTrialBaseDays = Item.FirstTrialBaseDays,
                                     SupervisionBaseDays = Item.SupervisionBaseDays,
                                     RecertificationBaseDays = Item.RecertificationBaseDays,

@@ -266,6 +266,14 @@ namespace TaiheSystem.CBE.Api.Model
            public string AuditScopeEN {get;set;}
 
            /// <summary>
+           /// 描述 : 增减比例 
+           /// 空值 : True
+           /// 默认 : 
+           /// </summary>
+           [Display(Name = "增减比例")]           
+           public decimal? TotalBasePris { get;set;}
+
+           /// <summary>
            /// 描述 : 初审基础人日 
            /// 空值 : True
            /// 默认 : 

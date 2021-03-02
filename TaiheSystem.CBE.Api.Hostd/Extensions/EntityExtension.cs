@@ -45,6 +45,10 @@ namespace TaiheSystem.CBE.Api.Hostd.Extensions
                 types.GetProperty("UpdateName").SetValue(source, userSession.UserName, null);
             }
 
+            if (types.GetProperty("deleted") != null)
+            {
+                types.GetProperty("deleted").SetValue(source, false, null);
+            }
 
             return source;
         }

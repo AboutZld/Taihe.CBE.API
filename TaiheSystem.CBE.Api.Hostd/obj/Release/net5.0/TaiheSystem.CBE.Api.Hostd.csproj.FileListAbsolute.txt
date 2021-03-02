@@ -192,3 +192,10 @@ D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\TaiheSy
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\bin\Release\net5.0\libman.json
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\bin\Release\net5.0\TaiheSystem.CBE.Api.GWF.dll
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\bin\Release\net5.0\TaiheSystem.CBE.Api.GWF.pdb
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\bin\Release\net5.0\DocumentFormat.OpenXml.dll
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\bin\Release\net5.0\System.Drawing.Common.dll
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\bin\Release\net5.0\System.IO.Packaging.dll
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\bin\Release\net5.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\bin\Release\net5.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\bin\Release\net5.0\TaiheSystem.CBE.Api.Generate.dll
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\bin\Release\net5.0\TaiheSystem.CBE.Api.Generate.pdb

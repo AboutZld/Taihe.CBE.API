@@ -8,10 +8,22 @@
     ".NETCoreApp,Version=v3.1": {
       "TaiheSystem.CBE.Api.Message/1.0.0": {
         "dependencies": {
+          "DocumentFormat.OpenXml": "2.12.2",
           "RabbitMQ.Client": "6.2.1"
         },
         "runtime": {
           "TaiheSystem.CBE.Api.Message.dll": {}
+        }
+      },
+      "DocumentFormat.OpenXml/2.12.2": {
+        "dependencies": {
+          "System.IO.Packaging": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/DocumentFormat.OpenXml.dll": {
+            "assemblyVersion": "2.12.2.0",
+            "fileVersion": "2.12.2.0"
+          }
         }
       },
       "RabbitMQ.Client/6.2.1": {
@@ -23,6 +35,14 @@
           "lib/netstandard2.0/RabbitMQ.Client.dll": {
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.2.1.0"
+          }
+        }
+      },
+      "System.IO.Packaging/4.7.0": {
+        "runtime": {
+          "lib/netstandard2.0/System.IO.Packaging.dll": {
+            "assemblyVersion": "4.0.5.0",
+            "fileVersion": "4.700.19.56404"
           }
         }
       },
@@ -43,12 +63,26 @@
       "serviceable": false,
       "sha512": ""
     },
+    "DocumentFormat.OpenXml/2.12.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IyJ0TJMyTeS2WkRa60H09C6WfCOtYAnD9meucJ/6NL9oylGhhfzUdc97QAPl9lp7hkEEgaIO2XxUgKyA2jdAdw==",
+      "path": "documentformat.openxml/2.12.2",
+      "hashPath": "documentformat.openxml.2.12.2.nupkg.sha512"
+    },
     "RabbitMQ.Client/6.2.1": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-kdcin0uz1b9xQPvlLOoa8Y2zQsfu7nRuTrcX02dCLVzwGVlsPp9AFgu1L3kRh4wSFEOGE03OVqpWKxaDlhuowQ==",
       "path": "rabbitmq.client/6.2.1",
       "hashPath": "rabbitmq.client.6.2.1.nupkg.sha512"
+    },
+    "System.IO.Packaging/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9VV4KAbgRQZ79iEoG40KIeZy38O30oWwewScAST879+oki8g/Wa2HXZQgrhDDxQM4GkP1PnRJll05NMiVPbYAw==",
+      "path": "system.io.packaging/4.7.0",
+      "hashPath": "system.io.packaging.4.7.0.nupkg.sha512"
     },
     "System.Memory/4.5.4": {
       "type": "package",

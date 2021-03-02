@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "wWsITsHulFXkkNcY6OKRpPIpx0ZbLvLuphK35INl6TIwdQbYr3WNVmgGovSdTnZwQq2Dr9Jdsg6/o48/CdK2JQ==",
+  "success": true,
+  "projectFilePath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Generate\\TaiheSystem.CBE.Api.Generate.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\zhuld\\.nuget\\packages\\documentformat.openxml\\2.12.2\\documentformat.openxml.2.12.2.nupkg.sha512",
+    "C:\\Users\\zhuld\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\zhuld\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "C:\\Users\\zhuld\\.nuget\\packages\\system.drawing.common\\5.0.1\\system.drawing.common.5.0.1.nupkg.sha512",
+    "C:\\Users\\zhuld\\.nuget\\packages\\system.io.packaging\\4.7.0\\system.io.packaging.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}

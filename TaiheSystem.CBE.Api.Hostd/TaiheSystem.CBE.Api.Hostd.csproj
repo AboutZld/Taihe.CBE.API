@@ -39,6 +39,7 @@
     <ProjectReference Include="..\TaiheSystem.CBE.Api.Common\TaiheSystem.CBE.Api.Common.csproj" />
     <ProjectReference Include="..\TaiheSystem.CBE.Api.Core\TaiheSystem.CBE.Api.Core.csproj" />
     <ProjectReference Include="..\TaiheSystem.CBE.Api.Extensions\TaiheSystem.CBE.Api.Extensions.csproj" />
+    <ProjectReference Include="..\TaiheSystem.CBE.Api.Generate\TaiheSystem.CBE.Api.Generate.csproj" />
     <ProjectReference Include="..\TaiheSystem.CBE.Api.Interfaces\TaiheSystem.CBE.Api.Interfaces.csproj" />
     <ProjectReference Include="..\TaiheSystem.CBE.Api.Message\TaiheSystem.CBE.Api.Message.csproj" />
     <ProjectReference Include="..\TaiheSystem.CBE.Api.Model\TaiheSystem.CBE.Api.Model.csproj" />

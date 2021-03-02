@@ -185,7 +185,7 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Main
 
                     foreach (var Item in itemList)
                     {
-                        var AuditType = db.Queryable<Cfg_AuditType>().First(m => m.AutoID == int.Parse(Item.AuditTypeID));
+                        var AuditType = db.Queryable<Cfg_AuditType>().First(m => m.ID == Item.AuditTypeID);
                         if ((bool)AuditType.NeedFirstStage)
                         {
                             ContractItemSubCreateDto itemsub1 = new ContractItemSubCreateDto();
@@ -193,12 +193,20 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Main
                             itemsub1.ContractItemID = Item.ID;
                             itemsub1.ContractItemSubType = 0; //一阶段
                             itemsub1.ContractItemSubTypeCode = string.Format("一阶段({0})", (Item.IsSiteWork != null && (bool)Item.IsSiteWork) ? "现" : "非");
+                            itemsub1.CNAS = Item.CNAS;    //认可标识
+                            itemsub1.AuditScope = Item.AuditScope;//审核范围
+                            itemsub1.CertificatesIssue = true; //是否发证
+                            itemsub1.NotificationIssue = false;//是否发保持通知书
 
                             ContractItemSubCreateDto itemsub2 = new ContractItemSubCreateDto();
                             itemsub2.MainContractID = Item.MainContractID;
                             itemsub2.ContractItemID = Item.ID;
                             itemsub2.ContractItemSubType = 1; //二阶段
                             itemsub2.ContractItemSubTypeCode = "二阶段";
+                            itemsub2.CNAS = Item.CNAS;    //认可标识
+                            itemsub2.AuditScope = Item.AuditScope;//审核范围
+                            itemsub2.CertificatesIssue = true; //是否发证
+                            itemsub2.NotificationIssue = false;//是否发保持通知书
 
                             db.Insertable(itemsub1).AS("Biz_ContractItem_Sub").ExecuteCommand();
                             db.Insertable(itemsub2).AS("Biz_ContractItem_Sub").ExecuteCommand();
@@ -211,6 +219,10 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Main
                             itemsub.ContractItemID = Item.ID;
                             itemsub.ContractItemSubType = 3;
                             itemsub.ContractItemSubTypeCode = AuditType.AuditTypeName;
+                            itemsub.CNAS = Item.CNAS;    //认可标识
+                            itemsub.AuditScope = Item.AuditScope;//审核范围
+                            itemsub.CertificatesIssue = true; //是否发证
+                            itemsub.NotificationIssue = false;//是否发保持通知书
 
                             db.Insertable(itemsub).AS("Biz_ContractItem_Sub").ExecuteCommand();
                         }
@@ -292,7 +304,7 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Main
                     parameters.Add(new SugarParameter("ContractApproveTime", param.ContractApproveTime));//合同审批日期
                     parameters.Add(new SugarParameter("ApproveRemark", param.ApproveRemark));//批准备注
 
-                    Step.Submit(db, maincontract, "Biz_MainContract", "ID", "status", "105", parameters, UpdateBizEntityAfterSubmitted, "退回评审");
+                    Step.Submit(db, maincontract, "Biz_MainContract", "ID", "status", "105", parameters, UpdateBizEntityAfterSubmitted, "合同终止");
                     Core.DbContext.CommitTran();
                     return toResponse("提交成功");
                 }

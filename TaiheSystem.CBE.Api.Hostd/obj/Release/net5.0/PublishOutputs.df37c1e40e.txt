@@ -16,6 +16,7 @@ D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\BouncyCastle.Crypto.dll
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\Castle.Core.dll
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\CSRedisCore.dll
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\DocumentFormat.OpenXml.dll
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\Google.Protobuf.dll
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\Humanizer.dll
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\K4os.Compression.LZ4.dll
@@ -81,6 +82,8 @@ D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\System.Composition.TypedParts.dll
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\System.Configuration.ConfigurationManager.dll
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\System.Data.SqlClient.dll
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\System.Drawing.Common.dll
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\System.IO.Packaging.dll
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\System.Security.Cryptography.ProtectedData.dll
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\System.ServiceProcess.ServiceController.dll
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\System.Xml.XPath.XmlDocument.dll
@@ -154,11 +157,14 @@ D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\runtimes\win8-arm\native\e_sqlite3.dll
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\runtimes\unix\lib\netstandard2.0\System.Data.SqlClient.dll
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\runtimes\win\lib\netstandard2.0\System.ServiceProcess.ServiceController.dll
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\TaiheSystem.CBE.Api.Common.dll
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\TaiheSystem.CBE.Api.Core.dll
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\TaiheSystem.CBE.Api.Extensions.dll
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\TaiheSystem.CBE.Api.Generate.dll
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\TaiheSystem.CBE.Api.GWF.dll
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\TaiheSystem.CBE.Api.Interfaces.dll
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\TaiheSystem.CBE.Api.Message.dll
@@ -168,6 +174,7 @@ D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\TaiheSystem.CBE.Api.Common.pdb
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\TaiheSystem.CBE.Api.Core.pdb
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\TaiheSystem.CBE.Api.Extensions.pdb
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\TaiheSystem.CBE.Api.Generate.pdb
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\TaiheSystem.CBE.Api.Interfaces.pdb
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\TaiheSystem.CBE.Api.Message.pdb
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Hostd\obj\Release\net5.0\PubTmp\Out\TaiheSystem.CBE.Api.Model.pdb

@@ -52,6 +52,21 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Sys
             _logger = logger;
         }
 
+        /// <summary>
+        /// 查询注册资格列表
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [Authorization]
+        public IActionResult Query([FromBody]UserSystemTypeQueryDto parm)
+        {
+            //开始拼装查询条件
+            var predicate = Expressionable.Create<Sys_User_SystemType>();
+
+            var response = _usersystemtypeService.GetPages(predicate.ToExpression(), parm);
+
+            return toResponse(response);
+        }
 
         /// <summary>
         /// 查询当前人的注册资格
@@ -138,7 +153,7 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Sys
 
                 //从 Dto 映射到 实体
                 var options = parm.Adapt<Sys_User_SystemType>().ToCreate(_tokenManager.GetSessionInfo());
-                List<Sys_User_SystemType_Standard> standardlist_insert = parm.UserSystemTypeStandardList_insert;//插入
+                List<Sys_User_SystemType_Standard> standardlist_insert = parm.UserSystemTypeStandardList;//插入
 
                 //复制标准名称聚合
                 options.StandardNames = string.Join(",",standardlist_insert.Select(m => m.SysStandardName));
@@ -157,15 +172,15 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Sys
             }
             else
             {
-                List<Sys_User_SystemType_Standard> standardlist_delete = parm.UserSystemTypeStandardList_delete;//删除
-                List<Sys_User_SystemType_Standard> standardlist_update = parm.UserSystemTypeStandardList_update;//更新
-                List<Sys_User_SystemType_Standard> standardlist_insert = parm.UserSystemTypeStandardList_insert;//插入
+                List<Sys_User_SystemType_Standard> standardlist_delete = parm.UserSystemTypeStandardList.Where(m=> !string.IsNullOrEmpty(m.ID)).ToList();//删除
+                List<Sys_User_SystemType_Standard> standardlist_update = parm.UserSystemTypeStandardList.Where(m => !string.IsNullOrEmpty(m.ID)).ToList();//更新
+                List<Sys_User_SystemType_Standard> standardlist_insert = parm.UserSystemTypeStandardList.Where(m => string.IsNullOrEmpty(m.ID)).ToList();//插入
 
                 //删除标准信息
                 string[] ids = standardlist_delete.Where(x => !string.IsNullOrEmpty(x.ID)).Select(x => x.ID).ToArray();
-                _usersystemtypestandardService.Delete(m => ids.Contains(m.ID));
+                _usersystemtypestandardService.Delete(m => m.UserSystemTypeID == parm.ID && !ids.Contains(m.ID));
 
-                //更新
+                //更新标准
                 foreach (var standard in standardlist_update)
                 {
                     _usersystemtypestandardService.Update(m => m.ID == standard.ID, m => new Sys_User_SystemType_Standard()
@@ -176,7 +191,7 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Sys
                     });
                 }
 
-                //插入
+                //插入标准
                 foreach (var standard in standardlist_insert)
                 {
                     var insert = standard.Adapt<Sys_User_SystemType_Standard>().ToCreate(_tokenManager.GetSessionInfo());

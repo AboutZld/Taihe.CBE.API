@@ -97,6 +97,18 @@
           "lib/netstandard2.0/CSRedisCore.dll": {}
         }
       },
+      "DocumentFormat.OpenXml/2.12.2": {
+        "type": "package",
+        "dependencies": {
+          "System.IO.Packaging": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/DocumentFormat.OpenXml.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/DocumentFormat.OpenXml.dll": {}
+        }
+      },
       "Google.Protobuf/3.6.1": {
         "type": "package",
         "dependencies": {
@@ -2337,7 +2349,7 @@
           "ref/netstandard1.5/System.Diagnostics.Tracing.dll": {}
         }
       },
-      "System.Drawing.Common/5.0.0": {
+      "System.Drawing.Common/5.0.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.Win32.SystemEvents": "5.0.0"
@@ -2523,6 +2535,15 @@
         },
         "runtime": {
           "lib/netstandard1.3/System.IO.FileSystem.Primitives.dll": {}
+        }
+      },
+      "System.IO.Packaging/4.7.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.IO.Packaging.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.IO.Packaging.dll": {}
         }
       },
       "System.Linq/4.3.0": {
@@ -3549,6 +3570,20 @@
           "Microsoft.AspNetCore.App"
         ]
       },
+      "TaiheSystem.CBE.Api.Generate/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "DocumentFormat.OpenXml": "2.12.2",
+          "System.Drawing.Common": "5.0.1"
+        },
+        "compile": {
+          "bin/placeholder/TaiheSystem.CBE.Api.Generate.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TaiheSystem.CBE.Api.Generate.dll": {}
+        }
+      },
       "TaiheSystem.CBE.Api.GWF/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -3589,6 +3624,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "DocumentFormat.OpenXml": "2.12.2",
           "RabbitMQ.Client": "6.2.1"
         },
         "compile": {
@@ -3788,6 +3824,28 @@
         "lib/net45/CSRedisCore.xml",
         "lib/netstandard2.0/CSRedisCore.dll",
         "lib/netstandard2.0/CSRedisCore.xml"
+      ]
+    },
+    "DocumentFormat.OpenXml/2.12.2": {
+      "sha512": "IyJ0TJMyTeS2WkRa60H09C6WfCOtYAnD9meucJ/6NL9oylGhhfzUdc97QAPl9lp7hkEEgaIO2XxUgKyA2jdAdw==",
+      "type": "package",
+      "path": "documentformat.openxml/2.12.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "documentformat.openxml.2.12.2.nupkg.sha512",
+        "documentformat.openxml.nuspec",
+        "icon.png",
+        "lib/net35/DocumentFormat.OpenXml.dll",
+        "lib/net35/DocumentFormat.OpenXml.xml",
+        "lib/net40/DocumentFormat.OpenXml.dll",
+        "lib/net40/DocumentFormat.OpenXml.xml",
+        "lib/net46/DocumentFormat.OpenXml.dll",
+        "lib/net46/DocumentFormat.OpenXml.xml",
+        "lib/netstandard1.3/DocumentFormat.OpenXml.dll",
+        "lib/netstandard1.3/DocumentFormat.OpenXml.xml",
+        "lib/netstandard2.0/DocumentFormat.OpenXml.dll",
+        "lib/netstandard2.0/DocumentFormat.OpenXml.xml"
       ]
     },
     "Google.Protobuf/3.6.1": {
@@ -7583,10 +7641,10 @@
         "system.diagnostics.tracing.nuspec"
       ]
     },
-    "System.Drawing.Common/5.0.0": {
-      "sha512": "SztFwAnpfKC8+sEKXAFxCBWhKQaEd97EiOL7oZJZP56zbqnLpmxACWA8aGseaUExciuEAUuR9dY8f7HkTRAdnw==",
+    "System.Drawing.Common/5.0.1": {
+      "sha512": "3IN8zWk395Qu+7wnoTbebEjdP3izZBBKAahgWuC0jp9tCgTdUFN6KsrqQl0I3L+ptZD/LvwKjgFp1u+x3+p+DA==",
       "type": "package",
-      "path": "system.drawing.common/5.0.0",
+      "path": "system.drawing.common/5.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -7619,7 +7677,7 @@
         "runtimes/win/lib/netcoreapp2.0/System.Drawing.Common.dll",
         "runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll",
         "runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.xml",
-        "system.drawing.common.5.0.0.nupkg.sha512",
+        "system.drawing.common.5.0.1.nupkg.sha512",
         "system.drawing.common.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -8109,6 +8167,33 @@
         "ref/xamarinwatchos10/_._",
         "system.io.filesystem.primitives.4.3.0.nupkg.sha512",
         "system.io.filesystem.primitives.nuspec"
+      ]
+    },
+    "System.IO.Packaging/4.7.0": {
+      "sha512": "9VV4KAbgRQZ79iEoG40KIeZy38O30oWwewScAST879+oki8g/Wa2HXZQgrhDDxQM4GkP1PnRJll05NMiVPbYAw==",
+      "type": "package",
+      "path": "system.io.packaging/4.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net46/System.IO.Packaging.dll",
+        "lib/net46/System.IO.Packaging.xml",
+        "lib/netstandard1.3/System.IO.Packaging.dll",
+        "lib/netstandard1.3/System.IO.Packaging.xml",
+        "lib/netstandard2.0/System.IO.Packaging.dll",
+        "lib/netstandard2.0/System.IO.Packaging.xml",
+        "ref/net46/System.IO.Packaging.dll",
+        "ref/net46/System.IO.Packaging.xml",
+        "ref/netstandard1.3/System.IO.Packaging.dll",
+        "ref/netstandard1.3/System.IO.Packaging.xml",
+        "ref/netstandard2.0/System.IO.Packaging.dll",
+        "ref/netstandard2.0/System.IO.Packaging.xml",
+        "system.io.packaging.4.7.0.nupkg.sha512",
+        "system.io.packaging.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "System.Linq/4.3.0": {
@@ -10887,6 +10972,11 @@
       "path": "../TaiheSystem.CBE.Api.Extensions/TaiheSystem.CBE.Api.Extensions.csproj",
       "msbuildProject": "../TaiheSystem.CBE.Api.Extensions/TaiheSystem.CBE.Api.Extensions.csproj"
     },
+    "TaiheSystem.CBE.Api.Generate/1.0.0": {
+      "type": "project",
+      "path": "../TaiheSystem.CBE.Api.Generate/TaiheSystem.CBE.Api.Generate.csproj",
+      "msbuildProject": "../TaiheSystem.CBE.Api.Generate/TaiheSystem.CBE.Api.Generate.csproj"
+    },
     "TaiheSystem.CBE.Api.GWF/1.0.0": {
       "type": "project",
       "path": "../TaiSystem.CBE.Api.GWF/TaiheSystem.CBE.Api.GWF.csproj",
@@ -10938,6 +11028,7 @@
       "TaiheSystem.CBE.Api.Core >= 1.0.0",
       "TaiheSystem.CBE.Api.Extensions >= 1.0.0",
       "TaiheSystem.CBE.Api.GWF >= 1.0.0",
+      "TaiheSystem.CBE.Api.Generate >= 1.0.0",
       "TaiheSystem.CBE.Api.Interfaces >= 1.0.0",
       "TaiheSystem.CBE.Api.Message >= 1.0.0",
       "TaiheSystem.CBE.Api.Model >= 1.0.0",
@@ -10985,6 +11076,9 @@
             },
             "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Extensions\\TaiheSystem.CBE.Api.Extensions.csproj": {
               "projectPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Extensions\\TaiheSystem.CBE.Api.Extensions.csproj"
+            },
+            "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Generate\\TaiheSystem.CBE.Api.Generate.csproj": {
+              "projectPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Generate\\TaiheSystem.CBE.Api.Generate.csproj"
             },
             "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Interfaces\\TaiheSystem.CBE.Api.Interfaces.csproj": {
               "projectPath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Interfaces\\TaiheSystem.CBE.Api.Interfaces.csproj"

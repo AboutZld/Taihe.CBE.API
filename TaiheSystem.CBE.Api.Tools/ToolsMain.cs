@@ -13,7 +13,7 @@ namespace TaiheSystem.CBE.Api.Tools
             //var allTables = new ToolsService().GetAllTables();
             //foreach (var table in allTables)
             //{
-            //    if (table == "Biz_Contract_PlanAuditor")
+            //    if (table == "Biz_ContractItem_Sub_Certificate")
             //    {
             //        Console.Write($"生成[{ table }]表 模型: ");
             //        Console.WriteLine(new ToolsService().CreateModels("..\\..\\..\\..\\TaiheSystem.CBE.Api.Model\\Entity", "TaiheSystem.CBE.Api.Model", table, ""));
@@ -24,7 +24,7 @@ namespace TaiheSystem.CBE.Api.Tools
             //    }
             //}
 
-            var allVM = new ToolsService().GetAllViews("view_dataRecovery");
+            var allVM = new ToolsService().GetAllViews("view_ItemCert");
             foreach (var view in allVM)
             {
                 Console.Write($"生成[{ view }]表 模型: ");

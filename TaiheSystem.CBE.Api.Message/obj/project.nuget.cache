@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "ReqQ9tuhYzb482VFyzt+AMVnybtkKXVhAO9ogXL8gRm1sascbld0wnJrifWT1lvK03BljtYdp3wb0BpEMC6lXA==",
+  "dgSpecHash": "u+/Hg+7rcdoqZ5JUZMvZ+5K5fsJmQ+8GP3IP6Ggi2qhGmE3f7hnZykzvoU3QHdSN0ms+qBto4bJHR0MBmwe/bg==",
   "success": true,
   "projectFilePath": "D:\\SourceCode\\Taihe.CBE.API\\TaiheSystem.CBE.Api.Message\\TaiheSystem.CBE.Api.Message.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\zhuld\\.nuget\\packages\\documentformat.openxml\\2.12.2\\documentformat.openxml.2.12.2.nupkg.sha512",
     "C:\\Users\\zhuld\\.nuget\\packages\\rabbitmq.client\\6.2.1\\rabbitmq.client.6.2.1.nupkg.sha512",
+    "C:\\Users\\zhuld\\.nuget\\packages\\system.io.packaging\\4.7.0\\system.io.packaging.4.7.0.nupkg.sha512",
     "C:\\Users\\zhuld\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\zhuld\\.nuget\\packages\\system.threading.channels\\4.7.1\\system.threading.channels.4.7.1.nupkg.sha512"
   ],

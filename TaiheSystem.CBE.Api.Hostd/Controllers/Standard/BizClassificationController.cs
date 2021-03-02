@@ -97,6 +97,37 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Standard
             return toResponse(response);
         }
 
+        /// <summary>
+        /// 查询列表(已启用)
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [Authorization]
+        public IActionResult QueryBySystemType([FromBody] BizClassificationQueryDto parm)
+        {
+            //开始拼装查询条件
+            var predicate = Expressionable.Create<Abi_BizClassification>();
+
+            if(string.IsNullOrEmpty(parm.SystemTypeID))
+            {
+                return toResponse(StatusCodeType.Error, "体系类别ID不允许为空");
+            }
+
+            predicate = predicate.And(m => m.Enabled == true);
+            //分组代码
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.ClassificationCode), m => m.ClassificationCode.Contains(parm.ClassificationCode) || m.ClassificationCode.Contains(parm.ClassificationCode));
+            //上报代码
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.ClassificationReportCode), m => m.ClassificationReportCode.Contains(parm.ClassificationReportCode) || m.ClassificationReportCode.Contains(parm.ClassificationReportCode));
+            //内容
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.ClassificationName), m => m.ClassificationName.Contains(parm.ClassificationName) || m.ClassificationName.Contains(parm.ClassificationName));
+            //行业
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.Industry), m => m.Industry.Contains(parm.Industry) || m.Industry.Contains(parm.Industry));
+
+            var response = _bizclassService.GetPages(predicate.ToExpression(), parm);
+
+            return toResponse(response);
+        }
+
 
         /// <summary>
         /// 查询详细

@@ -318,5 +318,13 @@ namespace TaiheSystem.CBE.Api.Model
            [Display(Name = "")]           
            public string UserName {get;set;}
 
+        /// <summary>
+        /// 描述 :  项目状态
+        /// 空值 : True
+        /// 默认 : 
+        /// </summary>
+        [Display(Name = "项目状态")]
+        public int ItemStatus { get; set; }
+
     }
 }

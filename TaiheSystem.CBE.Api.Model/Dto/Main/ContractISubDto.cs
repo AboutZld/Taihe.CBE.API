@@ -9,6 +9,7 @@
 * ==============================================================================
 */
 using Swashbuckle.AspNetCore.Annotations;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace TaiheSystem.CBE.Api.Model.Dto
@@ -155,5 +156,69 @@ namespace TaiheSystem.CBE.Api.Model.Dto
         /// </summary>
         [Display(Name = "审核实际安排初审二阶段")]
         public decimal? TrueSecondDays { get; set; }
+
+        /// <summary>
+        /// 描述 : 认可标识 
+        /// 空值 : True
+        /// 默认 : 
+        /// </summary>
+        [Display(Name = "认可标识")]
+        public bool? CNAS { get; set; }
+
+        /// <summary>
+        /// 描述 : 审核范围 
+        /// 空值 : True
+        /// 默认 : 
+        /// </summary>
+        [Display(Name = "审核范围")]
+        public string AuditScope { get; set; }
+
+        /// <summary>
+        /// 描述 : 评定日期 
+        /// 空值 : True
+        /// 默认 : 
+        /// </summary>
+        [Display(Name = "评定日期")]
+        public DateTime? EvaluationDate { get; set; }
+
+        /// <summary>
+        /// 描述 : 是否发证 
+        /// 空值 : True
+        /// 默认 : 1
+        /// </summary>
+        [Display(Name = "是否发证")]
+        public bool? CertificatesIssue { get; set; }
+
+        /// <summary>
+        /// 描述 : 是否发保持通知书 
+        /// 空值 : True
+        /// 默认 : 0
+        /// </summary>
+        [Display(Name = "是否发保持通知书")]
+        public bool? NotificationIssue { get; set; }
+
+        /// <summary>
+        /// 描述 : 评定备注 
+        /// 空值 : True
+        /// 默认 : 
+        /// </summary>
+        [Display(Name = "评定备注")]
+        public string EvaluationRemark { get; set; }
+
+        /// <summary>
+        /// 描述 : 评定提交人ID 
+        /// 空值 : True
+        /// 默认 : 
+        /// </summary>
+        [Display(Name = "评定提交人ID")]
+        public string EvaluationSubmitID { get; set; }
+
+        /// <summary>
+        /// 描述 : 评定提交人 
+        /// 空值 : True
+        /// 默认 : 
+        /// </summary>
+        [Display(Name = "评定提交人")]
+        public string EvaluationSubmitName { get; set; }
     }
 }

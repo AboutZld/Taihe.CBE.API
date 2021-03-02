@@ -137,9 +137,25 @@ namespace TaiheSystem.CBE.Api.Model.Dto
 
 
     /// <summary>
-    /// 资料回收详情
+    /// 审核老师关闭问题列表
     /// </summary>
-    public class DataRecoveryDetail
+    public class CloseProblemSubmitDto
+    {
+        /// <summary>
+        /// 描述 : 计划备注 
+        /// 空值 : True
+        /// 默认 : 
+        /// </summary>
+        [Display(Name = "id")]
+        [Required(ErrorMessage = "ID不允许为空")]
+        public string id { get; set; }
+
+    }
+
+        /// <summary>
+        /// 资料回收详情
+        /// </summary>
+        public class DataRecoveryDetail
     {
         /// <summary>
         /// 描述 :  
@@ -415,8 +431,12 @@ namespace TaiheSystem.CBE.Api.Model.Dto
         /// <summary>
         /// 上传文件列表
         /// </summary>
-        public List<Biz_ContractItem_Sub_File> ContractsubitemFileList;
+        public List<Biz_ContractItem_Sub_File> ContractsubitemFileList { set; get; }
 
+        /// <summary>
+        /// 评定问题列表
+        /// </summary>
+        public List<Biz_Contract_Plan_EvaluationProblem> Biz_Contract_Plan_EvaluationProblemList { set; get; }
 
     }
 }

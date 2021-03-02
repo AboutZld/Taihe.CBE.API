@@ -11,6 +11,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using TaiheSystem.CBE.Api.Model.View;
 
 namespace TaiheSystem.CBE.Api.Hostd.Controllers.Sys
 {
@@ -82,7 +83,13 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Sys
             {
                 return toResponse(StatusCodeType.Error, "id不允许为空，请核对！");
             }
-            var response = _userclassificationService.GetWhere(m => m.UserSystemTypeID == id);
+            //var response = _userclassificationService.GetWhere(m => m.UserSystemTypeID == id);
+            var response = Core.DbContext.CurrentDB.Ado.SqlQuery<UserClassificationVM>(@"
+select uc.*,us.SystemTypeName,us.QualificationTypeName from Sys_User_Classification uc 
+inner join Sys_User_SystemType us on uc.UserSystemTypeID = us.ID
+inner join Abi_BizClassification bc on bc.ID = uc.BizClassificationID
+where uc.UserSystemTypeID = @id
+",new { id = id}).ToList();
 
             return toResponse(response);
         }

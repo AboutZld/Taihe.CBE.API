@@ -312,6 +312,14 @@ namespace TaiheSystem.CBE.Api.Model.View.Main
         public string AuditRemark { get; set; }
 
         /// <summary>
+        /// 描述 : 合同审批日期 
+        /// 空值 : True
+        /// 默认 : 
+        /// </summary>
+        [Display(Name = "合同审批日期")]
+        public DateTime? ContractApproveTime { get; set; }
+
+        /// <summary>
         /// 描述 : 批准备注 
         /// 空值 : True
         /// 默认 : 

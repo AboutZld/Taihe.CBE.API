@@ -100,6 +100,14 @@ namespace TaiheSystem.CBE.Api.Model
            public int? status {get;set;}
 
            /// <summary>
+           /// 描述 : 是否评审有问题 0-正常 1-有问题 
+           /// 空值 : True
+           /// 默认 : 
+           /// </summary>
+           [Display(Name = "是否评审有问题 0-正常 1-有问题")]           
+           public int? ProblemFlag {get;set;}
+
+           /// <summary>
            /// 描述 : 计划备注 
            /// 空值 : True
            /// 默认 : 

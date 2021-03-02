@@ -52,7 +52,7 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Sys
 
 
         /// <summary>
-        /// 查询用户列表
+        /// 查询用户列表(分页)
         /// </summary>
         /// <returns></returns>
         [HttpPost]
@@ -67,6 +67,29 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Sys
             var response = _usersService.GetPages(predicate.ToExpression(), parm);
 
             return toResponse(response);
+        }
+
+        /// <summary>
+        /// 查询用户列表
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Authorization]
+        public IActionResult QueryList(string QueryText = null)
+        {
+            //开始拼装查询条件
+            if (string.IsNullOrEmpty(QueryText))
+            {
+                var response = _usersService.GetAll();
+
+                return toResponse(response);
+            }
+            else
+            {
+                var response = _usersService.GetWhere(m => m.UserID.Contains(QueryText) || m.UserName.Contains(QueryText));
+
+                return toResponse(response);
+            }
         }
 
 

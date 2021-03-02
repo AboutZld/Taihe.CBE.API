@@ -19,9 +19,9 @@ D:\SourceCode\TaiheSystem.CBE.Api\TaiheSystem.CBE.Api.Message\obj\Debug\netcorea
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Message\bin\Debug\netcoreapp3.1\TaiheSystem.CBE.Api.Message.deps.json
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Message\bin\Debug\netcoreapp3.1\TaiheSystem.CBE.Api.Message.dll
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Message\bin\Debug\netcoreapp3.1\TaiheSystem.CBE.Api.Message.pdb
-D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Message\obj\Debug\netcoreapp3.1\TaiheSystem.CBE.Api.Message.csprojAssemblyReference.cache
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Message\obj\Debug\netcoreapp3.1\TaiheSystem.CBE.Api.Message.AssemblyInfoInputs.cache
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Message\obj\Debug\netcoreapp3.1\TaiheSystem.CBE.Api.Message.AssemblyInfo.cs
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Message\obj\Debug\netcoreapp3.1\TaiheSystem.CBE.Api.Message.csproj.CoreCompileInputs.cache
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Message\obj\Debug\netcoreapp3.1\TaiheSystem.CBE.Api.Message.dll
 D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Message\obj\Debug\netcoreapp3.1\TaiheSystem.CBE.Api.Message.pdb
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Message\obj\Debug\netcoreapp3.1\TaiheSystem.CBE.Api.Message.csprojAssemblyReference.cache

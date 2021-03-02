@@ -22,6 +22,8 @@ namespace TaiheSystem.CBE.Api.Model
 
             this.ID =Guid.NewGuid().ToString();
             this.status =Convert.ToInt32("20000");
+            this.CertificatesIssue =true;
+            this.NotificationIssue =false;
 
            }
            /// <summary>
@@ -209,6 +211,86 @@ namespace TaiheSystem.CBE.Api.Model
            /// </summary>
            [Display(Name = "")]           
            public string CreateName {get;set;}
+
+           /// <summary>
+           /// 描述 : 评定人员名称聚合;分隔 
+           /// 空值 : True
+           /// 默认 : 
+           /// </summary>
+           [Display(Name = "评定人员名称聚合;分隔")]           
+           public string EvaluationNames {get;set;}
+
+           /// <summary>
+           /// 描述 : 认可标识 
+           /// 空值 : True
+           /// 默认 : 
+           /// </summary>
+           [Display(Name = "认可标识")]           
+           public bool? CNAS {get;set;}
+
+           /// <summary>
+           /// 描述 : 审核范围 
+           /// 空值 : True
+           /// 默认 : 
+           /// </summary>
+           [Display(Name = "审核范围")]           
+           public string AuditScope {get;set;}
+
+           /// <summary>
+           /// 描述 : 评定日期 
+           /// 空值 : True
+           /// 默认 : 
+           /// </summary>
+           [Display(Name = "评定日期")]           
+           public DateTime? EvaluationDate {get;set;}
+
+           /// <summary>
+           /// 描述 : 是否发证 
+           /// 空值 : True
+           /// 默认 : 1
+           /// </summary>
+           [Display(Name = "是否发证")]           
+           public bool? CertificatesIssue {get;set;}
+
+           /// <summary>
+           /// 描述 : 是否发保持通知书 
+           /// 空值 : True
+           /// 默认 : 0
+           /// </summary>
+           [Display(Name = "是否发保持通知书")]           
+           public bool? NotificationIssue {get;set;}
+
+           /// <summary>
+           /// 描述 : 评定备注 
+           /// 空值 : True
+           /// 默认 : 
+           /// </summary>
+           [Display(Name = "评定备注")]           
+           public string EvaluationRemark {get;set;}
+
+           /// <summary>
+           /// 描述 : 总经理审批日期 
+           /// 空值 : True
+           /// 默认 : 
+           /// </summary>
+           [Display(Name = "总经理审批日期")]           
+           public DateTime? GMApproveTime {get;set;}
+
+           /// <summary>
+           /// 描述 : 评定结果 0-不通过 1-通过 
+           /// 空值 : True
+           /// 默认 : 
+           /// </summary>
+           [Display(Name = "评定结果 0-不通过 1-通过")]           
+           public int? CertificationDecisionResult {get;set;}
+
+           /// <summary>
+           /// 描述 : 评定备注 
+           /// 空值 : True
+           /// 默认 : 
+           /// </summary>
+           [Display(Name = "评定备注")]           
+           public string CertificationDecisionRemark {get;set;}
 
     }
 }

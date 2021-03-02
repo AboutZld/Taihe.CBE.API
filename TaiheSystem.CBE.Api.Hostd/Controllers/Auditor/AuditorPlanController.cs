@@ -104,7 +104,7 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Auditor
                     predicate = predicate.And(m => m.status == 40015);
                     break;
                 case 4:
-                    predicate = predicate.And(m => m.status == 40013);
+                    predicate = predicate.And(m => m.ProblemFlag == 1);
                     break;
                 default:
                     return toResponse(StatusCodeType.Error, "状态匹配失败,请核对！");
@@ -180,6 +180,8 @@ WHERE   (m.deleted = 0)
                 plandata.PlanAuditorDrawList = db.Queryable<Biz_Contract_PlanAuditor_Draw>().Where(m => m.PlanAuditorID == plandata.ID).ToList();
                 //附件信息
                 plandata.ContractsubitemFileList = db.Queryable<Biz_ContractItem_Sub_File>().Where(m=>m.PlanAuditorID == plandata.ID).ToList();
+                //评定问题列表
+                plandata.EvaluationProblemList = db.Queryable<Biz_Contract_Plan_EvaluationProblem>().Where(m => m.PlanAuditorID == plandata.ID).ToList();
                 return toResponse(plandata);
             }
         }
@@ -253,6 +255,120 @@ WHERE   (m.deleted = 0)
                 }
             }
         }
+
+        /// <summary>
+        /// 修改评定问题
+        /// Power = PRIV_SAVE_PROBLEM
+        /// </summary>
+        /// <param name="parm">ids</param>
+        /// <returns></returns>
+        [HttpPost]
+        [Authorization(Power = "PRIV_SAVE_PROBLEM")]
+        public IActionResult SaveProblem([FromBody] AuditorDrawUpdateDto parm)
+        {
+            var userinfo = _tokenManager.GetSessionInfo();
+            using (SqlSugarClient db = Core.DbContext.CurrentDB)
+            {
+                Core.DbContext.BeginTran();
+                try
+                {
+                    List<SugarParameter> parameters = new List<SugarParameter>();
+                    parameters.Add(new SugarParameter("UserID", userinfo.UserID));
+                    parameters.Add(new SugarParameter("UserName", userinfo.UserName));
+
+                    //修改评定问题信息
+                    List<Biz_Contract_Plan_EvaluationProblem> ProblemList = parm.EvaluationProblemList;//更新
+
+                    if (ProblemList != null) //更新数据
+                    {
+                        foreach (var problem in ProblemList)
+                        {
+                            db.Updateable<Biz_Contract_Plan_EvaluationProblem>().SetColumns(m => new Biz_Contract_Plan_EvaluationProblem()
+                            {
+                                ProblemRespond = problem.ProblemRespond,
+                                UpdateTime = DateTime.Now
+                            }).Where(m => m.ID == problem.ID).ExecuteCommand();
+                        }
+                    }
+
+                    Core.DbContext.CommitTran();
+
+                    return toResponse(parm.ID);
+                }
+                catch (Exception ex)
+                {
+                    Core.DbContext.RollbackTran();
+                    return toResponse(StatusCodeType.Error, ex.Message);
+
+                }
+            }
+        }
+
+        /// <summary>
+        /// 提交已整改
+        /// Power = PRIV_PLANRAW_RECTIFICATION
+        /// </summary>
+        /// <param name="id">编码</param>
+        /// <returns></returns>
+        [HttpPost]
+        [Authorization(Power = "PRIV_PLANRAW_RECTIFICATION")]
+        public IActionResult SubmitRectification(string id = null)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return toResponse(StatusCodeType.Error, "Id 不能为空");
+            }
+            var userinfo = _tokenManager.GetSessionInfo();
+            var planauditor = _contractplanauditorService.GetId(id);
+
+            if (planauditor == null)
+            {
+                return toResponse(StatusCodeType.Error, "数据为空，请核对！");
+            }
+
+            using (SqlSugarClient db = Core.DbContext.CurrentDB)
+            {
+                Core.DbContext.BeginTran();
+                try
+                {
+                    List<SugarParameter> parameters = new List<SugarParameter>();
+                    parameters.Add(new SugarParameter("UserID", userinfo.UserID));
+                    parameters.Add(new SugarParameter("UserName", userinfo.UserName));
+
+                    db.Ado.ExecuteCommand("update Biz_Contract_PlanAuditor set ProblemFlag = 0 where ID = @auditorid", new { auditorid = id });
+
+                    List<Biz_ContractItem_Sub> subitemlist = db.Queryable<Biz_ContractItem_Sub>().Where(m => m.ContractPlanID == planauditor.ContractPlanID).ToList();
+
+                    //提交项目至整改状态
+                    foreach (var item in subitemlist)
+                    {
+                        Step.Submit(db, item, "Biz_ContractItem_Sub", "ID", "status", "203", parameters, UpdateItemAfterSubmitted, "提交问题已整改");
+                    }
+
+                    var contractplan = _contractitemplanService.GetId(planauditor.ContractPlanID);
+                    //提交任务至整改状态
+                    Step.Submit(db, contractplan, "Biz_Contract_Plan", "ID", "status", "308", parameters, UpdatePlanAfterSubmitted, "提交问题已整改");
+
+                    Core.DbContext.CommitTran();
+                    return toResponse("提交成功");
+                }
+                catch (Exception ex)
+                {
+                    Core.DbContext.RollbackTran();
+                    return toResponse(StatusCodeType.Error, ex.Message);
+                }
+            }
+        }
+
+        public static Action<SqlSugarClient, List<SugarParameter>> UpdateItemAfterSubmitted = (SqlSugarClient db, List<SugarParameter> paramters) =>
+        {
+            if (db.Ado.ExecuteCommand(@"UPDATE Biz_ContractItem_Sub SET Status = @Node_To
+WHERE ID = @Biz_ContractItem_Sub_ID AND Status = @Node_From", paramters) == 0)
+            {
+                throw new Exception(GWF.Step.DIRTY_DATA_PROMPT);
+            }
+        };
+
 
         /// <summary>
         /// 提交已编制

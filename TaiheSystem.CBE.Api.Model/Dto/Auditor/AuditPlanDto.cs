@@ -154,6 +154,11 @@ namespace TaiheSystem.CBE.Api.Model.Dto
         /// </summary>
         public List<Biz_ContractItem_Sub_File> ContractsubitemFileList;
 
+        /// <summary>
+        /// 整改问题列表
+        /// </summary>
+        public List<Biz_Contract_Plan_EvaluationProblem> EvaluationProblemList;
+
 
     }
 

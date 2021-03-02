@@ -59,12 +59,20 @@ namespace TaiheSystem.CBE.Api.Model.Dto
         public string BizClassificationID { get; set; }
 
         /// <summary>
+        /// 描述 : 分组代码 
+        /// 空值 : True
+        /// 默认 : 
+        /// </summary>
+        [Display(Name = "分组代码")]
+        public string ClassificationCode { get; set; }
+
+        /// <summary>
         /// 描述 : 专业代码 
         /// 空值 : True
         /// 默认 : 
         /// </summary>
         [Display(Name = "专业代码")]
-        public string ClassificationCode { get; set; }
+        public string ClassificationReportCode { get; set; }
 
         /// <summary>
         /// 描述 : 能力来源选项index 
@@ -154,12 +162,20 @@ namespace TaiheSystem.CBE.Api.Model.Dto
         public string BizClassificationID { get; set; }
 
         /// <summary>
+        /// 描述 : 分组代码 
+        /// 空值 : True
+        /// 默认 : 
+        /// </summary>
+        [Display(Name = "分组代码")]
+        public string ClassificationCode { get; set; }
+
+        /// <summary>
         /// 描述 : 专业代码 
         /// 空值 : True
         /// 默认 : 
         /// </summary>
         [Display(Name = "专业代码")]
-        public string ClassificationCode { get; set; }
+        public string ClassificationReportCode { get; set; }
 
         /// <summary>
         /// 描述 : 能力来源选项index 

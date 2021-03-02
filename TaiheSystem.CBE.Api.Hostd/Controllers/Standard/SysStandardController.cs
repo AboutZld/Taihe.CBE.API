@@ -68,7 +68,7 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Standard
         /// <returns></returns>
         [HttpPost]
         [Authorization]
-        public IActionResult QueryBySystemType([FromBody] SystemType2QueryDto parm)
+        public IActionResult QueryBySystemTypePage([FromBody] SystemTypePageQueryDto parm)
         {
 
             //开始拼装查询条件
@@ -79,6 +79,27 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Standard
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.QueryText), m => m.SysStandardCode.Contains(parm.QueryText) || m.SysStandardReportCode.Contains(parm.QueryText) || m.SysStandardShortName.Contains(parm.QueryText));
 
             var response = _sysstandarService.GetPages(predicate.ToExpression(), parm);
+
+            return toResponse(response);
+        }
+
+        /// <summary>
+        /// 根据认证体系类别获取业务类别列表
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [Authorization]
+        public IActionResult QueryBySystemType([FromBody] SystemType2QueryDto parm)
+        {
+
+            //开始拼装查询条件
+            var predicate = Expressionable.Create<Abi_SysStandard>();
+
+            predicate = predicate.And(m => m.SystemTypeID == parm.SystemTypeID);
+            //关键字搜索匹配：编码、上报编码、简称
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.QueryText), m => m.SysStandardCode.Contains(parm.QueryText) || m.SysStandardReportCode.Contains(parm.QueryText) || m.SysStandardShortName.Contains(parm.QueryText));
+
+            var response = _sysstandarService.GetWhere(predicate.ToExpression()).OrderBy(m=>m.SortIndex);
 
             return toResponse(response);
         }
@@ -157,26 +178,47 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers.Standard
         public IActionResult Update([FromBody] SysStandardUpdateDto parm)
         {
             var userSession = _tokenManager.GetSessionInfo();
-
-            return toResponse(_sysstandarService.Update(m => m.ID == parm.ID, m => new Abi_SysStandard()
+            if (string.IsNullOrEmpty(parm.ID))
             {
-                SystemTypeID = parm.SystemTypeID,
-                SystemTypeCode = parm.SystemTypeCode,
-                SystemTypeName = parm.SystemTypeName,
-                SysStandardCode = parm.SysStandardCode,
-                SysStandardReportCode = parm.SysStandardReportCode,
-                SysStandardShortName = parm.SysStandardShortName,
-                SysStandardName = parm.SysStandardName,
-                SysStandardNo = parm.SysStandardNo,
-                Remark = parm.Remark,
-                RemarkEN = parm.RemarkEN,
-                DeadLine = parm.DeadLine,
-                Enabled = parm.Enabled,
-                SortIndex = parm.SortIndex,
-                UpdateID = userSession.UserID,
-                UpdateName = userSession.UserName,
-                UpdateTime = DateTime.Now
-            }));
+                if (_sysstandarService.Any(m => m.SysStandardCode == parm.SysStandardCode))
+                {
+                    return toResponse(StatusCodeType.Error, $"添加编码 {parm.SysStandardCode} 已存在，不能重复！");
+                }
+                if (_sysstandarService.Any(m => m.SysStandardReportCode == parm.SysStandardReportCode))
+                {
+                    return toResponse(StatusCodeType.Error, $"添加上报编 {parm.SysStandardReportCode} 已存在，不能重复！");
+                }
+                if (_sysstandarService.Any(m => m.SysStandardShortName == parm.SysStandardShortName))
+                {
+                    return toResponse(StatusCodeType.Error, $"添加简称 {parm.SysStandardShortName} 已存在，不能重复！");
+                }
+                //从 Dto 映射到 实体
+                var options = parm.Adapt<Abi_SysStandard>().ToCreate(_tokenManager.GetSessionInfo());
+
+                return toResponse(_sysstandarService.Add(options));
+            }
+            else
+            {
+                return toResponse(_sysstandarService.Update(m => m.ID == parm.ID, m => new Abi_SysStandard()
+                {
+                    SystemTypeID = parm.SystemTypeID,
+                    SystemTypeCode = parm.SystemTypeCode,
+                    SystemTypeName = parm.SystemTypeName,
+                    SysStandardCode = parm.SysStandardCode,
+                    SysStandardReportCode = parm.SysStandardReportCode,
+                    SysStandardShortName = parm.SysStandardShortName,
+                    SysStandardName = parm.SysStandardName,
+                    SysStandardNo = parm.SysStandardNo,
+                    Remark = parm.Remark,
+                    RemarkEN = parm.RemarkEN,
+                    DeadLine = parm.DeadLine,
+                    Enabled = parm.Enabled,
+                    SortIndex = parm.SortIndex,
+                    UpdateID = userSession.UserID,
+                    UpdateName = userSession.UserName,
+                    UpdateTime = DateTime.Now
+                }));
+            }
         }
 
         /// <summary>

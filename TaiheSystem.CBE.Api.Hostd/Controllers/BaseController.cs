@@ -154,7 +154,7 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers
         }
 
         /// <summary>
-        /// 生成树形结构
+        /// 生成部门结构树树形结构
         /// </summary>
         /// <param name="depts"></param>
         /// <param name="parentId"></param>
@@ -163,7 +163,7 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers
         {
             List<DeptListVM> resultMenus = new List<DeptListVM>();
 
-            foreach (var dept in depts.Where(m => m.ParentUID == parentId).OrderBy(m => m.SortIndex))
+            foreach (var dept in depts.Where(m => m.ParentUID == parentId).OrderBy(m => m.SortIndex == null ? 0 : (int)m.SortIndex))
             {
                 var childrenMenu = ResolveDeptTree(depts, dept.ID);
 
@@ -183,6 +183,62 @@ namespace TaiheSystem.CBE.Api.Hostd.Controllers
                     CreateName = dept.CreateName,
                     UpdateID = dept.UpdateID,
                     UpdateName = dept.UpdateName
+
+                };
+                resultMenus.Add(deptsVM);
+            }
+
+            return resultMenus;
+        }
+
+        /// <summary>
+        /// 生成模板类别结构树树形结构
+        /// </summary>
+        /// <param name="depts"></param>
+        /// <param name="parentId"></param>
+        /// <returns></returns>
+        public static List<TMPTypeListVM> ResolveTMPTypeTree(List<Doc_TMPTYPE> types, string parentId = null)
+        {
+            List<TMPTypeListVM> resultMenus = new List<TMPTypeListVM>();
+            if(parentId == null && !types.Any(m=>m.ParentUID == null))
+            {
+                resultMenus = types.Select(type => new TMPTypeListVM
+                {
+                    ID = type.ID,
+                    TMPTypeCode = type.TMPTypeCode,
+                    TMPTypeName = type.TMPTypeName,
+                    Remark = type.Remark,
+                    SortIndex = type.SortIndex,
+                    ParentUID = type.ParentUID,
+                    Children = null,
+                    CreateTime = type.CreateTime,
+                    UpdateTime = type.UpdateTime,
+                    CreateID = type.CreateID,
+                    CreateName = type.CreateName,
+                    UpdateID = type.UpdateID,
+                    UpdateName = type.UpdateName
+                }).ToList();
+            }
+
+            foreach (var type in types.Where(m => m.ParentUID == parentId).OrderBy(m => m.SortIndex == null ? 0 : (int)m.SortIndex))
+            {
+                var childrenMenu = ResolveTMPTypeTree(types, type.ID);
+
+                TMPTypeListVM deptsVM = new TMPTypeListVM
+                {
+                    ID = type.ID,
+                    TMPTypeCode = type.TMPTypeCode,
+                    TMPTypeName = type.TMPTypeName,
+                    Remark = type.Remark,
+                    SortIndex = type.SortIndex,
+                    ParentUID = type.ParentUID,
+                    Children = childrenMenu.Count == 0 ? null : childrenMenu,
+                    CreateTime = type.CreateTime,
+                    UpdateTime = type.UpdateTime,
+                    CreateID = type.CreateID,
+                    CreateName = type.CreateName,
+                    UpdateID = type.UpdateID,
+                    UpdateName = type.UpdateName
 
                 };
                 resultMenus.Add(deptsVM);

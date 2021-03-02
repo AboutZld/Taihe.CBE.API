@@ -1,0 +1,10 @@
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Generate\bin\Release\netcoreapp3.1\TaiheSystem.CBE.Api.Generate.deps.json
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Generate\bin\Release\netcoreapp3.1\TaiheSystem.CBE.Api.Generate.dll
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Generate\bin\Release\netcoreapp3.1\TaiheSystem.CBE.Api.Generate.pdb
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Generate\obj\Release\netcoreapp3.1\TaiheSystem.CBE.Api.Generate.csprojAssemblyReference.cache
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Generate\obj\Release\netcoreapp3.1\TaiheSystem.CBE.Api.Generate.csproj.ResolveComReference.cache
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Generate\obj\Release\netcoreapp3.1\TaiheSystem.CBE.Api.Generate.AssemblyInfoInputs.cache
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Generate\obj\Release\netcoreapp3.1\TaiheSystem.CBE.Api.Generate.AssemblyInfo.cs
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Generate\obj\Release\netcoreapp3.1\TaiheSystem.CBE.Api.Generate.csproj.CoreCompileInputs.cache
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Generate\obj\Release\netcoreapp3.1\TaiheSystem.CBE.Api.Generate.dll
+D:\SourceCode\Taihe.CBE.API\TaiheSystem.CBE.Api.Generate\obj\Release\netcoreapp3.1\TaiheSystem.CBE.Api.Generate.pdb

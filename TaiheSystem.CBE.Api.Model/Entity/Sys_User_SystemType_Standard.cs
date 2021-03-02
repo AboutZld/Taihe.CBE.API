@@ -48,12 +48,20 @@ namespace TaiheSystem.CBE.Api.Model
            [Display(Name = "")]           
            public string SysStandardID {get;set;}
 
-           /// <summary>
-           /// 描述 : 标准名称 
-           /// 空值 : True
-           /// 默认 : 
-           /// </summary>
-           [Display(Name = "标准名称")]           
+            /// <summary>
+            /// 描述 : 标准简称 
+            /// 空值 : True
+            /// 默认 : 
+            /// </summary>
+            [Display(Name = "标准简称")]
+            public string SysStandardShortName { get; set; }
+
+            /// <summary>
+            /// 描述 : 标准名称 
+            /// 空值 : True
+            /// 默认 : 
+            /// </summary>
+            [Display(Name = "标准名称")]           
            public string SysStandardName {get;set;}
 
            /// <summary>

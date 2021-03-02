@@ -18,7 +18,7 @@ namespace TaiheSystem.CBE.Api.Model.Dto
     /// <summary>
     /// 查询字典定义
     /// </summary>
-    public class UserSystemTypeQueryDto 
+    public class UserSystemTypeQueryDto : PageParm
     {
         /// <summary>
         /// 描述 : 查询字符串 
@@ -290,26 +290,26 @@ namespace TaiheSystem.CBE.Api.Model.Dto
         /// <summary>
         /// 体系标准类别
         /// </summary>
-        /// [Display(Name = "体系标准类别")]
+        [Display(Name = "体系标准类别")]
         public List<Sys_User_SystemType_Standard> UserSystemTypeStandardList;
 
 
         /// <summary>
         /// 体系标准类别(更新)
         /// </summary>
-        /// [Display(Name = "体系标准类别(更新)")]
+        [Display(Name = "体系标准类别(更新)")]
         public List<Sys_User_SystemType_Standard> UserSystemTypeStandardList_update;
 
         /// <summary>
         /// 体系标准类别(插入)
         /// </summary>
-        /// [Display(Name = "体系标准类别(插入)")]
+        [Display(Name = "体系标准类别(插入)")]
         public List<Sys_User_SystemType_Standard> UserSystemTypeStandardList_insert;
 
         /// <summary>
         /// 体系标准类别(删除)
         /// </summary>
-        /// [Display(Name = "体系标准类别(删除)")]
+        [Display(Name = "体系标准类别(删除)")]
         public List<Sys_User_SystemType_Standard> UserSystemTypeStandardList_delete;
     }
 }
